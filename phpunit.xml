@@ -4,9 +4,6 @@
          bootstrap="vendor/autoload.php"
          colors="true"
 >
-
-<server name="DB_CONNECTION" value="mysql"/>
-<server name="DB_DATABASE" value="dss"/>
     <testsuites>
         <testsuite name="Unit">
             <directory suffix="Test.php">./tests/Unit</directory>
