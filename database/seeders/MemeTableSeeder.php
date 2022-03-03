@@ -25,7 +25,7 @@ class MemeTableSeeder extends Seeder
             'name' => 'peepoClap',
             'description' => 'La famosa rana peepo pero esta vez aplaude hihihiha',
             'author' => 'peepoDani',
-            'creationDate' => Carbon::parse('02-03-e 2022'),
+            'creationDate' => Carbon::parse('02-03-2022'),
             'article' => 'Rana']);
     }
 }
