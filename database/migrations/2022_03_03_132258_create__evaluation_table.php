@@ -15,9 +15,11 @@ class CreateEvaluationTable extends Migration
     {
         Schema::create('Evaluation', function (Blueprint $table) {
             $table->id();
-            $table->date('postDate');
-            $table->string('comment',20);
-            $table->string('rating',20);
+            $table->dateTime('postDate');
+            $table->string('comment',300);
+            $table->unsignedDouble('rating');
+            //$table->foreignId('User_id')->constrained();
+            //$table->foreignId('Meme_id')->constrained();
         });
     }
 
