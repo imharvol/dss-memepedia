@@ -21,7 +21,6 @@ class UsersTableSeeder extends Seeder
             'password' => '123',
             'nick' => 'peepo',
             'surname' => 'Nico',
-            'registerDate' => Carbon::parse('4-03-2022')
         ]);
 
         DB::table('users')->insert([
@@ -30,7 +29,6 @@ class UsersTableSeeder extends Seeder
             'password' => '234',
             'nick' => 'rick',
             'surname' => 'Matias',
-            'registerDate' => Carbon::parse('4-03-2022')
         ]);
     }
 }
