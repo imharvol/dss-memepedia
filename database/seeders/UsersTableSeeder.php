@@ -1,0 +1,25 @@
+<?php
+
+namespace Database\Seeders;
+
+use Illuminate\Database\Seeder;
+use DB;
+
+class UsersTableSeeder extends Seeder
+{
+    /**
+     * Run the database seeds.
+     *
+     * @return void
+     */
+    public function run()
+    {
+        DB::table('users')->delete();
+        DB::table('users')->insert(['id' => 'a', 'name' => 'VanOlmen', 
+                                    'email' => 'peepo@gmail.com', 'password' => '123',
+                                    'nick' => 'peepo', 'surname' => 'Nico']);
+        DB::table('users')->insert(['id' => 'b', 'name' => 'Sanchez', 
+                                    'email' => 'rick@gmail.com', 'password' => '234',
+                                    'nick' => 'rick', 'surname' => 'Matias']);
+    }
+}
