@@ -15,11 +15,9 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
         DB::table('users')->delete();
-        DB::table('users')->insert(['id' => 'a', 'name' => 'VanOlmen', 
-                                    'email' => 'peepo@gmail.com', 'password' => '123',
-                                    'nick' => 'peepo', 'surname' => 'Nico']);
-        DB::table('users')->insert(['id' => 'b', 'name' => 'Sanchez', 
-                                    'email' => 'rick@gmail.com', 'password' => '234',
-                                    'nick' => 'rick', 'surname' => 'Matias']);
+        DB::table('users')->insert(['name' => 'VanOlmen', 'email' => 'peepo@gmail.com', 
+                                    'password' => '123','nick' => 'peepo', 'surname' => 'Nico']);
+        DB::table('users')->insert(['name' => 'Sanchez', 'email' => 'rick@gmail.com', 
+                                    'password' => '234', 'nick' => 'rick', 'surname' => 'Matias']);
     }
 }
