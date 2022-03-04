@@ -19,7 +19,7 @@ class CreateMemesTable extends Migration
             $table->string('description');
             $table->unsignedBigInteger('author_id');
             $table->foreign('author_id')->references('id')->on('users');
-            $table->date('creationDate');
+            $table->date('creation_date');
             $table->string('article', 20);
         });
     }
