@@ -13,6 +13,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-       $this->call(MemeTableSeeder::class);
+        $this->call(UsersTableSeeder::class);
+        $this->call(MemeTableSeeder::class);
+        $this->call(EvaluationTableSeeder::class);
     }
 }
