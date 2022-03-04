@@ -15,18 +15,19 @@ class MemeTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('Meme')->insert([
+        DB::table('memes')->insert([
             'name' => 'peepoHappy',
             'description' => 'La famosa rana peepo pero con una sonrisa jajaxd',
-            'author' => 'peepoDani',
-            'creationDate' => Carbon::parse('02-03-2022'),
+            'user_id' => 1,
+            'creation_date' => Carbon::parse('02-03-2022'),
             'article' => 'Rana'
         ]);
-        DB::table('Meme')->insert([
+
+        DB::table('memes')->insert([
             'name' => 'peepoClap',
             'description' => 'La famosa rana peepo pero esta vez aplaude hihihiha',
-            'author' => 'peepoDani',
-            'creationDate' => Carbon::parse('02-03-2022'),
+            'user_id' => 2,
+            'creation_date' => Carbon::parse('02-03-2022'),
             'article' => 'Rana'
         ]);
     }
