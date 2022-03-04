@@ -15,12 +15,13 @@ class CreateMemeTable extends Migration
     {
         Schema::create('Meme', function (Blueprint $table) 
         {
-            $table->id();
-            $table->string('name',15);
-            $table->string('description',50);
-            $table->string('author',15);
+            $table->foreignId('id')->constrained();
+            $table->foreignId('name')->constrained();
+            $table->foreignId('description')->constrained();
+            $table->foreignId('author')->constrained();
             $table->date('creationDate');
             $table->string('article',20);
+            
 
         });
     }
