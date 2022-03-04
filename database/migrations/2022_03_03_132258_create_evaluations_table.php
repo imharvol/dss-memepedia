@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateEvaluationTable extends Migration
+class CreateEvaluationsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,17 @@ class CreateEvaluationTable extends Migration
      */
     public function up()
     {
-        Schema::create('Evaluation', function (Blueprint $table) {
+        Schema::create('evaluations', function (Blueprint $table) {
             $table->id();
-            $table->dateTime('postDate');
+            $table->dateTime('post_date');
             $table->string('comment', 300);
             $table->unsignedDouble('rating');
-            //$table->foreignId('User_id')->constrained();
-            //$table->foreignId('Meme_id')->constrained();
+
+            $table->unsignedBigInteger('author_id');
+            $table->foreign('author_id')->references('id')->on('users');
+
+            $table->unsignedBigInteger('meme_id');
+            $table->foreign('meme_id')->references('id')->on('memes');
         });
     }
 
@@ -30,6 +34,6 @@ class CreateEvaluationTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Evaluation');
+        Schema::dropIfExists('evaluations');
     }
 }

@@ -27,8 +27,10 @@ class AddedUserAttributes extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
-            Schema::dropIfExists('users');
-        });
+        // Antes de droppear la tabla users debemos droppear memes y evaluations ya que estas tienen claves ajenas a la tabla users
+        Schema::dropIfExists('evaluations');
+        Schema::dropIfExists('memes');
+
+        Schema::dropIfExists('users');
     }
 }
