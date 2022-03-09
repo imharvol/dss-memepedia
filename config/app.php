@@ -80,6 +80,12 @@ return [
     |
     */
 
+    // Usar DB como acrónimo
+
+    'DB' => Illuminate\Support\Facades\DB::class,
+
+    //-------------------------------------
+
     'locale' => 'en',
 
     /*
