@@ -15,7 +15,6 @@ class CreateEvaluationsTable extends Migration
     {
         Schema::create('evaluations', function (Blueprint $table) {
             $table->id();
-            $table->dateTime('post_date');
             $table->string('comment', 300);
             $table->unsignedDouble('rating');
 
