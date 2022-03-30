@@ -19,42 +19,38 @@ class AssociationsTest extends TestCase
      *
      * @return void
      */
-    public function testAssociationMemeAuthor()
+    public function testAssociationMemeUser()
     {
-        $user = new User([
-            'name' => 'VanOlmen',
-            'email' => 'peepo@gmail.com',
-            'password' => '123',
-            'nick' => 'peepo',
-            'surname' => 'Nico',
-        ]);
-        $user->save();
+        $memeUser =  new User();
+        $memeUser->name = 'VanOlmen';
+        $memeUser->email = 'peepo@gmail.com';
+        $memeUser->password = '123';
+        $memeUser->nick = 'peepo';
+        $memeUser->surname = 'Nico';
+        $memeUser->save();
 
-        $meme1 = new Meme([
-            'name' => 'peepoHappy',
-            'description' => 'La famosa rana peepo pero con una sonrisa jajaxd',
-            'creation_date' => Carbon::parse('02-03-2022'),
-            'article' => 'Rana'
-        ]);
-        $user->memes()->save($meme1);
+        $meme1 = new Meme();
+        $meme1->name = 'peepoHappy';
+        $meme1->description = 'La famosa rana peepo pero con una sonrisa jajaxd';
+        $meme1->article = 'Rana';
+        $meme1->user()->associate($memeUser);
+        $memeUser->memes()->save($meme1);
 
-        $meme2 = new Meme([
-            'name' => 'peepoClap',
-            'description' => 'La famosa rana peepo pero esta vez aplaude hihihiha',
-            'user_id' => 2,
-            'creation_date' => Carbon::parse('02-03-2022'),
-            'article' => 'Rana'
-        ]);
-        $user->memes()->save($meme2);
+        $meme2 = new Meme();
+        $meme2->name = 'peepoClap';
+        $meme2->description = 'La famosa rana peepo pero esta vez aplaude hihihiha';
+        $meme2->article = 'Rana';
+        $meme2->user()->associate($memeUser);
+        $memeUser->memes()->save($meme2);
 
-        $this->assertEquals($user->memes[0]->name, 'peepoHappy');
-        $this->assertEquals($user->memes[1]->name, 'peepoClap');
+        $this->assertEquals($memeUser->memes[0]->name, 'peepoHappy');
+        $this->assertEquals($memeUser->memes[1]->name, 'peepoClap');
         $this->assertEquals($meme1->user->name, 'VanOlmen');
         $this->assertEquals($meme2->user->name, 'VanOlmen');
 
         $meme1->delete();
         $meme2->delete();
-        $user->delete();
+        $memeUser->delete();
     }
 
     /**
@@ -65,35 +61,34 @@ class AssociationsTest extends TestCase
      */
     public function testAssociationsEvaluation()
     {
-        $user = new User([
-            'name' => 'VanOlmen',
-            'email' => 'peepo@gmail.com',
-            'password' => '123',
-            'nick' => 'peepo',
-            'surname' => 'Nico',
-        ]);
+        $user =  new User();
+        $user->name = 'VanOlmen';
+        $user->email = 'peepo@gmail.com';
+        $user->password = '123';
+        $user->nick = 'peepo';
+        $user->surname = 'Nico';
         $user->save();
 
-        $meme = new Meme([
-            'name' => 'peepoHappy',
-            'description' => 'La famosa rana peepo pero con una sonrisa jajaxd',
-            'creation_date' => Carbon::parse('02-03-2022'),
-            'article' => 'Rana'
-        ]);
+        $meme = new Meme();
+        $meme->name = 'peepoHappy';
+        $meme->description = 'La famosa rana peepo pero con una sonrisa jajaxd';
+        $meme->article = 'Rana';
+        $meme->user()->associate($user);
         $user->memes()->save($meme);
 
-        $evaluation = new Evaluation([
-            'post_date' => Carbon::parse('04-07-2022'),
-            'comment' => 'Muy bueno jaja',
-            'rating' => 9.5
-        ]);
-        $meme->evaluations()->save($evaluation);
+        $evaluation = new Evaluation();
+        $evaluation->comment = 'Muy bueno jaja';
+        $evaluation->rating = 9.5;
+        $evaluation->user()->associate($user);
+        $evaluation->meme()->associate($meme);
         $user->evaluations()->save($evaluation);
+        $meme->evaluations()->save($evaluation);
+
 
         $this->assertEquals($evaluation->user->name, 'VanOlmen');
         $this->assertEquals($evaluation->meme->name, 'peepoHappy');
         $this->assertEquals($user->evaluations[0]->comment, 'Muy bueno jaja');
-        $this->assertEquals($user->meme[0]->comment, 'Muy bueno jaja');
+        $this->assertEquals($user->memes[0]->evaluations[0]->comment, 'Muy bueno jaja');
 
         $evaluation->delete();
         $meme->delete();
