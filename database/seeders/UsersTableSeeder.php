@@ -14,22 +14,6 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('users')->insert([
-            'name' => 'VanOlmen',
-            'email' => 'peepo@gmail.com',
-            'password' => '123',
-            'nick' => 'peepo',
-            'surname' => 'Nico',
-        ]);
-
-        DB::table('users')->insert([
-            'name' => 'Sanchez',
-            'email' => 'rick@gmail.com',
-            'password' => '234',
-            'nick' => 'rick',
-            'surname' => 'Matias',
-        ]);
-
         $user1 =  new User();
         $user1->name = 'VanOlmen';
         $user1->email = 'peepo@gmail.com';
