@@ -14,5 +14,17 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('index');
+})->name('index');
+
+Route::get('/crear-meme', function () {
+    return view('crear-meme');
+})->name('crear-meme');
+
+Route::get('/ranking', function () {
+    return view('ranking');
+})->name('ranking');
+
+Route::get('/tierlist', function () {
+    return view('tierlist');
+})->name('tierlist');
