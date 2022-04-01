@@ -8,5 +8,5 @@
 @section('content')
 @parent
 <h1>Ha habido un error!</h1>
-<h1>{{$error_message}}</h1>
+<h2>{{$error_message}}</h2>
 @endsection

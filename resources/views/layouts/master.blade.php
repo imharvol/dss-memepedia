@@ -12,26 +12,29 @@
 
 <body>
 
-    <div class="rectanguloArriba">
-        <div class="pepe">
-            <img src="{{URL('/images/feelsweirdman.gif')}}" alt="pepe" width="166" height="141">
-        </div>
+    <div class="brand-bar">
+        <img src="{{URL('/images/pepe.png')}}" alt="pepe" class="pepe">
+        <h1 class="brand-title">MEMEPEDIA</h1>
+        <img src="{{URL('/images/pepe.png')}}" alt="pepe" class="pepe">
     </div>
 
-    <div class="barra">
-        <div class="textoBarra">
-            <span><a href="{{route('index')}}">Inicio</a> | <a href="{{route('crear-meme')}}">Crear meme</a> | <a href="{{route('tierlist')}}">TierList</a> | <a href="{{route('ranking')}}">Ranking</a></span>
-        </div>
-    </div><br>
+    <nav class="navbar">
+        <a class="navbar-item" href="{{route('index')}}">Inicio</a>
+        <a class="navbar-item" href="{{route('crear-meme')}}">Crear Meme</a>
+        <a class="navbar-item" href="{{route('tierlist')}}">TierList</a>
+        <a class="navbar-item" href="{{route('ranking')}}">Ranking</a>
+    </nav>
 
-    @yield('content')
+    <div class="content">
+        @yield('content')
+    </div>
 
-    <div class="cuadroSpam" align="center">
+    <footer class="footer">
         <p>Política de privacidad | Acerca de | Contacto</p>
-        <div class="lineaHorizontal2"> </div>
-        <p>Carr. de San Vicente del Raspeig, s/n, 03690 San Vicente del Raspeig, Alicante</p><br>
+        <hr>
+        <p>Carr. de San Vicente del Raspeig, s/n, 03690 San Vicente del Raspeig, Alicante</p>
         <p>D-SSarrolladores</p>
-    </div>
+    </footer>
 
 </body>
 

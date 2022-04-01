@@ -7,5 +7,5 @@
 
 @section('content')
 @parent
-<p>Este Es el contenido de la página index.</p>
+<h1>Este Es el contenido de la página index.</h1>
 @endsection

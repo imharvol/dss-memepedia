@@ -7,5 +7,5 @@
 
 @section('content')
 @parent
-<p>Este Es el contenido de la página tierlist.</p>
+<h1>Este Es el contenido de la página tierlist.</h1>
 @endsection

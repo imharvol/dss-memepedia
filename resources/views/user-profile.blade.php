@@ -7,5 +7,6 @@
 
 @section('content')
 @parent
+<h1>{{$user->nick}}</h1>
 <p>Este Es el contenido de una página de usuario {{$user->nick}}.</p>
 @endsection

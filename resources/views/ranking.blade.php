@@ -7,5 +7,5 @@
 
 @section('content')
 @parent
-<p>Este Es el contenido de la página ranking.</p>
+<h1>Este Es el contenido de la página ranking.</h1>
 @endsection
