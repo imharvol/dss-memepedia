@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,3 +29,12 @@ Route::get('/ranking', function () {
 Route::get('/tierlist', function () {
     return view('tierlist');
 })->name('tierlist');
+
+Route::get('/u/{username}', function ($username) {
+    $user = User::firstWhere('nick', $username);
+    if ($user) {
+        return view('user-profile', ['user' => $user]);
+    } else {
+        return view('error-page', ['error_message' => 'Usuario no encontrado!']);
+    }
+})->name('user.profile');
