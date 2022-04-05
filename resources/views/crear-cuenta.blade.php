@@ -26,20 +26,20 @@
                 <input class="textbox" placeholder="Contraseña" auto>
                 <input class="textbox" placeholder="Repetir contraseña" auto>
                 <div class="espacio"></div>
-                <label for="start" class="fecha">Fecha de nacimiento</label>
+                <div ><label for="start" class="textos">Fecha de nacimiento</label>
                 <input class="textbox" style="max-width: 15vw;" type="date" id="start" name="trip-start" value="2018-07-22" 
-                min="1930-01-01" max="2021-12-31">
+                min="1930-01-01" max="2021-12-31"></div>
                 <div class="espacio"></div>
-                <span  style="color: white"> Género: </span>
+                <span  class="textos"> Género: </span>
                 <input type="radio" id="Hombre" name="Genero" value="Hombre">
-                <label for="Hombre" style="color:white">Hombre</label>
+                <label class="textos" for="Hombre" style="color:white">Hombre</label>
                 <input type="radio" id="Mujer" name="Genero" value="Mujer">
-                <label for="Mujer" style="color:white">Mujer</label>
+                <label class="textos" for="Mujer" style="color:white">Mujer</label>
                 <input type="radio" id="Otros" name="Genero" value="Otros">
-                <label for="Otros" style="color:white">Otros</label><br>
+                <label class="textos" for="Otros" style="color:white">Otros</label>
         
-                <div class="botonRegistro">
-                    <input class="boton" type="submit" value="Registrarse"><br><br>
+                <div class="botonRegistro" align="center">
+                    <input class="boton" type="submit" value="Registrarse">
                 </div>
                 <div class="textoCondiciones">
                     <span> Al hacer click en registrarse aceptas nuestras Condiciones. Obtén más información en nuestra Política de datos y Política de cookies </span>

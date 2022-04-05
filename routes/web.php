@@ -34,6 +34,14 @@ Route::get('/tierlist', function () {
     return view('tierlist');
 })->name('tierlist');
 
+Route::get('/inicio-sesion', function () {
+    return view('inicio-sesion');
+})->name('inicio-sesion');
+
+Route::get('/crear-cuenta', function () {
+    return view('crear-cuenta');
+})->name('crear-cuenta');
+
 // Ruta llamada user.show que al ser llamada, acepta un argumento username
 // que pasa al controlador en el metodo show en app/Http/Controllers/UserController.php
 Route::get('/u/{username}', [UserController::class, 'show'])->name('user.show');
