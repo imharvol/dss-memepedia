@@ -1,6 +1,11 @@
 <?php
 
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
+
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\MemeController;
+use App\Http\Controllers\EvaluationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,3 +33,9 @@ Route::get('/ranking', function () {
 Route::get('/tierlist', function () {
     return view('tierlist');
 })->name('tierlist');
+
+// Ruta llamada user.show que al ser llamada, acepta un argumento username
+// que pasa al controlador en el metodo show en app/Http/Controllers/UserController.php
+Route::get('/u/{username}', [UserController::class, 'show'])->name('user.show');
+
+Route::get('/u', [UserController::class, 'index'])->name('user.list');
