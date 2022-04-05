@@ -27,7 +27,7 @@
             <span class="textoInicio"> ¿Aún no te has registrado?</span>
         </div>
         <div class="botonRegistro">
-            <input class="boton" type="submit" value="Registrarse">
+            <a href="{{route('user.signup')}}"><input class="boton" type="submit" value="Registrarse"></a>
         </div>
         <div class="espacio"> </div>
 </div>

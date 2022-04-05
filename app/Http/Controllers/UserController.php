@@ -19,14 +19,14 @@ class UserController extends Controller
         return view('user-list', ['users' => $users]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function signin()
     {
-        //
+        return view('inicio-sesion');
+    }
+
+    public function signup()
+    {
+        return view('crear-cuenta');
     }
 
     /**
@@ -40,12 +40,6 @@ class UserController extends Controller
         //
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  string  $user
-     * @return \Illuminate\Http\Response
-     */
     public function show($username)
     {
         $user = User::firstWhere('nick', $username);
