@@ -3,17 +3,18 @@
 namespace App\Models;
 
 use App\Models\User;
-use App\Models\Meme;
+use App\Models\Evaluation;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Evaluation extends Model
+class Meme extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'comment',
-        'rating',
+        'name',
+        'description',
+        'article',
     ];
 
     // https://laravel.com/docs/8.x/eloquent-relationships#one-to-many-inverse
@@ -22,9 +23,9 @@ class Evaluation extends Model
         return $this->belongsTo(User::class);
     }
 
-    // https://laravel.com/docs/8.x/eloquent-relationships#one-to-many-inverse
-    public function meme()
+    // https://laravel.com/docs/8.x/eloquent-relationships#one-to-many
+    public function evaluations()
     {
-        return $this->belongsTo(Meme::class);
+        return $this->hasMany(Evaluation::class);
     }
 }

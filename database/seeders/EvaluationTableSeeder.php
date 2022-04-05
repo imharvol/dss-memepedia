@@ -2,9 +2,10 @@
 
 namespace Database\Seeders;
 
+use App\Models\User;
+use App\Models\Meme;
+use App\Models\Evaluation;
 use Illuminate\Database\Seeder;
-use Carbon\Carbon;
-use DB;
 
 class EvaluationTableSeeder extends Seeder
 {
@@ -15,9 +16,31 @@ class EvaluationTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('Evaluation')->delete();
-        DB::table('Evaluation')->insert(['postDate' => Carbon::parse('04-07-2022'), 'comment' => 'Muy bueno jaja', 'rating' => 9.5]);
-        DB::table('Evaluation')->insert(['postDate' => Carbon::parse('10-08-2022'), 'comment' => 'nooo epicoo', 'rating' => 8]);
+        $evaluation1 = new Evaluation();
+        $evaluation1->comment = 'Muy bueno jaja';
+        $evaluation1->rating = 9.5;
 
+        $evaluation1User = User::find(2);
+        $evaluation1->user()->associate($evaluation1User);
+
+        $evaluation1Meme = Meme::find(1);
+        $evaluation1->meme()->associate($evaluation1Meme);
+
+        $evaluation1User->evaluations()->save($evaluation1);
+        $evaluation1Meme->evaluations()->save($evaluation1);
+
+
+        $evaluation2 = new Evaluation();
+        $evaluation2->comment = 'nooo epicoo';
+        $evaluation2->rating = 8;
+
+        $evaluation2User = User::find(1);
+        $evaluation2->user()->associate($evaluation2User);
+
+        $evaluation2Meme = Meme::find(2);
+        $evaluation2->meme()->associate($evaluation2Meme);
+
+        $evaluation2Meme->evaluations()->save($evaluation2);
+        $evaluation2User->evaluations()->save($evaluation2);
     }
 }

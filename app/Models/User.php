@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use App\Models\Meme;
+use App\Models\Evaluation;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -21,6 +23,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'nick',
+        'surname'
     ];
 
     /**
@@ -41,4 +45,16 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    // https://laravel.com/docs/8.x/eloquent-relationships#one-to-many
+    public function evaluations()
+    {
+        return $this->hasMany(Evaluation::class);
+    }
+
+    // https://laravel.com/docs/8.x/eloquent-relationships#one-to-many
+    public function memes()
+    {
+        return $this->hasMany(Meme::class);
+    }
 }

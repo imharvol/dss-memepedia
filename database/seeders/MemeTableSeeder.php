@@ -2,9 +2,11 @@
 
 namespace Database\Seeders;
 
+
+use App\Models\User;
+use App\Models\Meme;
 use Illuminate\Database\Seeder;
-use Carbon\Carbon;
-use DB;
+
 
 class MemeTableSeeder extends Seeder
 {
@@ -15,17 +17,21 @@ class MemeTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('Meme')->insert([
-        'name' => 'peepoHappy',
-        'description' => 'La famosa rana peepo pero con una sonrisa jajaxd',
-        'author' => 'peepoDani',
-        'creationDate' => Carbon::parse('02-03-2022'),
-        'article' => 'Rana']);
-        DB::table('Meme')->insert([
-            'name' => 'peepoClap',
-            'description' => 'La famosa rana peepo pero esta vez aplaude hihihiha',
-            'author' => 'peepoDani',
-            'creationDate' => Carbon::parse('02-03-2022'),
-            'article' => 'Rana']);
+
+        $meme1 = new Meme();
+        $meme1->name = 'peepoHappy';
+        $meme1->description = 'La famosa rana peepo pero con una sonrisa jajaxd';
+        $meme1->article = 'Rana';
+        $meme1User = User::find(1);
+        $meme1->user()->associate($meme1User);
+        $meme1User->memes()->save($meme1);
+
+        $meme2 = new Meme();
+        $meme2->name = 'peepoClap';
+        $meme2->description = 'La famosa rana peepo pero esta vez aplaude hihihiha';
+        $meme2->article = 'Rana';
+        $meme2User = User::find(2);
+        $meme2->user()->associate($meme2User);
+        $meme2User->memes()->save($meme2);
     }
 }
