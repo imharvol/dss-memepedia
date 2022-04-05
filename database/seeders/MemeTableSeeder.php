@@ -2,9 +2,11 @@
 
 namespace Database\Seeders;
 
+
 use App\Models\User;
 use App\Models\Meme;
 use Illuminate\Database\Seeder;
+
 
 class MemeTableSeeder extends Seeder
 {
@@ -15,6 +17,7 @@ class MemeTableSeeder extends Seeder
      */
     public function run()
     {
+
         $meme1 = new Meme();
         $meme1->name = 'peepoHappy';
         $meme1->description = 'La famosa rana peepo pero con una sonrisa jajaxd';
