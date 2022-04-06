@@ -39,3 +39,5 @@ Route::get('/tierlist', function () {
 Route::get('/u/{username}', [UserController::class, 'show'])->name('user.show');
 
 Route::get('/u', [UserController::class, 'index'])->name('user.list');
+
+Route::put('/m/store', [MemeController::class, 'store'])->name('meme.store');
