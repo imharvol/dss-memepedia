@@ -48,6 +48,8 @@ Route::get('/m', [MemeController::class, 'index'])->name('meme.list');
 
 Route::get('/m/create', [MemeController::class, 'create'])->name('meme.create');
 Route::put('/m', [MemeController::class, 'store'])->name('meme.store');
+Route::delete('/m', [MemeController::class, 'delete'])->name('meme.delete');
+
 
 // Panel de control
 Route::get('/admin/users', function () {

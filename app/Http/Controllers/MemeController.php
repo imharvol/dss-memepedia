@@ -60,6 +60,13 @@ class MemeController extends Controller
         //
     }
 
+    public function delete(Request $request)
+    {
+        $meme = Meme::firstWhere('id', $request->id);
+        $meme->delete();
+        return back();
+    }
+
     /**
      * Show the form for editing the specified resource.
      *

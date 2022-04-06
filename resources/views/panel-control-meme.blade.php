@@ -20,7 +20,13 @@
             <h3>{{$meme->name}}</h3>
         </div>
         <input type="image" name="redirect1" id="redirect1" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Arrow_northeast.svg/640px-Arrow_northeast.svg.png">
-        <input type="image" name="delete1" id="delete1" src="https://cdn0.iconfinder.com/data/icons/social-messaging-ui-color-shapes/128/trash-circle-red-512.png">
+
+        <form action="{{route('meme.delete')}}" method="POST">
+            @csrf
+            @method('DELETE')
+            <input type="textbox" name="id" id="id" value="{{$meme->id}}" hidden>
+            <input type="image" name="delete1" id="delete1" src="https://cdn0.iconfinder.com/data/icons/social-messaging-ui-color-shapes/128/trash-circle-red-512.png">
+        </form>
     </div>
     @endforeach
 </div>
