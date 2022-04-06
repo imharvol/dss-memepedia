@@ -7,22 +7,36 @@
 
 @section('content')
 @parent
-<div class="rectanguloCrearMeme">
-    <div class="textoCrearMeme">
+<div class="rectanguloCrearMeme container">
+    <div  class="textoCrearMeme row">
         <span>Sube tu MEME</span>
-        <div class="lineaHorizontal1"></div><!-- No sé cómo hacer que se quede centrada sin que el texto quede centrado también -->
     </div>
-    <form action="/action_page.php">
-            <label class="label" for="tituloMeme">Título</label>
-            <input type="textbox" name="tituloMeme" id="tituloMeme" class="textbox" placeholder="Título" size="50" auto>
-            <label for="">Etiquetas</label>
-            <input type="textbox" name="etiquetasMeme" id="etiquetasMeme" class="textbox" placeholder="Etiquetas (separadas por comas)" size="50">  
-            <label>Subir imagen(formatos jpg, tif y png. Máx. 200kB) </label> 
-            <br>
-            <img src="url" alt="icono imagen"> 
-            <div class="botonInicio">
-                <input class="boton" type="submit" name="btnSubirMeme" id="btnSubirMeme" value="Subir">
+    <div class="row">
+        <div class="col pl-4 pr-4">
+        <hr style="height:4px;color:black">
+        </div>  
+    </div>
+    <div class="row">
+        <form action="/action_page.php">
+            <div class="col">
+                <div class="mb-3">
+                <label class="label" for="tituloMeme">Título</label>
+                <input type="textbox" name="tituloMeme" id="tituloMeme" placeholder="Título" size="50" auto>
+                </div>
+                <div class="mb-3">
+                    <label for="">Etiquetas</label>
+                    <input type="textbox" name="etiquetasMeme" id="etiquetasMeme" placeholder="Etiquetas (separadas por comas)" size="50">
+                </div>  
+                <label>Subir imagen(formatos jpg, tif y png. Máx. 200kB) </label> 
+                <br>
+                <img src="url" alt="icono imagen"> 
+                <div class="botonInicio" align="center">
+                    <input class="boton" type="submit" name="btnSubirMeme" id="btnSubirMeme" value="Subir">
+                </div>
             </div>
-    </form>
+                
+        </form>
+    </div>
+    
 </div>
 @endsection
