@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Meme;
 use Illuminate\Http\Request;
 
@@ -24,7 +25,7 @@ class MemeController extends Controller
      */
     public function create()
     {
-        //
+        return view('crear-meme');
     }
 
     /**
@@ -35,7 +36,16 @@ class MemeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $meme = new Meme();
+        $meme->name = $request->titulo;
+        $meme->description = $request->description || ""; // TODO: Añadir input de description
+        $meme->article = $request->article || ""; // TODO: Añadir input de article
+        $memeUser = User::first();
+        $meme->user()->associate($memeUser);
+        $memeUser->memes()->save($meme);
+
+        return $request;
+        //return redirect(route('index')); // TODO: Hacer que lo redirija a la página del meme
     }
 
     /**

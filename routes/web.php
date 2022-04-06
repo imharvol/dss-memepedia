@@ -22,10 +22,6 @@ Route::get('/', function () {
     return view('index');
 })->name('index');
 
-Route::get('/crear-meme', function () {
-    return view('crear-meme');
-})->name('crear-meme');
-
 Route::get('/ranking', function () {
     return view('ranking');
 })->name('ranking');
@@ -46,3 +42,6 @@ Route::put('/signup-create', [UserController::class, 'create'])->name('user.crea
 Route::get('/u/{username}', [UserController::class, 'show'])->name('user.show');
 
 Route::get('/u', [UserController::class, 'index'])->name('user.list');
+
+Route::get('/m/create', [MemeController::class, 'create'])->name('meme.create');
+Route::put('/m/store', [MemeController::class, 'store'])->name('meme.store');
