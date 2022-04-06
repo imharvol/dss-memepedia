@@ -42,6 +42,7 @@ Route::put('/signup', [UserController::class, 'create'])->name('user.create');
 Route::get('/u/{username}', [UserController::class, 'show'])->name('user.show');
 
 Route::get('/u', [UserController::class, 'index'])->name('user.list');
+Route::delete('/u', [UserController::class, 'delete'])->name('user.delete');
 
 Route::get('/m', [MemeController::class, 'index'])->name('meme.list');
 

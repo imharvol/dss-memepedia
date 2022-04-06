@@ -63,6 +63,14 @@ class UserController extends Controller
         }
     }
 
+    public function delete(Request $request)
+    {
+        $user = User::firstWhere('nick', $request->username);
+        $user->delete();
+        return back();
+    }
+
+
     /**
      * Show the form for editing the specified resource.
      *
