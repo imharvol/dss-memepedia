@@ -3,7 +3,7 @@
 
 <head>
     <title>@yield('title')</title>
-
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="{{URL('css/app.css')}}">
     <link rel="stylesheet" href="{{URL('css/master.css')}}">
 
@@ -31,10 +31,12 @@
     </div>
 
     <footer class="footer">
-        <p>Política de privacidad | Acerca de | Contacto</p>
-        <hr>
-        <p>Carr. de San Vicente del Raspeig, s/n, 03690 San Vicente del Raspeig, Alicante</p>
-        <p>D-SSarrolladores</p>
+        <div class="footer-content">
+            <p>Política de privacidad | Acerca de | Contacto</p>
+            <hr>
+            <p>Carr. de San Vicente del Raspeig, s/n, 03690 San Vicente del Raspeig, Alicante</p>
+            <p>D-SSarrolladores</p>
+        </div>
     </footer>
 
 </body>
