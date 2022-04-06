@@ -19,9 +19,9 @@
 <body>
 
     <div class="brand-bar row">
-        <img src="{{URL('/images/pepe.png')}}" alt="pepe" class="pepe col-2">
+        <img src="{{URL('/images/pepe.png')}}" alt="pepe" class="pepe col-1">
         <h1 class="brand-title col-6">MEMEPEDIA</h1>
-        <img src="{{URL('/images/pepe.png')}}" alt="pepe" class="pepe col-2">
+        <img src="{{URL('/images/pepe.png')}}" alt="pepe" class="pepe col-1">
     </div>
 
     <nav class="navbar row">
