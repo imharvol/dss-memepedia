@@ -15,7 +15,9 @@ class MemeController extends Controller
      */
     public function index()
     {
-        //
+        $memes = Meme::all();
+
+        return view('meme-list', ['memes' => $memes]);
     }
 
     /**
@@ -44,8 +46,7 @@ class MemeController extends Controller
         $meme->user()->associate($memeUser);
         $memeUser->memes()->save($meme);
 
-        return $request;
-        //return redirect(route('index')); // TODO: Hacer que lo redirija a la página del meme
+        return redirect(route('index')); // TODO: Hacer que lo redirija a la página del meme
     }
 
     /**

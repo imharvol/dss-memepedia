@@ -43,5 +43,6 @@ Route::get('/u/{username}', [UserController::class, 'show'])->name('user.show');
 
 Route::get('/u', [UserController::class, 'index'])->name('user.list');
 
+Route::get('/m', [MemeController::class, 'index'])->name('meme.list');
 Route::get('/m/create', [MemeController::class, 'create'])->name('meme.create');
 Route::put('/m/store', [MemeController::class, 'store'])->name('meme.store');
