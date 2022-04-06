@@ -17,33 +17,34 @@
 </head>
 
 <body>
+    <div class="container-fluid p-0">
+        <div class="brand-bar row p-0 m-0" align="center">
+            <img src="{{URL('/images/pepe.png')}}" alt="pepe" class="pepe col-1">
+            <h1 class="brand-title col-6">MEMEPEDIA</h1>
+            <img src="{{URL('/images/pepe.png')}}" alt="pepe" class="pepe col-1">
+        </div>
 
-    <div class="brand-bar row">
-        <img src="{{URL('/images/pepe.png')}}" alt="pepe" class="pepe col-1">
-        <h1 class="brand-title col-6">MEMEPEDIA</h1>
-        <img src="{{URL('/images/pepe.png')}}" alt="pepe" class="pepe col-1">
+
+        <nav class="navbar row pr-0 m-0">
+            <a class="navbar-item col-2" href="{{route('index')}}">Inicio</a>
+            <a class="navbar-item col-2" href="{{route('crear-meme')}}">Crear Meme</a>
+            <a class="navbar-item col-2" href="{{route('tierlist')}}">TierList</a>
+            <a class="navbar-item col-2" href="{{route('ranking')}}">Ranking</a>
+            <a class="navbar-item col-2" href="{{route('user.signin')}}">Iniciar Sesión/Crear cuenta</a>
+
+        </nav>
+
+        <div class="content row mb-4 p-0 m-0">
+            @yield('content')
+        </div>
+
+        <footer class="footer row m-0 p-0" align="center">
+            <p>Política de privacidad | Acerca de | Contacto</p>
+            <hr>
+            <p>Carr. de San Vicente del Raspeig, s/n, 03690 San Vicente del Raspeig, Alicante</p>
+            <p>D-SSarrolladores</p>
+        </footer>
     </div>
-
-
-    <nav class="navbar row">
-        <a class="navbar-item col-2" href="{{route('index')}}">Inicio</a>
-        <a class="navbar-item col-2" href="{{route('crear-meme')}}">Crear Meme</a>
-        <a class="navbar-item col-2" href="{{route('tierlist')}}">TierList</a>
-        <a class="navbar-item col-2" href="{{route('ranking')}}">Ranking</a>
-        <a class="navbar-item col-2" href="{{route('user.signin')}}">Iniciar Sesión/Crear cuenta</a>
-
-    </nav>
-
-    <div class="content row mb-4">
-        @yield('content')
-    </div>
-
-    <footer class="footer row mt-3">
-        <p>Política de privacidad | Acerca de | Contacto</p>
-        <hr>
-        <p>Carr. de San Vicente del Raspeig, s/n, 03690 San Vicente del Raspeig, Alicante</p>
-        <p>D-SSarrolladores</p>
-    </footer>
 
 </body>
 
