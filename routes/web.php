@@ -34,6 +34,13 @@ Route::get('/tierlist', function () {
     return view('tierlist');
 })->name('tierlist');
 
+Route::get('/signin', [UserController::class, 'signin'])->name('user.signin');
+
+Route::get('/signup', [UserController::class, 'signup'])->name('user.signup');
+
+Route::put('/signup-create', [UserController::class, 'create'])->name('user.create');
+
+// Para tomar como ejemplo:
 // Ruta llamada user.show que al ser llamada, acepta un argumento username
 // que pasa al controlador en el metodo show en app/Http/Controllers/UserController.php
 Route::get('/u/{username}', [UserController::class, 'show'])->name('user.show');

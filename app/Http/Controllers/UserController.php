@@ -19,14 +19,14 @@ class UserController extends Controller
         return view('user-list', ['users' => $users]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function signin()
     {
-        //
+        return view('inicio-sesion');
+    }
+
+    public function signup()
+    {
+        return view('crear-cuenta');
     }
 
     /**
@@ -35,17 +35,21 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function create(Request $request)
     {
-        //
+        // Aqui tenemos que obtener los datos del usuario desde la request e introducirlo en la base de datos
+        $user1 =  new User();
+        $user1->name = $request->name;
+        $user1->email = $request->email;
+        $user1->password = $request->password;
+        $user1->nick = $request->username;
+        $user1->surname = $request->surname;
+        $user1->save();
+
+        // Una vez el usuario se ha creado correctamente, lo redirigimos al indice
+        return redirect(route('index'));
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  string  $user
-     * @return \Illuminate\Http\Response
-     */
     public function show($username)
     {
         $user = User::firstWhere('nick', $username);
