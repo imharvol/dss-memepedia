@@ -34,6 +34,10 @@ Route::get('/tierlist', function () {
     return view('tierlist');
 })->name('tierlist');
 
+Route::get('/entrada', function () {
+    return view('entrada');
+})->name('entrada');
+
 Route::get('/signin', [UserController::class, 'signin'])->name('user.signin');
 
 Route::get('/signup', [UserController::class, 'signup'])->name('user.signup');
@@ -46,3 +50,4 @@ Route::put('/signup-create', [UserController::class, 'create'])->name('user.crea
 Route::get('/u/{username}', [UserController::class, 'show'])->name('user.show');
 
 Route::get('/u', [UserController::class, 'index'])->name('user.list');
+
