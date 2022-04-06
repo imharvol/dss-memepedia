@@ -43,6 +43,7 @@ Route::get('/u/{username}', [UserController::class, 'show'])->name('user.show');
 
 Route::get('/u', [UserController::class, 'index'])->name('user.list');
 Route::delete('/u', [UserController::class, 'delete'])->name('user.delete');
+Route::post('/u', [UserController::class, 'update'])->name('user.update');
 
 Route::get('/m', [MemeController::class, 'index'])->name('meme.list');
 

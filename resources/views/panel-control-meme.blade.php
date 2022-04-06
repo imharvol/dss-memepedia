@@ -25,7 +25,7 @@
             @csrf
             @method('DELETE')
             <input type="textbox" name="id" id="id" value="{{$meme->id}}" hidden>
-            <input type="image" name="delete1" id="delete1" src="https://cdn0.iconfinder.com/data/icons/social-messaging-ui-color-shapes/128/trash-circle-red-512.png">
+            <input type="image" class="trashicon" name="delete1" id="delete1" src="https://cdn0.iconfinder.com/data/icons/social-messaging-ui-color-shapes/128/trash-circle-red-512.png">
         </form>
     </div>
     @endforeach

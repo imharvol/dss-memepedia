@@ -8,27 +8,44 @@
 @section('content')
 @parent
 
-<div class="textoEntrada">
-    <h2> Panel de Control - User </h2>
-</div>
+<h1 class="page-title"> Panel de Control - User </h1>
 
-<div class="fondo">
-    @foreach ($users as $user)
-    <div class="recuadroUsuario">
-        <div class="fuenteTexto" contenteditable="true">
-            <h3> {{$user->id}}. </h3>
-            <h3>{{$user->nick}}</h3>
+@foreach ($users as $user)
+<div class="user-box">
+    <h1 class="user-nick-header">{{$user->id}} - {{$user->nick}}</h1>
+
+    <form action="{{route('user.delete')}}" method="POST">
+        @csrf
+        @method('DELETE')
+        <input type="text" name="id" id="id" value="{{$user->id}}" hidden>
+        <input class="input-button" type="submit" value="Borrar usuario">
+    </form>
+
+    <form action="{{route('user.update')}}" method="POST">
+        @csrf
+        @method('POST')
+        <div class="wrapper">
+            <input type="text" name="id" id="id" value="{{$user->id}}" hidden>
+            <div class="wrapper-item">
+                <label for="nick">Username:</label><br>
+                <input type="text" name="username" id="username" value="{{$user->nick}}">
+            </div>
+            <div class="wrapper-item">
+                <label for="nick">Email:</label><br>
+                <input type="text" name="email" id="email" value="{{$user->email}}">
+            </div>
+            <div class="wrapper-item">
+                <label for="nick">Name:</label><br>
+                <input type="text" name="name" id="name" value="{{$user->name}}">
+            </div>
+            <div class="wrapper-item">
+                <label for="nick">Surname:</label><br>
+                <input class="input-button" type="text" name="surname" id="surname" value="{{$user->surname}}">
+            </div>
         </div>
-        <input type="image" name="redirect1" id="redirect1" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Arrow_northeast.svg/640px-Arrow_northeast.svg.png">
-
-        <form action="{{route('user.delete')}}" method="POST">
-            @csrf
-            @method('DELETE')
-            <input type="textbox" name="username" id="username" value="{{$user->nick}}" hidden>
-            <input type="image" name="delete1" id="delete1" src="https://cdn0.iconfinder.com/data/icons/social-messaging-ui-color-shapes/128/trash-circle-red-512.png">
-        </form>
-    </div>
-    @endforeach
+        <input type="submit" value="Guardar usuario">
+    </form>
 </div>
+@endforeach
 
 @endsection
