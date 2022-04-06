@@ -30,6 +30,10 @@ Route::get('/tierlist', function () {
     return view('tierlist');
 })->name('tierlist');
 
+Route::get('/crear-meme', function () {
+    return view('crear-meme');
+})->name('crear-meme');
+
 Route::get('/signin', [UserController::class, 'signin'])->name('user.signin');
 
 Route::get('/signup', [UserController::class, 'signup'])->name('user.signup');
