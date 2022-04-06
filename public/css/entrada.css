@@ -12,22 +12,7 @@
     font-weight: bold;
     font-size: 4.5vmin;
 }
-.barraBusqueda
-{
-    width: 25%;
-    height: 6vmin;
-    background: #903749;
-    color: #ffffff;
-    border-color: #903749;
-    border-width: 1px;
-    border-style: solid;
-    border-radius: 32px 32px 32px 32px;
-    font-family: "Helvetica";
-    font-weight: bold;
-    font-size: 2vmin;
-    margin-right: 1vw;
-    margin-top:1vh;
-}
+
 .subRectangulo
 {
     width: 100%;

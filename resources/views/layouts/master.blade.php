@@ -4,6 +4,13 @@
 <head>
     <title>@yield('title')</title>
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
     <link rel="stylesheet" href="{{URL('css/app.css')}}">
     <link rel="stylesheet" href="{{URL('css/master.css')}}">
 
@@ -11,33 +18,34 @@
 </head>
 
 <body>
+    <div class="container-fluid p-0">
+        <div class="brand-bar row p-0 m-0" align="center">
+            <img src="{{URL('/images/pepe.png')}}" alt="pepe" class="pepe col-1">
+            <h1 class="brand-title col-6">MEMEPEDIA</h1>
+            <img src="{{URL('/images/pepe.png')}}" alt="pepe" class="pepe col-1">
+        </div>
 
-    <div class="brand-bar">
-        <img src="{{URL('/images/pepe.png')}}" alt="pepe" class="pepe">
-        <h1 class="brand-title">MEMEPEDIA</h1>
-        <img src="{{URL('/images/pepe.png')}}" alt="pepe" class="pepe">
-    </div>
 
-    <nav class="navbar">
-        <a class="navbar-item" href="{{route('index')}}">Inicio</a>
-        <a class="navbar-item" href="{{route('crear-meme')}}">Crear Meme</a>
-        <a class="navbar-item" href="{{route('tierlist')}}">TierList</a>
-        <a class="navbar-item" href="{{route('ranking')}}">Ranking</a>
-        <a class="navbar-item" href="{{route('user.signin')}}">Iniciar Sesión/Crear cuenta</a>
-    </nav>
+        <nav class="navbar row pr-0 m-0">
+            <a class="navbar-item col-2" href="{{route('index')}}">Inicio</a>
+            <a class="navbar-item col-2" href="{{route('meme.create')}}">Crear Meme</a>
+            <a class="navbar-item col-2" href="{{route('tierlist')}}">TierList</a>
+            <a class="navbar-item col-2" href="{{route('ranking')}}">Ranking</a>
+            <a class="navbar-item col-2" href="{{route('user.signin')}}">Iniciar Sesión/Crear cuenta</a>
 
-    <div class="content">
-        @yield('content')
-    </div>
+        </nav>
 
-    <footer class="footer">
-        <div class="footer-content">
+        <div class="content row mb-4 p-0 m-0">
+            @yield('content')
+        </div>
+
+        <footer class="footer row m-0 p-0" align="center">
             <p>Política de privacidad | Acerca de | Contacto</p>
             <hr>
             <p>Carr. de San Vicente del Raspeig, s/n, 03690 San Vicente del Raspeig, Alicante</p>
             <p>D-SSarrolladores</p>
-        </div>
-    </footer>
+        </footer>
+    </div>
 
 </body>
 

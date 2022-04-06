@@ -5,26 +5,11 @@
 <link rel="stylesheet" href="{{URL('css/entrada.css')}}">
 @endsection
 
+
 @section('content')
 @parent
-<div style="margin-left: 1vw;">
-    <div class="layout2">
-        <div class="textoBienvenida sidebar">
-            <scap>Bienvenidos a </scap>
-            <div class="MEMEpedia" style="display:inline">
-                <scap>MEMEpedia</scap>
-            </div>
-            <div style="espacio"></div>
-            <scap>la enciclopedia de memes oficial</scap>
-            
-        </div>
-        <div class="search-container body" align=right>
-                <form id="form"> 
-                    <input class="barraBusqueda" type="search" id="query" placeholder=" Buscar">
-                </form>
-            </div>
-    </div>
-</div>
+<?php include $_SERVER['DOCUMENT_ROOT'].'/../resources/views/layouts/bienvenidosybarra.blade.php'; ?> <!-- Unificar la barra y título -->
+
     <div class="subRectangulo">
         <div class="cosaBuscada">
             <h2 style="margin-left: 1vw">CosaBuscada</h2>

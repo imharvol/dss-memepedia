@@ -7,22 +7,42 @@
 
 @section('content')
 @parent
-<div class="rectanguloCrearMeme">
-    <div class="textoCrearMeme">
-        <span>Sube tu MEME</span>
-        <div class="lineaHorizontal1"></div><!-- No sé cómo hacer que se quede centrada sin que el texto quede centrado también -->
+<div class="col-2"></div>
+<div class="rectanguloCrearMeme col-6">
+        <div  class="textoCrearMeme row">
+            <span>Sube tu MEME</span>
+        </div>
+        <div class="row">
+            <div class="col pl-4 pr-4">
+            <hr style="height:4px;color:black">
+            </div>  
+        </div>
+        <div class="row">
+            <form action="{{route('meme.store')}}" method="POST">
+                @csrf
+                @method('PUT')
+                <div class="col p-3" name="formContent">
+                    <div class="mb-3 row">
+                    <label class="label" for="titulo">Título</label>
+                    <input type="textbox" name="titulo" id="titulo" placeholder="Título" size="50" auto>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="etiquetas">Etiquetas</label>
+                        <input type="textbox" name="etiquetas" id="etiquetas" placeholder="Etiquetas (separadas por comas)" size="50">
+                    </div>  
+                    <div class="mb-3 row">
+                        <label for="description">Descripción</label>
+                        <textarea name="description" id="description" placeholder="Descripción del meme (max.500 caracteres)" maxlength="500" rows="8"></textarea>
+                    </div> 
+                    <label>Subir imagen(formatos jpg, tif y png. Máx. 200kB) </label> 
+                    <img src="url" alt="icono imagen"> 
+                    <div class="botonInicio" align="center">
+                        <input class="boton" type="submit" name="btnSubirMeme" id="btnSubirMeme" value="Subir">
+                    </div>
+                </div>
+                    
+            </form>
     </div>
-    <form action="/action_page.php">
-            <label class="label" for="tituloMeme">Título</label>
-            <input type="textbox" name="tituloMeme" id="tituloMeme" class="textbox" placeholder="Título" size="50" auto>
-            <label for="">Etiquetas</label>
-            <input type="textbox" name="etiquetasMeme" id="etiquetasMeme" class="textbox" placeholder="Etiquetas (separadas por comas)" size="50">  
-            <label>Subir imagen(formatos jpg, tif y png. Máx. 200kB) </label> 
-            <br>
-            <img src="url" alt="icono imagen"> 
-            <div class="botonInicio">
-                <input class="boton" type="submit" name="btnSubirMeme" id="btnSubirMeme" value="Subir">
-            </div>
-    </form>
 </div>
+<div class="col-2"></div>
 @endsection

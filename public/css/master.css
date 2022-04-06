@@ -49,8 +49,10 @@ body {
     color: black;
 }
 
-.footer 
-{
+.footer {
+    left: 0;
+    bottom: 0;
+    width: 100%;
     background-color: #903749;
     color: white;
     text-align: center;

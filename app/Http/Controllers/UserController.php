@@ -37,14 +37,16 @@ class UserController extends Controller
      */
     public function create(Request $request)
     {
+        // TODO: Comprobar si el usuario existe
+
         // Aqui tenemos que obtener los datos del usuario desde la request e introducirlo en la base de datos
-        $user1 =  new User();
-        $user1->name = $request->name;
-        $user1->email = $request->email;
-        $user1->password = $request->password;
-        $user1->nick = $request->username;
-        $user1->surname = $request->surname;
-        $user1->save();
+        $user =  new User();
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = $request->password;
+        $user->nick = $request->username;
+        $user->surname = $request->surname;
+        $user->save();
 
         // Una vez el usuario se ha creado correctamente, lo redirigimos al indice
         return redirect(route('index'));
