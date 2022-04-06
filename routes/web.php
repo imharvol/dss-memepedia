@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\User;
+use App\Models\Meme;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\UserController;
@@ -33,8 +34,7 @@ Route::get('/tierlist', function () {
 Route::get('/signin', [UserController::class, 'signin'])->name('user.signin');
 
 Route::get('/signup', [UserController::class, 'signup'])->name('user.signup');
-
-Route::put('/signup-create', [UserController::class, 'create'])->name('user.create');
+Route::put('/signup', [UserController::class, 'create'])->name('user.create');
 
 // Para tomar como ejemplo:
 // Ruta llamada user.show que al ser llamada, acepta un argumento username
@@ -44,5 +44,17 @@ Route::get('/u/{username}', [UserController::class, 'show'])->name('user.show');
 Route::get('/u', [UserController::class, 'index'])->name('user.list');
 
 Route::get('/m', [MemeController::class, 'index'])->name('meme.list');
+
 Route::get('/m/create', [MemeController::class, 'create'])->name('meme.create');
-Route::put('/m/store', [MemeController::class, 'store'])->name('meme.store');
+Route::put('/m', [MemeController::class, 'store'])->name('meme.store');
+
+// Panel de control
+Route::get('/admin/users', function () {
+    $users = User::all();
+    return view('panel-control-user', ['users' => $users]);
+})->name('admin.users');
+
+Route::get('/admin/memes', function () {
+    $memes = Meme::all();
+    return view('panel-control-meme', ['memes' => $memes]);
+})->name('admin.memes');
