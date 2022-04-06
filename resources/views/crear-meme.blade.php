@@ -7,11 +7,11 @@
 
 @section('content')
 @parent
-<div class="rectanguloCrearMeme" align="center">
+<div class="rectanguloCrearMeme">
     <div class="textoCrearMeme">
-    <span>Sube tu MEME</span>
+        <span>Sube tu MEME</span>
+        <div class="lineaHorizontal1"></div><!-- No sé cómo hacer que se quede centrada sin que el texto quede centrado también -->
     </div>
-    <div class="lineaHorizontal1"></div>
     <form action="/action_page.php">
             <label class="label" for="tituloMeme">Título</label>
             <input type="textbox" name="tituloMeme" id="tituloMeme" class="textbox" placeholder="Título" size="50" auto>
