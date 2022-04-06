@@ -24,11 +24,14 @@
         <img src="{{URL('/images/pepe.png')}}" alt="pepe" class="pepe col-2">
     </div>
 
+
     <nav class="navbar row">
-        <a class="navbar-item col-3" href="{{route('index')}}">Inicio</a>
-        <a class="navbar-item col-3" href="{{route('crear-meme')}}">Crear Meme</a>
-        <a class="navbar-item col-3" href="{{route('tierlist')}}">TierList</a>
-        <a class="navbar-item col-3" href="{{route('ranking')}}">Ranking</a>
+        <a class="navbar-item col-2" href="{{route('index')}}">Inicio</a>
+        <a class="navbar-item col-2" href="{{route('crear-meme')}}">Crear Meme</a>
+        <a class="navbar-item col-2" href="{{route('tierlist')}}">TierList</a>
+        <a class="navbar-item col-2" href="{{route('ranking')}}">Ranking</a>
+        <a class="navbar-item col-2" href="{{route('user.signin')}}">Iniciar Sesión/Crear cuenta</a>
+
     </nav>
 
     <div class="content row mb-4">
