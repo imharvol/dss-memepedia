@@ -30,10 +30,6 @@ Route::get('/tierlist', function () {
     return view('tierlist');
 })->name('tierlist');
 
-Route::get('/crear-meme', function () {
-    return view('crear-meme');
-})->name('crear-meme');
-
 Route::get('/signin', [UserController::class, 'signin'])->name('user.signin');
 
 Route::get('/signup', [UserController::class, 'signup'])->name('user.signup');
@@ -49,5 +45,4 @@ Route::get('/u', [UserController::class, 'index'])->name('user.list');
 
 Route::get('/m', [MemeController::class, 'index'])->name('meme.list');
 Route::get('/m/create', [MemeController::class, 'create'])->name('meme.create');
-
 Route::put('/m/store', [MemeController::class, 'store'])->name('meme.store');

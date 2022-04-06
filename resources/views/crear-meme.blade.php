@@ -23,16 +23,16 @@
                 @method('PUT')
                 <div class="col p-3" name="formContent">
                     <div class="mb-3 row">
-                    <label class="label" for="tituloMeme">Título</label>
-                    <input type="textbox" name="tituloMeme" id="tituloMeme" placeholder="Título" size="50" auto>
+                    <label class="label" for="titulo">Título</label>
+                    <input type="textbox" name="titulo" id="titulo" placeholder="Título" size="50" auto>
                     </div>
                     <div class="mb-3 row">
-                        <label for="">Etiquetas</label>
-                        <input type="textbox" name="etiquetasMeme" id="etiquetasMeme" placeholder="Etiquetas (separadas por comas)" size="50">
+                        <label for="etiquetas">Etiquetas</label>
+                        <input type="textbox" name="etiquetas" id="etiquetas" placeholder="Etiquetas (separadas por comas)" size="50">
                     </div>  
                     <div class="mb-3 row">
-                        <label for="descripcionMeme">Descripción</label>
-                        <textarea name="descripcionMeme" id="descripcionMeme" placeholder="Descripción del meme (max.500 caracteres)" maxlength="500" rows="8"></textarea>
+                        <label for="description">Descripción</label>
+                        <textarea name="description" id="description" placeholder="Descripción del meme (max.500 caracteres)" maxlength="500" rows="8"></textarea>
                     </div> 
                     <label>Subir imagen(formatos jpg, tif y png. Máx. 200kB) </label> 
                     <img src="url" alt="icono imagen"> 

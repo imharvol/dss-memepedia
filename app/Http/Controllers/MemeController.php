@@ -40,7 +40,7 @@ class MemeController extends Controller
     {
         $meme = new Meme();
         $meme->name = $request->titulo;
-        $meme->description = $request->description || ""; // TODO: Añadir input de description
+        $meme->description = $request->description;
         $meme->article = $request->article || ""; // TODO: Añadir input de article
         $memeUser = User::first();
         $meme->user()->associate($memeUser);

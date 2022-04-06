@@ -27,7 +27,7 @@
 
         <nav class="navbar row pr-0 m-0">
             <a class="navbar-item col-2" href="{{route('index')}}">Inicio</a>
-            <a class="navbar-item col-2" href="{{route('crear-meme')}}">Crear Meme</a>
+            <a class="navbar-item col-2" href="{{route('meme.create')}}">Crear Meme</a>
             <a class="navbar-item col-2" href="{{route('tierlist')}}">TierList</a>
             <a class="navbar-item col-2" href="{{route('ranking')}}">Ranking</a>
             <a class="navbar-item col-2" href="{{route('user.signin')}}">Iniciar Sesión/Crear cuenta</a>
