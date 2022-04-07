@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\User;
+use App\Models\Meme;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\UserController;
@@ -54,3 +55,13 @@ Route::get('/u', [UserController::class, 'index'])->name('user.list');
 Route::get('/m', [MemeController::class, 'index'])->name('meme.list');
 Route::get('/m/create', [MemeController::class, 'create'])->name('meme.create');
 Route::put('/m/store', [MemeController::class, 'store'])->name('meme.store');
+
+Route::get('/admin/users', function () {
+    $users = User::all();
+    return view('panel-control-user', ['users' => $users]);
+})->name('admin.users');
+
+Route::get('/admin/memes', function () {
+    $memes = Meme::all();
+    return view('panel-control-meme', ['memes' => $memes]);
+})->name('admin.memes');

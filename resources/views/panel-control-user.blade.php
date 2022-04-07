@@ -2,7 +2,7 @@
 @section('title', 'Iniciar Sesión')
 
 @section('head')
-<link rel="stylesheet" href="{{URL('css/inicio-sesion.css')}}">
+<link rel="stylesheet" href="{{URL('css/panel-control-user.css')}}">
 @endsection
 
 @section('content')

@@ -8,32 +8,34 @@
 @section('content')
 @parent
 
-<div class="textoEntrada">
-	<h2> Panel de Control - News </h2>
-</div>
+@foreach ($news as $new)
+<div class="user-box">
+    <h1 class="user-nick-header">{{$new->id}} - {{$new->title}}</h1>
 
-<div class="fondo">
-	<div class="recuadroUsuario">
-        <div class="fuenteTexto" contenteditable="true">
-            <h3> 1. </h3><h3>New peepos</h3>
+    <form action="{{route('new.delete')}}" method="POST">
+        @csrf
+        @method('DELETE')
+        <input type="text" name="id" id="id" value="{{$new->id}}" hidden>
+        <input class="input-button" type="submit" value="Borrar noticia">
+    </form>
+
+    <form action="{{route('new.update')}}" method="POST">
+        @csrf
+        @method('POST')
+        <div class="wrapper">
+            <input type="text" name="id" id="id" value="{{$new->id}}" hidden>
+            <div class="wrapper-item">
+                <label for="nick">Title:</label><br>
+                <input type="text" name="titulo" id="titulo" value="{{$new->titulo}}">
+            </div>
+            <div class="wrapper-item">
+                <label for="nick">Date:</label><br>
+                <input type="text" name="date" id="date" value="{{$new->date}}">
+            </div>
         </div>
-        <input type="image" name="redirect1" id="redirect1" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Arrow_northeast.svg/640px-Arrow_northeast.svg.png">
-        <input type="image" name="delete1" id="delete1" src="https://cdn0.iconfinder.com/data/icons/social-messaging-ui-color-shapes/128/trash-circle-red-512.png">
-    </div>
-    <div class="recuadroUsuario">
-        <div class="fuenteTexto" contenteditable="true">
-            <h3> 2. </h3><h3>Epic frog</h3>
-        </div>
-        <input type="image" name="redirect2" id="redirect2" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Arrow_northeast.svg/640px-Arrow_northeast.svg.png">
-        <input type="image" name="delete2" id="delete2" src="https://cdn0.iconfinder.com/data/icons/social-messaging-ui-color-shapes/128/trash-circle-red-512.png">
-    </div>
-    <div class="recuadroUsuario">
-        <div class="fuenteTexto" contenteditable="true">
-            <h3> 3. </h3><h3>RaisingTroll</h3>
-        </div>
-        <input type="image" name="redirect3" id="redirect3" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Arrow_northeast.svg/640px-Arrow_northeast.svg.png">
-        <input type="image" name="delete3" id="delete3" src="https://cdn0.iconfinder.com/data/icons/social-messaging-ui-color-shapes/128/trash-circle-red-512.png">
-    </div>
+        <input type="submit" value="Guardar Noticia">
+    </form>
 </div>
+@endforeach
 
 @endsection

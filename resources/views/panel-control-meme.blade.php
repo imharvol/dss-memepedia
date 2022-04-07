@@ -1,39 +1,54 @@
 @extends('layouts.master')
-@section('title', 'Iniciar Sesión')
+@section('title', 'Panel Control Meme')
 
 @section('head')
-<link rel="stylesheet" href="{{URL('css/inicio-sesion.css')}}">
+<link rel="stylesheet" href="{{URL('css/panel-control-meme.css')}}">
 @endsection
 
 @section('content')
 @parent
+<h1 class="page-title"> Panel de Control - User </h1>
 
-<div class="textoEntrada">
-	<h2> Panel de Control - Meme </h2>
-</div>
+@foreach ($memes as $meme)
+<div class="user-box">
+    <h1 class="user-nick-header">{{$meme->id}} - {{$meme->name}}</h1>
 
-<div class="fondo">
-	<div class="recuadroUsuario">
-        <div class="fuenteTexto" contenteditable="true">
-            <h3> 1. </h3><h3>PepoTroll</h3>
+    <form action="{{route('meme.delete')}}" method="POST">
+        @csrf
+        @method('DELETE')
+        <input type="text" name="id" id="id" value="{{$meme->id}}" hidden>
+        <input class="input-button" type="submit" value="Borrar meme">
+    </form>
+
+    <form action="{{route('meme.update')}}" method="POST">
+        @csrf
+        @method('POST')
+        <div class="wrapper">
+            <input type="text" name="id" id="id" value="{{$meme->id}}" hidden>
+            <div class="wrapper-item">
+                <label for="nick">Name:</label><br>
+                <input type="text" name="name" id="name" value="{{$meme->name}}">
+            </div>
+            <div class="wrapper-item">
+                <label for="nick">Description:</label><br>
+                <input type="text" name="description" id="description" value="{{$meme->description}}">
+            </div>
+            <div class="wrapper-item">
+                <label for="nick">Author:</label><br>
+                <input type="text" name="author" id="author" value="{{$meme->author}}">
+            </div>
+            <div class="wrapper-item">
+                <label for="nick">Creation Date:</label><br>
+                <input type="text" name="date" id="date" value="{{$meme->date}}">
+            </div>
+            <div class="wrapper-item">
+                <label for="nick">Article:</label><br>
+                <input type="text" name="article" id="article" value="{{$meme->article}}">
+            </div>
         </div>
-        <input type="image" name="redirect1" id="redirect1" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Arrow_northeast.svg/640px-Arrow_northeast.svg.png">
-        <input type="image" name="delete1" id="delete1" src="https://cdn0.iconfinder.com/data/icons/social-messaging-ui-color-shapes/128/trash-circle-red-512.png">
-    </div>
-    <div class="recuadroUsuario">
-        <div class="fuenteTexto" contenteditable="true">
-            <h3> 2. </h3><h3>sanic</h3>
-        </div>
-        <input type="image" name="redirect2" id="redirect2" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Arrow_northeast.svg/640px-Arrow_northeast.svg.png">
-        <input type="image" name="delete2" id="delete2" src="https://cdn0.iconfinder.com/data/icons/social-messaging-ui-color-shapes/128/trash-circle-red-512.png">
-    </div>
-    <div class="recuadroUsuario">
-        <div class="fuenteTexto" contenteditable="true">
-            <h3> 3. </h3><h3>trollface</h3>
-        </div>
-        <input type="image" name="redirect3" id="redirect3" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Arrow_northeast.svg/640px-Arrow_northeast.svg.png">
-        <input type="image" name="delete3" id="delete3" src="https://cdn0.iconfinder.com/data/icons/social-messaging-ui-color-shapes/128/trash-circle-red-512.png">
-    </div>
+        <input type="submit" value="Guardar meme">
+    </form>
 </div>
+@endforeach
 
 @endsection
