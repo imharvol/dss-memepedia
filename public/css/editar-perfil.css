@@ -1,0 +1,116 @@
+.editarPerfil
+{
+    top:2vh;
+    position: relative;
+    width: 43.45%;
+    height: auto;
+    padding: 8px 8px 8px 8px;
+    background: #903749;
+    margin: auto;
+    height: 65vh;
+
+}
+.textoEditar
+{
+    color: #ffffff;
+    font-family: "Source Sans Pro";
+    font-weight: bold;
+    text-align: center;   
+    font-size: 4vmin;
+    margin-top: 2vh;
+}
+.lineaHorizontal1
+{
+    width: 11vw;
+    border-color: #2b2e4a;
+    border-width: 0.5px;
+    border-style: solid;
+    margin-top: 1vh;
+    float: center;
+}
+.infoPerfil
+{
+    color: #ffffff;
+    font-family: "Source Sans Pro";
+    font-weight: normal;
+    white-space: pre;
+    font-size: 18px;
+    text-align:left;
+    margin-left: -5%;
+
+}
+.espacio
+{
+    margin-top: 1vh;
+    height: auto;
+    display: block;
+    max-width: 100%;
+}
+.texto
+{
+    color:white;
+    font-weight: bold;
+}
+.form
+{
+    width: 85%;
+    margin-left: 2vw;
+    float: left;
+    display: block;
+}
+.textbox
+{
+    height: 2.4vh;
+    padding: 4px 8px 4px 8px;
+    opacity: 85%;
+    background: #ffffff;
+    color: #aaaaaa;
+    border-color: #000000;
+    border-width: 1px;
+    border-style: solid;
+    font-family: "Source Sans Pro";
+    font-weight: 400;
+    font-size: 2vmin;
+    text-align: left;
+
+    float: right;
+}
+.hueco
+{
+    max-width:100%;
+}
+.layout
+{
+    width: 100%;
+    height: 100%;
+
+    display: grid;
+    grid:
+        "sidebar body" 1fr
+        / 50% 1fr;
+    gap: 1px;
+    
+}
+.sidebar { grid-area: sidebar; }
+.body { grid-area: body; }
+.boton
+{
+    background: #e84545;
+    color: #ffffff;
+    border-color: #903749;
+    border-width: 1px; 
+    border-style: solid;
+    font-family: "Helvetica";
+    font-weight: bold;
+    text-align: center;
+    width: 35%;
+    height: 5vh;
+    flex: 1;
+    font-weight: bold;
+    font-size: 1.5vmin;
+    max-height: 40px;
+}
+.botonInicio
+{
+    margin-top: 4vh;
+}

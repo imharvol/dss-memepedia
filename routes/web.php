@@ -43,6 +43,18 @@ Route::get('/comentarios', function () {
     return view('comentarios');
 })->name('comentarios');
 
+Route::get('/noticias', function () {
+    return view('noticias');
+})->name('noticias');
+
+Route::get('/resultados', function () {
+    return view('resultados');
+})->name('resultados');
+
+Route::get('/editar-perfil', function () {
+    return view('editar-perfil');
+})->name('editar-perfil');
+
 Route::get('/signin', [UserController::class, 'signin'])->name('user.signin');
 
 Route::get('/signup', [UserController::class, 'signup'])->name('user.signup');
