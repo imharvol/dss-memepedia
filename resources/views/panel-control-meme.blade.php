@@ -38,10 +38,6 @@
                 <input type="text" name="author" id="author" value="{{$meme->author}}">
             </div>
             <div class="wrapper-item">
-                <label for="nick">Creation Date:</label><br>
-                <input type="text" name="date" id="date" value="{{$meme->date}}">
-            </div>
-            <div class="wrapper-item">
                 <label for="nick">Article:</label><br>
                 <input type="text" name="article" id="article" value="{{$meme->article}}">
             </div>
