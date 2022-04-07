@@ -2,11 +2,15 @@
 
 use App\Models\User;
 use App\Models\Meme;
+use App\Models\Evaluation;
+use App\Models\News;
+use App\Models\TierList;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\MemeController;
 use App\Http\Controllers\EvaluationController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -70,3 +74,18 @@ Route::get('/admin/memes', function () {
     $memes = Meme::all();
     return view('panel-control-meme', ['memes' => $memes]);
 })->name('admin.memes');
+
+Route::get('/admin/news', function () {
+    $news = News::all();
+    return view('panel-control-news', ['news' => $news]);
+})->name('admin.news');
+
+Route::get('/admin/evaluation', function () {
+    $evaluation = Evaluation::all();
+    return view('panel-control-evaluation', ['evaluation' => $evaluation]);
+})->name('admin.evaluation');
+
+Route::get('/admin/tierlist', function () {
+    $tierlist = TierList::all();
+    return view('panel-control-tier-list', ['tierlist' => $tierlist]);
+})->name('admin.tierlist');

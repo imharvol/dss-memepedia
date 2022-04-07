@@ -7,6 +7,7 @@
 
 @section('content')
 @parent
+<h1 class="page-title"> Panel de Control - Evaluation </h1>
 
 @foreach ($evaluation as $eva)
 <div class="user-box">

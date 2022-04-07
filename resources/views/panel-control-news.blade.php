@@ -8,6 +8,8 @@
 @section('content')
 @parent
 
+<h1 class="page-title"> Panel de Control - News </h1>
+
 @foreach ($news as $new)
 <div class="user-box">
     <h1 class="user-nick-header">{{$new->id}} - {{$new->title}}</h1>

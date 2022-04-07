@@ -8,6 +8,8 @@
 @section('content')
 @parent
 
+<h1 class="page-title"> Panel de Control - TierList </h1>
+
 @foreach ($tierlist as $tier)
 <div class="user-box">
     <h1 class="user-nick-header">{{$tier->id}} - {{$tier->name}}</h1>
