@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\MemeController;
 use App\Http\Controllers\EvaluationController;
-
+use App\Http\Controllers\SearchController;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,6 +42,8 @@ Route::get('/entrada', function () {
 Route::get('/comentarios', function () {
     return view('comentarios');
 })->name('comentarios');
+
+Route::get('/search', [SearchController::class, 'search'])->name('search');
 
 Route::get('/signin', [UserController::class, 'signin'])->name('user.signin');
 

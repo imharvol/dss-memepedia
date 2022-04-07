@@ -11,7 +11,9 @@
 
 @foreach ($memes as $meme)
 <div class="user-box">
-    <h1 class="user-nick-header">{{$meme->id}} - {{$meme->name}}</h1>
+    <a href="{{route('meme.show', ['memeId' => $meme->id])}}">
+        <h1 class="user-nick-header">{{$meme->id}} - {{$meme->name}}</h1>
+    </a>
 
     <form action="{{route('meme.delete')}}" method="POST">
         @csrf

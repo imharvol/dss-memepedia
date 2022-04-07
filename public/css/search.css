@@ -1,0 +1,31 @@
+.search-container {
+    text-align: center;
+}
+
+.search-input {
+    padding: 6px;
+    margin-top: 8px;
+    font-size: 1.5em;
+    border: black 0.1em solid;
+    background-color: #f2f2f2;
+}
+
+.search-container button {
+    padding: 6px 10px;
+    margin-top: 8px;
+    margin-right: 16px;
+    background: #ddd;
+    font-size: 1.6em;
+    border: none;
+    cursor: pointer;
+}
+
+.meme-result {
+    color: white;
+    padding: 1em;
+    margin: 0.5em;
+    border-radius: 1em;
+    background-color: #903749;
+    font-weight: bold;
+    text-decoration: none;
+}

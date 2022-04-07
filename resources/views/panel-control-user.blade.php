@@ -12,7 +12,9 @@
 
 @foreach ($users as $user)
 <div class="user-box">
-    <h1 class="user-nick-header">{{$user->id}} - {{$user->nick}}</h1>
+    <a href="{{route('user.show', ['username' => $user->nick])}}">
+        <h1 class="user-nick-header">{{$user->id}} - {{$user->nick}}</h1>
+    </a>
 
     <form action="{{route('user.delete')}}" method="POST">
         @csrf
