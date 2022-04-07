@@ -63,37 +63,23 @@ class UserController extends Controller
         }
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\User  $user
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(User $user)
+    public function delete(Request $request)
     {
-        //
+        $user = User::firstWhere('id', $request->id);
+        $user->delete();
+        return back();
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\User  $user
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, User $user)
+    public function update(Request $request)
     {
-        //
-    }
+        $user = User::firstWhere('id', $request->id);
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->nick = $request->username;
+        $user->surname = $request->surname;
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\User  $user
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(User $user)
-    {
-        //
+        $user->save();
+
+        return back();
     }
 }

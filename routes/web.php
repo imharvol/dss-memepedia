@@ -42,8 +42,7 @@ Route::get('/comentarios', function () {
 Route::get('/signin', [UserController::class, 'signin'])->name('user.signin');
 
 Route::get('/signup', [UserController::class, 'signup'])->name('user.signup');
-
-Route::put('/signup-create', [UserController::class, 'create'])->name('user.create');
+Route::put('/signup', [UserController::class, 'create'])->name('user.create');
 
 // Para tomar como ejemplo:
 // Ruta llamada user.show que al ser llamada, acepta un argumento username
@@ -51,11 +50,17 @@ Route::put('/signup-create', [UserController::class, 'create'])->name('user.crea
 Route::get('/u/{username}', [UserController::class, 'show'])->name('user.show');
 
 Route::get('/u', [UserController::class, 'index'])->name('user.list');
+Route::delete('/u', [UserController::class, 'delete'])->name('user.delete');
+Route::post('/u', [UserController::class, 'update'])->name('user.update');
 
 Route::get('/m', [MemeController::class, 'index'])->name('meme.list');
-Route::get('/m/create', [MemeController::class, 'create'])->name('meme.create');
-Route::put('/m/store', [MemeController::class, 'store'])->name('meme.store');
 
+Route::get('/m/create', [MemeController::class, 'create'])->name('meme.create');
+Route::put('/m', [MemeController::class, 'store'])->name('meme.store');
+Route::delete('/m', [MemeController::class, 'delete'])->name('meme.delete');
+
+
+// Panel de control
 Route::get('/admin/users', function () {
     $users = User::all();
     return view('panel-control-user', ['users' => $users]);
