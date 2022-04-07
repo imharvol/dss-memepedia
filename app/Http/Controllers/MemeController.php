@@ -49,15 +49,16 @@ class MemeController extends Controller
         return redirect(route('index')); // TODO: Hacer que lo redirija a la página del meme
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Meme  $meme
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Meme $meme)
+    public function show($memeId)
     {
-        //
+        $meme = Meme::firstWhere('id', $memeId);
+
+        if ($meme) {
+            return view('entrada', ['meme' => $meme]);
+        } else {
+            return view('error-page', ['error_message' => 'Meme no encontrado!']);
+        }
+
     }
 
     public function delete(Request $request)
@@ -78,16 +79,16 @@ class MemeController extends Controller
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Meme  $meme
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Meme $meme)
+    public function update(Request $request)
     {
-        //
+        $meme = Meme::firstWhere('id', $request->id);
+        $meme->name = $request->name;
+        $meme->description = $request->description;
+        $meme->article = $request->article;
+
+        $meme->save();
+
+        return back();
     }
 
     /**

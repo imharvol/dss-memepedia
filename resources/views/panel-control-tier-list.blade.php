@@ -8,31 +8,36 @@
 @section('content')
 @parent
 
-<div class="textoEntrada">
-	<h2> Panel de Control - TierList </h2>
-</div>
+<h1 class="page-title"> Panel de Control - TierList </h1>
 
-<div class="fondo">
-	<div class="recuadroUsuario">
-        <div class="fuenteTexto">
-        	<div class="nombre" contenteditable="true">
-            	<h3> 1. </h3><h3>TierPepos</h3>
+@foreach ($tierlist as $tier)
+<div class="user-box">
+    <h1 class="user-nick-header">{{$tier->id}} - {{$tier->name}}</h1>
+
+    <form action="{{route('tier.delete')}}" method="POST">
+        @csrf
+        @method('DELETE')
+        <input type="text" name="id" id="id" value="{{$tier->id}}" hidden>
+        <input class="input-button" type="submit" value="Borrar TierList">
+    </form>
+
+    <form action="{{route('tier.update')}}" method="POST">
+        @csrf
+        @method('POST')
+        <div class="wrapper">
+            <input type="text" name="id" id="id" value="{{$tier->id}}" hidden>
+            <div class="wrapper-item">
+                <label for="nick">Name:</label><br>
+                <input type="text" name="name" id="name" value="{{$tier->name}}">
+            </div>
+            <div class="wrapper-item">
+                <label for="nick">Visits:</label><br>
+                <input type="text" name="visitas" id="visitas" value="{{$tier->visitas}}">
             </div>
         </div>
-        <input type="image" name="delete1" id="delete1" src="https://cdn0.iconfinder.com/data/icons/social-messaging-ui-color-shapes/128/trash-circle-red-512.png">
-    </div>
-    <div class="recuadroUsuario">
-        <div class="fuenteTexto" contenteditable="true">
-            <h3> 2. </h3><h3>TierCC</h3>
-        </div>
-        <input type="image" name="delete2" id="delete2" src="https://cdn0.iconfinder.com/data/icons/social-messaging-ui-color-shapes/128/trash-circle-red-512.png">
-    </div>
-    <div class="recuadroUsuario">
-        <div class="fuenteTexto" contenteditable="true">
-            <h3> 3. </h3><h3>TierShinChan</h3>
-        </div>
-        <input type="image" name="delete3" id="delete3" src="https://cdn0.iconfinder.com/data/icons/social-messaging-ui-color-shapes/128/trash-circle-red-512.png">
-    </div>
+        <input type="submit" value="Guardar TierList">
+    </form>
 </div>
+@endforeach
 
 @endsection

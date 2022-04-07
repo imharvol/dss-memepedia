@@ -1,40 +1,32 @@
-.textoEntrada {
-    color: #2b2e4a;
-    font-family: "Lato";
-    font-weight: bold;
-    font-size: 40px;
+.page-title {
     text-align: center;
-}
-.fondo {
-    width: 100%;
-    min-height: 600px;
-    padding: 8px 8px 8px 8px;
-    background: #903749;
-    margin-top: -2%;
-}
-.fuenteTexto {
-    font-family: "Helvetica";
-    font-weight: 400;
-    font-size: 18px;
-    margin-right: auto;
-    color: #ffffff;
-}
-.recuadroUsuario {
-    width: 100%;
-    height: 47px;
-    background: #2b2e4a;
-    color: #ffffff;
-    border-color: #ffffff;
-    border-width: 2px;
-    border-style: solid;
-    display: flex;
-    margin-top: -0.1%;
-    justify-content: right;
-}
-h3 {
-    display: inline;
-}
+    font-weight: bold;
+    font-size: 3em;
+    }
 
-.trashicon {
-    height: 100%;
-}
+    .user-box {
+        color: white;
+        padding: 1em;
+        margin: 0.5em;
+        border-radius: 1em;
+        background-color: #903749;
+        font-weight: bold;
+    }
+
+    .user-nick-header {
+        font-weight: bold;
+        margin-bottom: 0.5em;
+    }
+
+    .wrapper {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+    }
+
+    .wrapper-item {
+        text-align: center;
+    }
+
+    .input-button {
+        margin: 0.5em;
+    }
