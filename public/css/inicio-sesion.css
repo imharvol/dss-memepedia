@@ -66,6 +66,18 @@
     height: 2vh;
     max-height: 20px;
     margin-top: 2vh;
+    padding: 4px 8px 4px 8px;
+    opacity: 85%;
+    background: #ffffff;
+    color: #aaaaaa;
+    border-color: #000000;
+    border-width: 1px;
+    border-style: solid;
+    font-family: "Source Sans Pro";
+    font-weight: 400;
+    font-size: 2vmin;
+    text-align: left;
+    margin-top: 2vh;
     
 }
 .espacio

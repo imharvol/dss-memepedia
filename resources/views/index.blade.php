@@ -7,23 +7,8 @@
 
 @section('content')
 @parent
-<div class="col p-0 m-0">
-    <div class="textoBienvenida row pr-0 pl-0 mr-0 ml-0 mb-2">
-                <div class="col-6" align="left">
-                    <scap>Bienvenidos a </scap>
-                    <div class="MEMEpedia" style="display:inline">
-                        <scap>MEMEpedia</scap>
-                    </div>
-                    <div>
-                        <scap>la enciclopedia de memes oficial</scap>
-                    </div>
-                </div>
-                <div class="search-container col-6 mr-5 align-middle" align=right>
-                    <form id="form"> 
-                        <input class="barraBusqueda mr-5" type="search" id="query" placeholder=" Buscar">
-                    </form>
-                </div>
-    </div>
+<?php include $_SERVER['DOCUMENT_ROOT'].'/../resources/views/layouts/bienvenidosybarra.blade.php'; ?> <!-- Unificar la barra y título -->
+
 
     <div class="subRectangulo row p-0 m-0">
         <div class="mensajeMemes row pl-3">

@@ -1,0 +1,101 @@
+.textoBienvenida
+{
+    color: #2b2e4a;
+    font-family: "Source Sans Pro";
+    font-size: 1.8vmin;
+}
+
+.MEMEpedia
+{
+    color: #903749;
+    font-family: "Lato";
+    font-weight: bold;
+    font-size: 4.5vmin;
+}
+
+.subRectangulo
+{
+    width: 100%;
+    padding: 8px 8px 8px 8px;
+    background: #2b2e4a;
+    margin-top: 2%;
+    display:flex;
+    justify-content: left;
+    height: 8vh;
+}
+.cosaBuscada
+{
+    color: #ffffff;
+    font-family: "Source Sans Pro";
+    white-space: pre;
+    font-size: 3vmin;
+    font-weight: bold;
+    margin-top: -10vh;
+}
+.etiquetas
+{
+    color: #ffffff;
+    font-family: "Source Sans Pro";
+    white-space: pre;
+    font-size: 2vmin;
+    margin-top: -2vh;
+}
+.parteInfo:after
+{
+    content: "";
+    display: table;
+    clear: both;
+}
+.columna
+{
+    float: left;
+    max-width: 65%;
+    padding: 10px; 
+    height: 100%;
+}
+*
+{
+  box-sizing: border-box;
+}
+img
+{
+    max-block-size: 35vmin;
+}
+.layout 
+{
+    width: 100%;
+    height: 100%;
+
+    display: grid;
+    grid:
+        "sidebar body" 1fr
+        / 50% 1fr;
+    gap: 8px;
+}
+.layout2
+{
+    width: 100%;
+    height: 100%;
+
+    display: grid;
+    grid:
+        "sidebar body" 1fr
+        / 50% 1fr;
+    gap: 2vw;
+    
+}
+.sidebar { grid-area: sidebar; }
+.body { grid-area: body; }
+.espacio
+{
+    margin-top: 1vh;
+    height: auto;
+    display: block;
+}
+.etq
+{
+    display:flex;
+    gap:16px;
+    margin-left: 1vw;
+    align-items: center;
+}

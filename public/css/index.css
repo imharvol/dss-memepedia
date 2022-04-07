@@ -69,20 +69,8 @@ max-width: 50%;
     white-space: pre;
     font-size: 18px;
 }
-.textoBienvenida{
-    color: #2b2e4a;
-    font-family: "Source Sans Pro";
-    margin-top:1%;
-    margin-left: 6%;
-}
-.MEMEpedia{
-    color: #903749;
-    font-family: "Lato";
-    font-weight: bold;
-    font-size: 48px;
-    text-shadow: px 5px 5px;
-}
-.lineaHorizontal2{
+
+ineaHorizontal2{
        width: 1000px;
     border-color: #ffffff;
     border-width: 0.5px;
@@ -102,19 +90,6 @@ p{
     white-space: pre;
     font-size: 18px;
     margin-top: -30px;
-}
-.barraBusqueda{
-       
-    height: 48px;
-    background: #903749;
-    color: #ffffff;
-    border-color: #903749;
-    border-width: 1px;
-    border-style: solid;
-    border-radius: 32px 32px 32px 32px;
-    font-family: "Helvetica";
-    font-weight: bold;
-    font-size: 18px;
 }
 .mensajeMemes{
     color: #ffffff;
