@@ -75,6 +75,9 @@ class MemeController extends Controller
             $meme->tags()->save($tag);
         }
 
+        // Guardamos la imagen
+        $path = $request->file('photo')->storeAs('public/memes', $meme->id);
+        
         // Redirigimos al usuario a la pagina del meme que acaba de crear
         return redirect(route('meme.show', ['memeId' => $meme->id]));
     }

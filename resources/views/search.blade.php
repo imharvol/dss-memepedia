@@ -45,6 +45,7 @@
         <a href="{{route('meme.show', ['memeId' => $meme->id])}}">
           <h2>{{$meme->name}}</h2>
         </a>
+        <img src="{{asset('storage/memes/'.(string)$meme->id)}}" class="meme-photo">
         <p>{{$meme->description}}</p>
         <p>Tags:
           @foreach ($meme->tags as $tag)
