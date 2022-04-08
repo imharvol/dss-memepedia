@@ -26,8 +26,7 @@ class EvaluationTableSeeder extends Seeder
         $evaluation1Meme = Meme::find(1);
         $evaluation1->meme()->associate($evaluation1Meme);
 
-        $evaluation1Author->evaluations()->save($evaluation1);
-        $evaluation1Meme->evaluations()->save($evaluation1);
+        $evaluation1->save();
 
 
         $evaluation2 = new Evaluation();
@@ -39,8 +38,7 @@ class EvaluationTableSeeder extends Seeder
 
         $evaluation2Meme = Meme::find(2);
         $evaluation2->meme()->associate($evaluation2Meme);
-
-        $evaluation2Author->evaluations()->save($evaluation2);
-        $evaluation2Meme->evaluations()->save($evaluation2);
+        
+        $evaluation2->save();
     }
 }

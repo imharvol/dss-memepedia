@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Models\User;
 use App\Models\Evaluation;
+use App\Models\Tag;
 use Illuminate\Database\Eloquent\Model;
 
 class Meme extends Model
@@ -21,5 +22,11 @@ class Meme extends Model
     public function evaluations()
     {
         return $this->hasMany(Evaluation::class);
+    }
+
+    // https://laravel.com/docs/8.x/eloquent-relationships#one-to-many
+    public function tags()
+    {
+        return $this->belongsToMany(Tag::class, 'meme_tag');
     }
 }

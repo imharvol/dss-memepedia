@@ -6,20 +6,8 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateMemesTable extends Migration
 {
-    /**
-     * Run the Memes migrations.
-     *
-     * @return void
-     */
     public function up()
     {
-        Schema::create('tags', function (Blueprint $table) {
-            // https://laravel.com/docs/8.x/migrations#column-method-id
-            $table->id();
-
-            $table->string('name');
-        });
-
         Schema::create('memes', function (Blueprint $table) {
             // https://laravel.com/docs/8.x/migrations#column-method-id
             $table->id();
@@ -35,13 +23,30 @@ class CreateMemesTable extends Migration
 
             $table->timestamps();
         });
+
+        Schema::create('tags', function (Blueprint $table) {
+            // https://laravel.com/docs/8.x/migrations#column-method-id
+            $table->id();
+
+            $table->string('name');
+        });
+
+        // https://laravel.com/docs/8.x/eloquent-relationships#many-to-many
+        Schema::create('meme_tag', function (Blueprint $table) {
+            // https://laravel.com/docs/8.x/migrations#foreign-key-constraints
+            $table->unsignedBigInteger('meme_id');
+            $table->foreign('meme_id')->references('id')->on('memes')
+                ->cascadeOnUpdate()
+                ->cascadeOnDelete();
+
+            // https://laravel.com/docs/8.x/migrations#foreign-key-constraints
+            $table->unsignedBigInteger('tag_id');
+            $table->foreign('tag_id')->references('id')->on('tags')
+                ->cascadeOnUpdate()
+                ->cascadeOnDelete();
+        });
     }
 
-    /**
-     * Reverse the Memes migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('memes');
