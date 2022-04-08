@@ -7,7 +7,7 @@
 
 @section('content')
 @parent
-<div class="container">
+<div class="container" style="height: 100%;">
 
     <div class="rectanguloRegistro" align="center">
         <div class="textoRegistro">
@@ -45,13 +45,16 @@
                 <div class="botonRegistro" align="center">
                     <input class="boton" type="submit" value="Registrarse">
                 </div>
+                
                 <div class="textoCondiciones">
                     <span> Al hacer click en registrarse aceptas nuestras Condiciones. Obtén más información en nuestra Política de datos y Política de cookies </span>
+                    
                 </div>
             </form>
-
+            
+            
         </div>
-
+       
 
     </div>
 </div>

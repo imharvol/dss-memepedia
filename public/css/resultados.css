@@ -1,0 +1,59 @@
+.subRectangulo
+{
+    width: 100%;
+    padding: 8px 8px 8px 8px;
+    background: #2b2e4a;
+    margin-top: 2%;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+.mensajeMemes
+{
+    color: #ffffff;
+    font-family: "Lato";
+    font-weight: 400;
+    font-size: 3vmin;
+    letter-spacing: 1px;
+    display: flex;
+    flex-direction: column;
+    columns: 2;
+}
+
+.rectanguloPublicacion
+{
+    -webkit-box-flex: 1;          
+    -moz-box-flex: 1;
+    box-flex: 1;
+    -webkit-flex: 1 1 auto;
+    flex: 1 1 auto; 
+    margin-top: 3%;
+    padding:3vmin;
+    background-color: #903749;
+    text-align: center;
+    max-width: 40%;
+}     
+.comentarioFoto
+{
+    text-align:center;
+}
+.fecha
+{
+    width: 3vw;
+    height: 1vh;
+    color: #ffffff;
+    font-family: "Source Sans Pro";
+    font-weight: 400;
+    line-height: 1.6;
+}
+.botones
+{
+    max-width: 3.5vmin;
+}
+.meme
+{
+    max-width: 100%;
+    margin-left: 1vw;
+}

@@ -1,0 +1,49 @@
+.TierList
+{
+    text-shadow: 0px 3px 7px;
+    color: #903749;
+    font-family: "Lato";
+    font-weight: bold;
+    font-size: 5vmin;
+    line-height: 1;
+    letter-spacing: 2px;
+    text-align: center;
+}
+.lineaHorizontal1
+{
+    width: 40vw;
+    border-color: #2b2e4a;
+    border-width: 0.5px;
+    border-style: solid;
+    margin: auto;
+    margin-top: 1vh;
+}
+.botonesBuscarCrear
+{
+    margin-top: 3%;
+    text-align:center
+
+}
+button
+{
+    max-width: 25vw;
+    height: max-content;
+    background-color: #2b2e4a;
+}
+i
+{
+    font-size: 15vmin;
+    color: chocolate;
+}
+h2
+{
+    color: white;
+}
+.parrafo
+{
+    color: white;
+    max-width: max-content;
+    max-height: max-content;
+    margin-bottom: 1vh;
+
+}

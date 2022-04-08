@@ -12,17 +12,6 @@ use App\Http\Controllers\MemeController;
 use App\Http\Controllers\EvaluationController;
 use App\Http\Controllers\SearchController;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
 Route::get('/', function () {
     return view('index');
 })->name('index');
@@ -42,6 +31,38 @@ Route::get('/entrada', function () {
 Route::get('/comentarios', function () {
     return view('comentarios');
 })->name('comentarios');
+
+Route::get('/noticias', function () {
+    return view('noticias');
+})->name('noticias');
+
+Route::get('/resultados', function () {
+    return view('resultados');
+})->name('resultados');
+
+Route::get('/editar-perfil', function () {
+    return view('editar-perfil');
+})->name('editar-perfil');
+
+Route::get('/noticia-entrada', function () {
+    return view('noticia-entrada');
+})->name('noticia-entrada');
+
+Route::get('/tierlist', function () {
+    return view('tierlist');
+})->name('tierlist');
+
+Route::get('/tierlist-crear', function () {
+    return view('tierlist-crear');
+})->name('tierlist-crear');
+
+Route::get('/tierlist-buscar', function () {
+    return view('tierlist-buscar');
+})->name('tierlist-buscar');
+
+Route::get('/tierlist-jugar', function () {
+    return view('tierlist-jugar');
+})->name('tierlist-jugar');
 
 Route::get('/search', [SearchController::class, 'search'])->name('search');
 

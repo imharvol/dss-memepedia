@@ -1,0 +1,43 @@
+    .MEMEpedia
+    {
+        color: #903749;
+        font-family: "Lato";
+        font-weight: bold;
+        font-size: 4.5vmin;
+        text-align: center;
+        text-shadow: 0px 5px 5px;
+        font-size: 5    vmin;
+    }
+    .rectanguloTitulo
+    {
+        width: 100%;
+        padding: 8px 8px 8px 8px;
+        background: #2b2e4a;
+        margin-top: 2%;
+        display: flex;
+        justify-content: left;
+    }
+	.formato
+    {
+        color: #ffffff;
+        font-family: "Lato";
+        font-weight: 400;
+        font-size: 3vmin;
+        text-align: left;        
+    }
+    .myImage 
+    {
+      	float: right;
+      	max-height: 35vh;
+      	max-width: 35vw;
+      	font-family: Veranda;
+        margin: 1vmin;
+    }
+    .heading 
+    {
+      	float:right;
+    }
+	img
+    {
+        max-width: 100%;
+    }

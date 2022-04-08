@@ -30,12 +30,14 @@
 }
 .lineaHorizontal1
 {
-    width: 11vw;
+    width: 17vw;
+    margin:auto;
     border-color: #2b2e4a;
     border-width: 0.5px;
     border-style: solid;
     margin-top: 3vh;
-    float: center;
+    align-self: center;
+
 }
 .textbox
        {

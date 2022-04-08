@@ -12,11 +12,7 @@
         <div  class="textoCrearMeme row">
             <span>Sube tu MEME</span>
         </div>
-        <div class="row">
-            <div class="col pl-4 pr-4">
-            <hr style="height:4px;color:black">
-            </div>  
-        </div>
+        <div class="lineaHorizontal1"> </div>
         <div class="row">
             <form action="{{route('meme.store')}}" method="POST">
                 @csrf
