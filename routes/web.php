@@ -59,6 +59,20 @@ Route::get('/noticia-entrada', function () {
     return view('noticia-entrada');
 })->name('noticia-entrada');
 
+Route::get('/tierlist', function () {
+    return view('tierlist');
+})->name('tierlist');
+
+
+Route::get('/tierlist-crear', function () {
+    return view('tierlist-crear');
+})->name('tierlist-crear');
+
+Route::get('/tierlist-buscar', function () {
+    return view('tierlist-buscar');
+})->name('tierlist-buscar');
+
+
 Route::get('/signin', [UserController::class, 'signin'])->name('user.signin');
 
 Route::get('/signup', [UserController::class, 'signup'])->name('user.signup');

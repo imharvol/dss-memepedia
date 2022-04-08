@@ -1,0 +1,86 @@
+.CrearTierList 
+{
+    width: 100%;
+    padding: 8px 8px 8px 8px;
+    background: #2b2e4a;
+    margin-top: 1%;
+}
+.fuenteTexto
+{
+    color: #ffffff;
+    font-family: "Source Sans Pro";
+    font-weight: 400;
+    font-size: 16px;
+    margin-top: 2%;
+}
+.textbox
+{
+    width: 70%;
+    padding: 4px 8px 4px 8px;
+    margin-top:1%;
+    opacity: 85%;
+    background: #ffffff;
+    color: #aaaaaa;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 3px 3px 3px 3px;
+    font-family: "Source Sans Pro";
+    font-weight: 400;
+    font-size: 16px;
+    text-align: left;
+}
+scap
+{
+    font-weight: bold;
+}
+.boton
+{
+    background: #e84545;
+    color: #ffffff;
+    border-color: #903749;
+    border-width: 1px; 
+    border-style: solid;
+    font-family: "Helvetica";
+    font-weight: bold;
+    text-align: center;
+    width: 15%;
+    height: 6vh;
+    flex: 1;
+    font-weight: bold;
+    font-size: 2.5vmin;
+    max-height: 50px;
+    margin-left: 80%;
+}
+.espaciadoMinimo
+{
+    margin-top: 2%;
+}
+.center
+{
+    width: 43.45%;
+    height: auto;
+    padding: 8px 8px 8px 8px;
+    margin: auto;
+    position: relative;
+    margin-left: 37%;
+    /*width: 43.45%;*/
+    /*height: auto;*/
+    /*height: 65vh;*/
+}
+.espacio
+{
+    margin-top: 1vh;
+    height: auto;
+    display: block;
+}
+.TierList
+{
+    text-shadow: 0px 3px 7px;
+    color: #903749;
+    font-family: "Lato";
+    font-weight: bold;
+    font-size: 7vmin;
+    line-height: 1;
+    letter-spacing: 2px;
+    text-align: center;
+}
