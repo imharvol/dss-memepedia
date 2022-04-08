@@ -16,14 +16,21 @@
   </form>
 </div>
 
-<div class="search-results">
-  @foreach ($memes as $meme)
-  <div class="meme-result">
-    <a href="{{route('meme.show', ['memeId' => $meme['id']])}}">
-      <h2>{{$meme['name']}}</h2>
-    </a>
-    <p>{{$meme['description']}}</p>
+@if( count($memes) <= 0 )
+  <div class="no-search-results">
+    <h2>No se ha encontrado ningún meme con esos parametros de busqueda :(</h2>
+    <img src="{{URL('/images/crying-cat-meme.gif')}}">
   </div>
-  @endforeach
-</div>
+@else 
+  <div class="search-results">
+    @foreach ($memes as $meme)
+      <div class="meme-result">
+        <a href="{{route('meme.show', ['memeId' => $meme['id']])}}">
+          <h2>{{$meme['name']}}</h2>
+        </a>
+        <p>{{$meme['description']}}</p>
+      </div>
+    @endforeach
+  </div>
+@endif
 @endsection

@@ -29,3 +29,11 @@
     font-weight: bold;
     text-decoration: none;
 }
+
+.no-search-results {
+    text-align: center;
+    margin-top: 5em;
+    margin-bottom: 5em;
+    color:red;
+    font-weight: bold;
+}
