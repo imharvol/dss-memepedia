@@ -25,10 +25,15 @@
   <div class="search-results">
     @foreach ($memes as $meme)
       <div class="meme-result">
-        <a href="{{route('meme.show', ['memeId' => $meme['id']])}}">
-          <h2>{{$meme['name']}}</h2>
+        <a href="{{route('meme.show', ['memeId' => $meme->id])}}">
+          <h2>{{$meme->name}}</h2>
         </a>
-        <p>{{$meme['description']}}</p>
+        <p>{{$meme->description}}</p>
+        <p>Tags:
+          @foreach ($meme->tags as $tag)
+            <span>{{$tag->name}}</span>
+          @endforeach
+        </p>
       </div>
     @endforeach
   </div>

@@ -42,7 +42,7 @@ class MemeController extends Controller
         // Parseamos las tags que vienen separadas por comas en forma de strings
         $tagsRaw = explode(',', $request->tags); // Separar por comas
         $tagsMapped = array_map(function ($tagRaw) { // Eliminar los espacios de delante y detras
-            return trim($tagRaw);
+            return strtolower(trim($tagRaw));
         }, $tagsRaw);
         $tagsString = array_filter($tagsMapped, function ($tagMapped) { // Eliminar las que se queden vacias
             return $tagMapped != '';
