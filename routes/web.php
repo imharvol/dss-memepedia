@@ -72,6 +72,10 @@ Route::get('/tierlist-buscar', function () {
     return view('tierlist-buscar');
 })->name('tierlist-buscar');
 
+Route::get('/tierlist-jugar', function () {
+    return view('tierlist-jugar');
+})->name('tierlist-jugar');
+
 
 Route::get('/signin', [UserController::class, 'signin'])->name('user.signin');
 

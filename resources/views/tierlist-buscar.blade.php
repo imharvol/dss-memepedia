@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title', 'Meme Tierlist Search')
+@section('title', 'Meme Tierlist')
 
 @section('head')
 <link rel="stylesheet" href="{{URL('css/tierlist-buscar.css')}}">
