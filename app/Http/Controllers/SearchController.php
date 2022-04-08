@@ -17,7 +17,7 @@ class SearchController extends Controller
                 return str_contains(strtolower($meme['name']), strtolower($request->q)) || str_contains(strtolower($meme['description']), strtolower($request->q));
             });
         }
-        
+
         return view('search', ['q' => $request->q, 'memes' => $memes]);
     }
 }

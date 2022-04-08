@@ -21,10 +21,10 @@
             <form action="{{route('user.create')}}" align="left" class="form" method="POST">
                 @csrf
                 @method('PUT')
+                <input type="text" name="username" id="username" class="textbox" placeholder="Nombre de usuario" auto>
                 <input type="text" name="name" id="name" class="textbox" placeholder="Nombre" auto>
                 <input type="text" name="surname" id="surname" class="textbox" placeholder="Apellidos" auto>
                 <input type="text" name="email" id="email" class="textbox" placeholder="Correo electrónico" auto>
-                <input type="text" name="username" id="username" class="textbox" placeholder="Nombre de usuario" auto>
                 <input type="text" name="password" id="password" class="textbox" placeholder="Contraseña" auto>
                 <input type="text" name="password-check" id="password-check" class="textbox" placeholder="Repetir contraseña" auto> <!-- TODO: Esto debería ser client-side realmente -->
                 <div class="espacio"></div>

@@ -15,8 +15,7 @@
     <th>Id</th>
     <th>Name</th>
     <th>Description</th>
-    <th>Creator Id</th>
-    <th>Article</th>
+    <th>Author Id</th>
     <th>Created At</th>
     <th>Updated At</th>
   </tr>
@@ -26,8 +25,7 @@
     <td>{{$meme->id}}</td>
     <td>{{$meme->name}}</td>
     <td>{{$meme->description}}</td>
-    <td>{{$meme->user_id}}</td>
-    <td>{{$meme->article}}</td>
+    <td>{{$meme->author->username}}</td>
     <td>{{$meme->created_at}}</td>
     <td>{{$meme->updated_at}}</td>
   </tr>

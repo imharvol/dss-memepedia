@@ -12,8 +12,8 @@
 
 @foreach ($users as $user)
 <div class="user-box">
-    <a href="{{route('user.show', ['username' => $user->nick])}}">
-        <h1 class="user-nick-header">{{$user->id}} - {{$user->nick}}</h1>
+    <a href="{{route('user.show', ['username' => $user->username])}}">
+        <h1 class="user-nick-header">{{$user->id}} - {{$user->username}}</h1>
     </a>
 
     <form action="{{route('user.delete')}}" method="POST">
@@ -29,19 +29,19 @@
         <div class="wrapper">
             <input type="text" name="id" id="id" value="{{$user->id}}" hidden>
             <div class="wrapper-item">
-                <label for="nick">Username:</label><br>
-                <input type="text" name="username" id="username" value="{{$user->nick}}">
+                <label for="username">Username:</label><br>
+                <input type="text" name="username" id="username" value="{{$user->username}}">
             </div>
             <div class="wrapper-item">
-                <label for="nick">Email:</label><br>
+                <label for="email">Email:</label><br>
                 <input type="text" name="email" id="email" value="{{$user->email}}">
             </div>
             <div class="wrapper-item">
-                <label for="nick">Name:</label><br>
+                <label for="name">Name:</label><br>
                 <input type="text" name="name" id="name" value="{{$user->name}}">
             </div>
             <div class="wrapper-item">
-                <label for="nick">Surname:</label><br>
+                <label for="surname">Surname:</label><br>
                 <input class="input-button" type="text" name="surname" id="surname" value="{{$user->surname}}">
             </div>
         </div>

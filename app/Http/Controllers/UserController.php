@@ -29,23 +29,17 @@ class UserController extends Controller
         return view('crear-cuenta');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function create(Request $request)
     {
         // TODO: Comprobar si el usuario existe
 
         // Aqui tenemos que obtener los datos del usuario desde la request e introducirlo en la base de datos
         $user =  new User();
+        $user->username = $request->username;
         $user->name = $request->name;
+        $user->surname = $request->surname;
         $user->email = $request->email;
         $user->password = $request->password;
-        $user->nick = $request->username;
-        $user->surname = $request->surname;
         $user->save();
 
         // Una vez el usuario se ha creado correctamente, lo redirigimos al indice
@@ -54,7 +48,7 @@ class UserController extends Controller
 
     public function show($username)
     {
-        $user = User::firstWhere('nick', $username);
+        $user = User::firstWhere('username', $username);
 
         if ($user) {
             return view('user-profile', ['user' => $user]);

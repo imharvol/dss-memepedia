@@ -37,11 +37,7 @@
             </div>
             <div class="wrapper-item">
                 <label for="nick">Author:</label><br>
-                <input type="text" name="author" id="author" value="{{$meme->author}}">
-            </div>
-            <div class="wrapper-item">
-                <label for="nick">Article:</label><br>
-                <input type="text" name="article" id="article" value="{{$meme->article}}">
+                <input type="text" name="author" id="author" value="{{$meme->author->username}}">
             </div>
         </div>
         <input type="submit" value="Guardar meme">
