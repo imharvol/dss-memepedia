@@ -20,13 +20,13 @@ class EvaluationTableSeeder extends Seeder
         $evaluation1->comment = 'Muy bueno jaja';
         $evaluation1->rating = 9.5;
 
-        $evaluation1User = User::find(2);
-        $evaluation1->user()->associate($evaluation1User);
+        $evaluation1Author = User::find(2);
+        $evaluation1->author()->associate($evaluation1Author);
 
         $evaluation1Meme = Meme::find(1);
         $evaluation1->meme()->associate($evaluation1Meme);
 
-        $evaluation1User->evaluations()->save($evaluation1);
+        $evaluation1Author->evaluations()->save($evaluation1);
         $evaluation1Meme->evaluations()->save($evaluation1);
 
 
@@ -34,13 +34,13 @@ class EvaluationTableSeeder extends Seeder
         $evaluation2->comment = 'nooo epicoo';
         $evaluation2->rating = 8;
 
-        $evaluation2User = User::find(1);
-        $evaluation2->user()->associate($evaluation2User);
+        $evaluation2Author = User::find(1);
+        $evaluation2->author()->associate($evaluation2Author);
 
         $evaluation2Meme = Meme::find(2);
         $evaluation2->meme()->associate($evaluation2Meme);
 
+        $evaluation2Author->evaluations()->save($evaluation2);
         $evaluation2Meme->evaluations()->save($evaluation2);
-        $evaluation2User->evaluations()->save($evaluation2);
     }
 }

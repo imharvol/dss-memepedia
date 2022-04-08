@@ -7,29 +7,37 @@ use Illuminate\Support\Facades\Schema;
 class CreateEvaluationsTable extends Migration
 {
     /**
-     * Run the migrations.
+     * Run the Evaluations migrations.
      *
      * @return void
      */
     public function up()
     {
         Schema::create('evaluations', function (Blueprint $table) {
+            // https://laravel.com/docs/8.x/migrations#column-method-id
             $table->id();
-            $table->string('comment', 300);
-            $table->unsignedDouble('rating');
 
-            $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->string('comment')->nullable();
+            $table->float('rating');
 
+            // https://laravel.com/docs/8.x/migrations#foreign-key-constraints
+            $table->unsignedBigInteger('author_id');
+            $table->foreign('author_id')->references('id')->on('users')
+                ->cascadeOnUpdate()
+                ->cascadeOnDelete();
+
+            // https://laravel.com/docs/8.x/migrations#foreign-key-constraints
             $table->unsignedBigInteger('meme_id');
-            $table->foreign('meme_id')->references('id')->on('memes');
+            $table->foreign('meme_id')->references('id')->on('memes')
+                ->cascadeOnUpdate()
+                ->cascadeOnDelete();
 
             $table->timestamps();
         });
     }
 
     /**
-     * Reverse the migrations.
+     * Reverse the Evaluations migrations.
      *
      * @return void
      */

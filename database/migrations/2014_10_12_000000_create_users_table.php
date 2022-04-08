@@ -7,32 +7,37 @@ use Illuminate\Support\Facades\Schema;
 class CreateUsersTable extends Migration
 {
     /**
-     * Run the migrations.
+     * Run the Users migrations.
      *
      * @return void
      */
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
+            // https://laravel.com/docs/8.x/migrations#column-method-id
             $table->id();
 
-            $table->string('nick');
+            $table->string('username')->unique();
 
-            $table->string('name');
-            $table->string('surname');
+            $table->string('name')->nullable();
+            $table->string('surname')->nullable();
 
             $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
 
             $table->string('password');
 
+            // https://laravel.com/docs/8.x/migrations#column-method-rememberToken
             $table->rememberToken();
+
+            // https://laravel.com/docs/8.x/migrations#column-method-timestamps
             $table->timestamps();
+
+            $table->index('username');
         });
     }
 
     /**
-     * Reverse the migrations.
+     * Reverse the Users migrations.
      *
      * @return void
      */
