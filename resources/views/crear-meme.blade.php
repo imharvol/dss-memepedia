@@ -23,12 +23,12 @@
                 @method('PUT')
                 <div class="col p-3" name="formContent">
                     <div class="mb-3 row">
-                    <label class="label" for="titulo">Título</label>
-                    <input type="textbox" name="titulo" id="titulo" placeholder="Título" size="50" auto>
+                    <label class="label" for="name">Título</label>
+                    <input type="textbox" name="name" id="name" placeholder="Nombre" size="50" auto>
                     </div>
                     <div class="mb-3 row">
-                        <label for="etiquetas">Etiquetas</label>
-                        <input type="textbox" name="etiquetas" id="etiquetas" placeholder="Etiquetas (separadas por comas)" size="50">
+                        <label for="tags">Etiquetas (separadas por comas)</label>
+                        <input type="textbox" name="tags" id="tags" placeholder="Etiquetas" size="50">
                     </div>  
                     <div class="mb-3 row">
                         <label for="description">Descripción</label>

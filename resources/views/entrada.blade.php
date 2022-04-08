@@ -8,14 +8,15 @@
 
 @section('content')
 @parent
-<?php include $_SERVER['DOCUMENT_ROOT'].'/../resources/views/layouts/bienvenidosybarra.blade.php'; ?> <!-- Unificar la barra y título -->
+<?php include $_SERVER['DOCUMENT_ROOT'] . '/../resources/views/layouts/bienvenidosybarra.blade.php'; ?>
+<!-- Unificar la barra y título -->
 
-    <div class="subRectangulo">
-        <div class="cosaBuscada">
-            <h2 style="margin-left: 1vw">{{$meme->name}}</h2>
-        </div>
-        <div class="espacio"></div>
+<div class="subRectangulo">
+    <div class="cosaBuscada">
+        <h2 style="margin-left: 1vw">{{$meme->name}}</h2>
     </div>
+    <div class="espacio"></div>
+</div>
 <div style="margin-left: 1vw;">
     <section class="layout">
         <div class="sidebar" style="background-color:#ffffff;">
@@ -29,7 +30,11 @@
                 </div>
                 <div class="etq" align=left>
                     <h2>Etiquetas: </h2>
-                    <p class="etiquetas" style="margin-top:2vh">jaja,jeje,sojo</p>
+                    <p class="etiquetas" style="margin-top:2vh">
+                        @foreach ($meme->tags as $tag)
+                            {{$tag->name}}
+                        @endforeach
+                    </p>
                 </div>
                 <div class="espacio"></div>
             </div>

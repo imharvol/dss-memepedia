@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\Meme;
+use App\Models\Tag;
 use Illuminate\Http\Request;
 
 class MemeController extends Controller
@@ -38,15 +39,44 @@ class MemeController extends Controller
      */
     public function store(Request $request)
     {
-        $meme = new Meme();
-        $meme->name = $request->titulo;
-        $meme->description = $request->description;
-        $meme->article = $request->article || ""; // TODO: Añadir input de article
-        $memeUser = User::first();
-        $meme->user()->associate($memeUser);
-        $memeUser->memes()->save($meme);
+        // Parseamos las tags que vienen separadas por comas en forma de strings
+        $tagsRaw = explode(',', $request->tags); // Separar por comas
+        $tagsMapped = array_map(function ($tagRaw) { // Eliminar los espacios de delante y detras
+            return trim($tagRaw);
+        }, $tagsRaw);
+        $tagsString = array_filter($tagsMapped, function ($tagMapped) { // Eliminar las que se queden vacias
+            return $tagMapped != '';
+        });
 
-        return redirect(route('index')); // TODO: Hacer que lo redirija a la página del meme
+        // Creamos un array de ORM tags para asignar al meme
+        $tags = array();
+        foreach ($tagsString as $tagString) {
+            $tag = Tag::firstWhere('name', $tagString);
+            if ($tag == null) { // Si no existe el tag, lo creamos
+                $tag = new Tag();
+                $tag->name = $tagString;
+                $tag->save();
+            }
+            array_push($tags, $tag);
+        }
+
+        $meme = new Meme();
+        $meme->name = $request->name;
+        $meme->description = $request->description;
+        $memeUser = User::first(); // En la implementación actual, nos da igual el usuario
+
+        // Asociamos el usuario creador
+        $meme->author()->associate($memeUser);
+
+        $meme->save();
+
+        // Asociamos las tags del meme
+        foreach ($tags as $tag) {
+            $meme->tags()->save($tag);
+        }
+
+        // Redirigimos al usuario a la pagina del meme que acaba de crear
+        return redirect(route('meme.show', ['memeId' => $meme->id]));
     }
 
     public function show($memeId)
@@ -58,7 +88,6 @@ class MemeController extends Controller
         } else {
             return view('error-page', ['error_message' => 'Meme no encontrado!']);
         }
-
     }
 
     public function delete(Request $request)
