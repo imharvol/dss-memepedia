@@ -55,6 +55,10 @@ Route::get('/editar-perfil', function () {
     return view('editar-perfil');
 })->name('editar-perfil');
 
+Route::get('/noticia-entrada', function () {
+    return view('noticia-entrada');
+})->name('noticia-entrada');
+
 Route::get('/signin', [UserController::class, 'signin'])->name('user.signin');
 
 Route::get('/signup', [UserController::class, 'signup'])->name('user.signup');
