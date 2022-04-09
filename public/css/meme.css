@@ -1,0 +1,59 @@
+.meme-contents {
+  width: 75vw;
+  margin: auto;
+  min-height: 100vh;
+  background-color: #2b2e4a;
+  text-align: center;
+  color:white;
+}
+
+.meme-name {
+  font-weight: bold;
+  font-size: 4em;
+  margin-top: 0.5em;
+}
+
+.meme-id {
+  font-size: 0.2em;
+}
+
+.meme-photo {
+  max-width: 50vw;
+  max-height: 50vh;
+}
+
+.camp-container {
+  text-align: justify;
+  padding-left: 10vw;
+  padding-right: 10vw;
+  margin:2em;
+}
+
+.camp-title {
+  font-weight: bold;
+  font-size: 1.5em;
+}
+
+.meme-description {
+  margin-left: 1vw;
+}
+
+.tags-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.tag-element {
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+  padding: 0.2em;
+  border-radius: 0.3em;
+  background-color: #903749;
+  cursor: pointer;
+  color: white;
+}
+
+.tag-element:hover {
+  background-color: white;
+  color:black;
+}

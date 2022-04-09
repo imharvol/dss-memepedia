@@ -87,7 +87,7 @@ class MemeController extends Controller
         $meme = Meme::firstWhere('id', $memeId);
 
         if ($meme) {
-            return view('entrada', ['meme' => $meme]);
+            return view('meme', ['meme' => $meme]);
         } else {
             return view('error-page', ['error_message' => 'Meme no encontrado!']);
         }

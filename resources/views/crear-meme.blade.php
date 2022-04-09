@@ -28,7 +28,7 @@
                     </div>  
                     <div class="mb-3 row">
                         <label for="description">Descripción</label>
-                        <textarea name="description" id="description" placeholder="Descripción del meme (max.500 caracteres)" maxlength="500" rows="8"></textarea>
+                        <textarea name="description" id="description" placeholder="Descripción del meme"rows="8"></textarea>
                     </div> 
                     
                     <label for="meme-photo">Subir imagen (formatos jpg y png) </label> 
