@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title', 'Crear Cuenta')
+@section('title', $meme->name.' | Memepedia')
 
 @section('head')
 <link rel="stylesheet" href="{{URL('css/meme.css')}}">
@@ -30,6 +30,36 @@
   <div class="camp-container">
     <span class="camp-title">Descripción:</span>
     <p class="meme-description">{{$meme->description}}</p>
+  </div>
+
+  <div class="camp-container evaluation-box">
+    <span class="camp-title">Comentar:</span>
+    <form>
+      <textarea class="evaluation-comment" name="comment"></textarea>
+
+      <div class="evaluation-comment">
+        <label for="rating-input">Puntuación:</label>
+        <input id="rating-input" name="rating" type="number" min="0" max="10" step="0.1" required>
+        <input class="submit-comment" type="submit" value="Comentar">
+      </div>
+      
+    </form>
+  </div>
+
+  <hr class="camp-separator">
+
+  <div class="camp-container evaluation-box">
+    <span class="camp-title">Comentarios:</span>
+
+    <div class="comment-container">
+      <span class="comment-author">imharvol</span> | <span class="comment-rating">9.5 puntos</span>
+      <p class="comment-text">Esto es una mierda</p>
+    </div>
+
+    <div class="comment-container">
+      <span class="comment-author">imharvol</span> | <span class="comment-rating">1.1 puntos</span>
+      <p class="comment-text">Esto es una mierda</p>
+    </div>
   </div>
 </div>
 @endsection
