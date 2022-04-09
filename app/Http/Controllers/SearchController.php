@@ -70,6 +70,14 @@ class SearchController extends Controller
             });
         }
 
-        return view('search', ['q' => $request->q, 'filter' => $request->filter, 'sort' => $request->sort, 'memes' => $memes]);
+        $totalLength = count($memes);
+
+        $page = (int)$request->p ?? 1;
+        $limit = (int)$request->l ?? 10;
+        if ($limit <= 0) $limit = 10;
+        if ($limit > 50) $limit = 50;
+        $memes = $memes->forPage($page, $limit);
+
+        return view('search', ['q' => $request->q, 'filter' => $request->filter, 'sort' => $request->sort, 'memes' => $memes, 'limit' => $limit, 'page' => $page, 'totalLength' => $totalLength]);
     }
 }

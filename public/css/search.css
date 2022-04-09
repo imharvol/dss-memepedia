@@ -49,3 +49,12 @@
 .meme-photo {
     width: 20vmax;
 }
+
+.pages {
+    text-align: center;
+}
+
+.selected-page {
+    font-weight: bold;
+    text-decoration: none;
+}

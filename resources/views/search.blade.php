@@ -55,5 +55,12 @@
       </div>
     @endforeach
   </div>
+  <!-- Pagination -->
+  <p class="pages">
+    Páginas:
+    @for ($i = 1; $i <= ceil($totalLength/$limit); $i++)
+      <a class="{{ $i == $page ? 'selected-page' : null}}"href="{{route('search', ['q' => $q, 'filter' => $filter, 'sort' => $sort, 'l' => $limit, 'p' => $i])}}">{{ $i }}</a>
+    @endfor
+  </p>
 @endif
 @endsection
