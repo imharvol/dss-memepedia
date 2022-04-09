@@ -63,10 +63,10 @@ class MemeController extends Controller
         $meme = new Meme();
         $meme->name = $request->name;
         $meme->description = $request->description;
-        $memeUser = User::first(); // En la implementación actual, nos da igual el usuario
+        $memeAuthor = User::first(); // En la implementación actual, nos da igual el usuario
 
         // Asociamos el usuario creador
-        $meme->author()->associate($memeUser);
+        $meme->author()->associate($memeAuthor);
 
         $meme->save();
 
