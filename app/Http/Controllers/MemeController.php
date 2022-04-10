@@ -116,7 +116,12 @@ class MemeController extends Controller
         $meme = Meme::firstWhere('id', $request->id);
         $meme->name = $request->name;
         $meme->description = $request->description;
-        $meme->article = $request->article;
+
+        $newAuthor = User::firstWhere('username', $request->authorUsername);
+        if ($newAuthor == null) {
+            return view('error-page', ['error_message' => 'No se ha encontrado a ningun usuario con username <'.$request->authorUsername.'>']);
+        }
+        $meme->author()->associate($newAuthor);
 
         $meme->save();
 

@@ -28,16 +28,16 @@
         <div class="wrapper">
             <input type="text" name="id" id="id" value="{{$meme->id}}" hidden>
             <div class="wrapper-item">
-                <label for="nick">Name:</label><br>
+                <label for="name">Name:</label><br>
                 <input type="text" name="name" id="name" value="{{$meme->name}}">
             </div>
             <div class="wrapper-item">
-                <label for="nick">Description:</label><br>
+                <label for="description">Description:</label><br>
                 <input type="text" name="description" id="description" value="{{$meme->description}}">
             </div>
             <div class="wrapper-item">
-                <label for="nick">Author:</label><br>
-                <input type="text" name="author" id="author" value="{{$meme->author->username}}">
+                <label for="authorUsername">Author:</label><br>
+                <input type="text" name="authorUsername" id="authorUsername" value="{{$meme->author->username}}">
             </div>
         </div>
         <input type="submit" value="Guardar meme">
