@@ -64,6 +64,10 @@ Route::get('/tierlist-jugar', function () {
     return view('tierlist-jugar');
 })->name('tierlist-jugar');
 
+Route::get('/admin', function () {
+    return view('admin');
+})->name('admin.interface');
+
 Route::get('/search', [SearchController::class, 'search'])->name('search');
 
 Route::get('/signin', [UserController::class, 'signin'])->name('user.signin');

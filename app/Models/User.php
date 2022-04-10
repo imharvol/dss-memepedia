@@ -8,6 +8,10 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
+    static function currentUser () {
+        return User::first();
+    }
+
     // https://laravel.com/docs/8.x/eloquent#mass-assignment
     protected $guarded = [];
 

@@ -39,7 +39,7 @@ class EvaluationController extends Controller
         $evaluationMeme = Meme::firstWhere('id', $request->memeId);
         $evaluation->meme()->associate($evaluationMeme);
 
-        $evaluationAuthor = User::first(); // En la implementación actual, nos da igual el usuario
+        $evaluationAuthor = User::currentUser(); // En la implementación actual, nos da igual el usuario
         $evaluation->author()->associate($evaluationAuthor);
 
         $evaluation->save();
