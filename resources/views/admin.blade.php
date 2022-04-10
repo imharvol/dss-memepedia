@@ -15,7 +15,7 @@
   <a class="admin-panel-item" href="{{route('admin.memes')}}">
     Memes
   </a>
-  <a class="admin-panel-item">
+  <a class="admin-panel-item" href="{{route('admin.evaluations')}}">
     Evaluations
   </a>
   <a class="admin-panel-item">
