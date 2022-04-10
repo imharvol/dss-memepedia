@@ -42,19 +42,34 @@
   <div class="search-results">
     @foreach ($memes as $meme)
       <div class="meme-result">
-        <a href="{{route('meme.show', ['memeId' => $meme->id])}}">
-          <h2>{{$meme->name}}</h2>
-        </a>
-        <img src="{{asset('storage/memes/'.(string)$meme->id)}}" class="meme-photo">
-        <p>{{$meme->description}}</p>
-        <p>Tags:
-          @foreach ($meme->tags as $tag)
-            <span>{{$tag->name}}</span>
-          @endforeach
-        </p>
+
+        <div class="meme-flex-container">
+          <div class="meme-flex-item meme-left-container">
+            <img src="{{asset('storage/memes/'.(string)$meme->id)}}" class="meme-photo">
+            
+            <span>Tags:</tags>
+            <div class="tags-container">
+              @foreach ($meme->tags as $tag) 
+                <strong><a class="tag-element" href="{{route('search', ['q' => $tag->name])}}">{{$tag->name}}</a></strong>
+              @endforeach
+            </div>
+
+            <span>Author:</span>
+            <strong><a class="tag-element" href="{{route('user.show', ['username' => $meme->author->username])}}">{{$meme->author->username}}</a></strong>
+          </div>
+
+          <div class="meme-flex-item meme-right-container">
+            <a class="meme-title" href="{{route('meme.show', ['memeId' => $meme->id])}}">
+              <h2 class="meme-title">{{$meme->name}}</h2>
+            </a>
+            <p class="meme-description">{{$meme->description}}</p>
+          </div>
+          
+        </div>
       </div>
     @endforeach
   </div>
+  
   <!-- Pagination -->
   <p class="pages">
     Páginas:
