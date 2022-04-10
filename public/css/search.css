@@ -31,11 +31,14 @@
 .meme-result {
     color: white;
     padding: 1em;
-    margin: 0.5em;
+    margin: auto;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
     border-radius: 1em;
     background-color: #2b2e4a;
     font-weight: bold;
     text-decoration: none;
+    width: 80vw;
 }
 
 .no-search-results {

@@ -11,6 +11,8 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\MemeController;
 use App\Http\Controllers\EvaluationController;
 use App\Http\Controllers\SearchController;
+use App\Http\Controllers\AdminPanelController;
+
 
 Route::get('/', function () {
     return view('index');
@@ -64,6 +66,10 @@ Route::get('/tierlist-jugar', function () {
     return view('tierlist-jugar');
 })->name('tierlist-jugar');
 
+Route::get('/admin', function () {
+    return view('admin');
+})->name('admin.interface');
+
 Route::get('/search', [SearchController::class, 'search'])->name('search');
 
 Route::get('/signin', [UserController::class, 'signin'])->name('user.signin');
@@ -84,17 +90,13 @@ Route::post('/m', [MemeController::class, 'update'])->name('meme.update'); // Mo
 Route::get('/m/{memeId}', [MemeController::class, 'show'])->name('meme.show'); // Ver meme
 
 Route::put('/e', [EvaluationController::class, 'store'])->name('evaluation.store'); // Recepcion de formulario de creacion de evaluations
+Route::delete('/e', [EvaluationController::class, 'delete'])->name('evaluation.delete'); // Recepcion de formulario de eliminacion de evaluations
+Route::post('/e', [EvaluationController::class, 'update'])->name('evaluation.update'); // Recepcion de formulario de modificacion de evaluations
 
 // Panel de control
-Route::get('/admin/users', function () {
-    $users = User::all();
-    return view('panel-control-user', ['users' => $users]);
-})->name('admin.users');
-
-Route::get('/admin/memes', function () {
-    $memes = Meme::all();
-    return view('panel-control-meme', ['memes' => $memes]);
-})->name('admin.memes');
+Route::get('/admin/users', [AdminPanelController::class, 'usersInterface'])->name('admin.users');
+Route::get('/admin/memes', [AdminPanelController::class, 'memesInterface'])->name('admin.memes');
+Route::get('/admin/evaluations', [AdminPanelController::class, 'evaluationsInterface'])->name('admin.evaluations');
 
 // Route::get('/admin/news', function () {
 //     $news = News::all();

@@ -1,0 +1,35 @@
+.admin-panel-title {
+  text-align: center;
+  font-weight: bold;
+  font-size: 3em;
+  margin: 0.5em;
+}
+
+.admin-panel-items {
+  margin: auto;
+  width: 50vw;
+}
+
+.admin-panel-item {
+  text-align: center;
+  font-weight: bold;
+  font-size: 2em;
+  margin: 0.5em;
+  background-color: #903749;
+  color:white;
+  border-radius: 0.5em;
+  padding: 0.5em;
+  display: block;
+}
+
+@media screen and (max-width: 500px) {
+  .admin-panel-items {
+    width: 100vw;
+  }
+}
+
+.admin-panel-item:hover {
+  cursor:pointer;
+  color:white;
+  background-color: #ba445c;
+}

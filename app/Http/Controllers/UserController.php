@@ -69,7 +69,7 @@ class UserController extends Controller
         $user = User::firstWhere('id', $request->id);
         $user->name = $request->name;
         $user->email = $request->email;
-        $user->nick = $request->username;
+        $user->username = $request->username;
         $user->surname = $request->surname;
 
         $user->save();
