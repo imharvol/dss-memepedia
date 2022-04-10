@@ -63,10 +63,10 @@ class MemeController extends Controller
         $meme = new Meme();
         $meme->name = $request->name;
         $meme->description = $request->description;
-        $memeUser = User::first(); // En la implementación actual, nos da igual el usuario
+        $memeAuthor = User::first(); // En la implementación actual, nos da igual el usuario
 
         // Asociamos el usuario creador
-        $meme->author()->associate($memeUser);
+        $meme->author()->associate($memeAuthor);
 
         $meme->save();
 
@@ -75,6 +75,9 @@ class MemeController extends Controller
             $meme->tags()->save($tag);
         }
 
+        // Guardamos la imagen
+        $path = $request->file('photo')->storeAs('public/memes', $meme->id);
+        
         // Redirigimos al usuario a la pagina del meme que acaba de crear
         return redirect(route('meme.show', ['memeId' => $meme->id]));
     }
@@ -84,7 +87,7 @@ class MemeController extends Controller
         $meme = Meme::firstWhere('id', $memeId);
 
         if ($meme) {
-            return view('entrada', ['meme' => $meme]);
+            return view('meme', ['meme' => $meme]);
         } else {
             return view('error-page', ['error_message' => 'Meme no encontrado!']);
         }

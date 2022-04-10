@@ -14,7 +14,7 @@
         </div>
         <div class="lineaHorizontal1"> </div>
         <div class="row">
-            <form action="{{route('meme.store')}}" method="POST">
+            <form action="{{route('meme.store')}}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
                 <div class="col p-3" name="formContent">
@@ -28,10 +28,13 @@
                     </div>  
                     <div class="mb-3 row">
                         <label for="description">Descripción</label>
-                        <textarea name="description" id="description" placeholder="Descripción del meme (max.500 caracteres)" maxlength="500" rows="8"></textarea>
+                        <textarea name="description" id="description" placeholder="Descripción del meme"rows="8"></textarea>
                     </div> 
-                    <label>Subir imagen(formatos jpg, tif y png. Máx. 200kB) </label> 
-                    <img src="url" alt="icono imagen"> 
+                    
+                    <label for="meme-photo">Subir imagen (formatos jpg y png) </label> 
+                    <input type="file" id="meme-photo" name="photo" accept="image/png, image/jpeg">
+
+                    <!-- <img src="url" alt="icono imagen">  -->
                     <div class="botonInicio" align="center">
                         <input class="boton" type="submit" name="btnSubirMeme" id="btnSubirMeme" value="Subir">
                     </div>

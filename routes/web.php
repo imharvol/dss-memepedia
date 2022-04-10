@@ -83,6 +83,8 @@ Route::delete('/m', [MemeController::class, 'delete'])->name('meme.delete'); // 
 Route::post('/m', [MemeController::class, 'update'])->name('meme.update'); // Modificar memes
 Route::get('/m/{memeId}', [MemeController::class, 'show'])->name('meme.show'); // Ver meme
 
+Route::put('/e', [EvaluationController::class, 'store'])->name('evaluation.store'); // Recepcion de formulario de creacion de evaluations
+
 // Panel de control
 Route::get('/admin/users', function () {
     $users = User::all();

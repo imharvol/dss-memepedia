@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
+
 use App\Models\Evaluation;
+use App\Models\Meme;
 use Illuminate\Http\Request;
 
 class EvaluationController extends Controller
@@ -27,15 +30,21 @@ class EvaluationController extends Controller
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+        $evaluation = new Evaluation();
+        $evaluation->comment = trim($request->comment);
+        $evaluation->rating = floatval($request->rating);
+
+        $evaluationMeme = Meme::firstWhere('id', $request->memeId);
+        $evaluation->meme()->associate($evaluationMeme);
+
+        $evaluationAuthor = User::first(); // En la implementación actual, nos da igual el usuario
+        $evaluation->author()->associate($evaluationAuthor);
+
+        $evaluation->save();
+
+        return back();
     }
 
     /**

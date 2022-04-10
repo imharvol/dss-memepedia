@@ -18,23 +18,66 @@ class SearchController extends Controller
             return $keywordMapped != '';
         });
 
+        // Filtrado
         $memes = null;
         if ($request->q == null || $request->q == '') {
             $memes = Meme::all();
         } else {
-            $memes = Meme::all()->filter(function ($meme) use ($keywordsString) {
+            $memes = Meme::all()->filter(function ($meme) use ($request, $keywordsString) {
                 foreach ($keywordsString as $keywordString) {
-                    if (str_contains(strtolower($meme['name']), $keywordString)) return true; // Check if name matches
-                    if (str_contains(strtolower($meme['description']), $keywordString)) return true; // Check if description matches
+                    // Check if name matches
+                    if ($request->filter == null || $request->filter == "name")
+                        if (str_contains(strtolower($meme->name), $keywordString)) return true;
 
-                    foreach ($meme->tags as $tag) {
-                        if (str_contains(strtolower($tag->name), $keywordString)) return true; // Check tag name matches
-                    }
+                    // Check if description matches
+                    if ($request->filter == null || $request->filter == "description")
+                        if (str_contains(strtolower($meme->description), $keywordString)) return true;
+
+                    // Check if author username matches
+                    if ($request->filter == null || $request->filter == "author")
+                        if (str_contains(strtolower($meme->author->username), $keywordString)) return true;
+
+                    // Check if tag name matches
+                    if ($request->filter == null || $request->filter == "tags")
+                        foreach ($meme->tags as $tag) {
+                            if (str_contains(strtolower($tag->name), $keywordString)) return true;
+                        }
                 }
                 return false;
             });
         }
 
-        return view('search', ['q' => $request->q, 'memes' => $memes]);
+        // Ordenado
+        if ($request->sort == null || $request->sort == "new") {
+            $memes = $memes->sort(function ($m1, $m2) {
+                return $m1->created_at < $m2->created_at;
+            });
+        } else if ($request->sort == "old") {
+            $memes = $memes->sort(function ($m1, $m2) {
+                return $m1->created_at > $m2->created_at;
+            });
+        } else if ($request->sort == "long") {
+            $memes = $memes->sort(function ($m1, $m2) {
+                return strlen($m1->description) < strlen($m2->description);
+            });
+        } else if ($request->sort == "short") {
+            $memes = $memes->sort(function ($m1, $m2) {
+                return strlen($m1->description) > strlen($m2->description);
+            });
+        } else if ($request->sort == "alphabetical") {
+            $memes = $memes->sort(function ($m1, $m2) {
+                return $m1->name > $m2->name;
+            });
+        }
+
+        $totalLength = count($memes);
+
+        $page = (int)$request->p ?? 1;
+        $limit = (int)$request->l ?? 10;
+        if ($limit <= 0) $limit = 10;
+        if ($limit > 50) $limit = 50;
+        $memes = $memes->forPage($page, $limit);
+
+        return view('search', ['q' => $request->q, 'filter' => $request->filter, 'sort' => $request->sort, 'memes' => $memes, 'limit' => $limit, 'page' => $page, 'totalLength' => $totalLength]);
     }
 }
