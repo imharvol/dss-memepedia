@@ -73,10 +73,12 @@ Route::get('/admin', function () {
 Route::get('/search', [SearchController::class, 'search'])->name('search');
 
 Route::get('/signin', [UserController::class, 'signin'])->name('user.signin');
+Route::post('/signin', [UserController::class, 'postsignin'])->name('user.postsignin');
 
 Route::get('/signup', [UserController::class, 'signup'])->name('user.signup');
 Route::put('/signup', [UserController::class, 'create'])->name('user.create');
 
+Route::get('/u/me', [UserController::class, 'me'])->name('user.me');
 Route::get('/u', [UserController::class, 'index'])->name('user.list');
 Route::delete('/u', [UserController::class, 'delete'])->name('user.delete');
 Route::post('/u', [UserController::class, 'update'])->name('user.update');

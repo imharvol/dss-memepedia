@@ -11,25 +11,27 @@
 
 
 <div class="rectanguloInicio" align="center">
-        <div class="textoInicio">
-            <span> Inicio de sesión </span>
+    <div class="textoInicio">
+        <span> Inicio de sesión </span>
+    </div>
+    <div class="lineaHorizontal1"> </div>
+    <form action="{{route('user.postsignin')}}" method="POST">
+        @csrf
+        @method('POST')
+        <input type="text" name="username" id="username" class="textbox" placeholder="Nombre de usuario" auto>
+        <input type="password" name="password" id="password" class="textbox" placeholder="Contraseña" auto>
+        <div class="botonInicio">
+            <input class="boton" type="submit" value="Inicio sesión">
         </div>
-        <div class="lineaHorizontal1"> </div>
-        <form action="/action_page.php">
-            <input class="textbox" placeholder="Nombre de usuario" size="50" auto>
-            <input class="textbox" placeholder="Contraseña" size="50">     
-            <div class="botonInicio">
-                <input class="boton" type="submit" value="Inicio sesión">
-            </div>
-        </form>
-        <div class="lineaHorizontal1"> </div>
-        <div class="textoSpam">
-            <span class="textoInicio"> ¿Aún no te has registrado?</span>
-        </div>
-        <div class="botonRegistro">
-            <a href="{{route('user.signup')}}"><input class="boton" type="submit" value="Registrarse"></a>
-        </div>
-        <div class="espacio"> </div>
+    </form>
+    <div class="lineaHorizontal1"> </div>
+    <div class="textoSpam">
+        <span class="textoInicio"> ¿Aún no te has registrado?</span>
+    </div>
+    <div class="botonRegistro">
+        <a href="{{route('user.signup')}}"><input class="boton" type="submit" value="Registrarse"></a>
+    </div>
+    <div class="espacio"> </div>
 </div>
 
 @endsection

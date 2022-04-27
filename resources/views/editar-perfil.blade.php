@@ -10,7 +10,7 @@
 
 <div class="editarPerfil" align="center">
 	<div class="textoEditar">
-    	<span> Editar perfil </span>
+    	<span> {{Auth::user()->username}} - Editar perfil </span>
     </div>
     <div class="lineaHorizontal1"> </div>
     <div class="form">
@@ -18,18 +18,18 @@
             <div class="espacio"></div>
             <div class="hueco">
                 <span class="texto ">Nombre: </span>
-                <input type="text" name="name" id="name" class="textbox " placeholder="Nombre" auto>
+                <input type="text" name="name" id="name" class="textbox " placeholder="Nombre" auto value="{{Auth::user()->name}}">
             </div>
             <div class="espacio"></div>
             <div>
                 <span class="texto">Apellidos: </span>
-                <input type="text" name="surname" id="surname" class="textbox" placeholder="Apellidos" auto>
+                <input type="text" name="surname" id="surname" class="textbox" placeholder="Apellidos" auto value="{{Auth::user()->surname}}">
             </div>
             <div class="espacio"></div>
 
             <div>
                 <span class="texto">Correo electrónico: </span>
-                <input type="text" name="email" id="email" class="textbox" placeholder="Correo electrónico" auto>
+                <input type="text" name="email" id="email" class="textbox" placeholder="Correo electrónico" auto value="{{Auth::user()->email}}">
             </div>
 
             <div class="espacio"></div>
@@ -58,6 +58,9 @@
         </form>
         <div class="botonInicio">
             <input class="boton" type="submit" value="Hecho">
+        </div>
+        <div class="botonInicio">
+            <input class="boton" type="submit" value="Cerrar Sesión">
         </div>
     </div>
     

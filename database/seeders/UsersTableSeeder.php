@@ -18,7 +18,7 @@ class UsersTableSeeder extends Seeder
         $user1->username = 'peepo';
         $user1->name = 'VanOlmen';
         $user1->email = 'peepo@gmail.com';
-        $user1->password = '123';
+        $user1->password = '$2y$10$rMRTinssn1DHaMS2OsgdAe6TsMykYPx41wiQt/4942.oCNWAXbAfy'; // Contraseña: 123
         $user1->save();
         
         $user2 = new User();
@@ -26,7 +26,7 @@ class UsersTableSeeder extends Seeder
         $user2->name = 'Sanchez';
         $user2->surname = 'Matias';
         $user2->email = 'rick@gmail.com';
-        $user2->password = '234';
+        $user2->password = '$2y$10$afx9c2CMUC8K4rPdtQh3SeDtcbOwHIKIF12iXPATzU4aEzTtfOMYm'; // Contraseña: 234
         $user2->save();
     }
 }

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -29,6 +31,11 @@ class UserController extends Controller
         return view('crear-cuenta');
     }
 
+    public function me()
+    {
+        return view('editar-perfil');
+    }
+
     public function create(Request $request)
     {
         // TODO: Comprobar si el usuario existe
@@ -39,7 +46,7 @@ class UserController extends Controller
         $user->name = $request->name;
         $user->surname = $request->surname;
         $user->email = $request->email;
-        $user->password = $request->password;
+        $user->password = Hash::make($request->password);
         $user->save();
 
         // Una vez el usuario se ha creado correctamente, lo redirigimos al indice
@@ -75,5 +82,15 @@ class UserController extends Controller
         $user->save();
 
         return back();
+    }
+
+    public function postsignin(Request $request) {
+        
+        if (Auth::attempt(['username' => $request->username, 'password' => $request->password])) {
+            $request->session()->regenerate();
+            return redirect(route('index'));
+        }
+
+        return view('error-page', ['error_message' => 'Usuario o contraseña incorrectos']);
     }
 }

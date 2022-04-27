@@ -25,8 +25,8 @@
                 <input type="text" name="name" id="name" class="textbox" placeholder="Nombre" auto>
                 <input type="text" name="surname" id="surname" class="textbox" placeholder="Apellidos" auto>
                 <input type="text" name="email" id="email" class="textbox" placeholder="Correo electrónico" auto>
-                <input type="text" name="password" id="password" class="textbox" placeholder="Contraseña" auto>
-                <input type="text" name="password-check" id="password-check" class="textbox" placeholder="Repetir contraseña" auto> <!-- TODO: Esto debería ser client-side realmente -->
+                <input type="password" name="password" id="password" class="textbox" placeholder="Contraseña" auto>
+                <input type="password" name="password-check" id="password-check" class="textbox" placeholder="Repetir contraseña" auto> <!-- TODO: Esto debería ser client-side realmente -->
                 <div class="espacio"></div>
                 <div>
                     <label for="start" class="textos">Fecha de nacimiento</label>

@@ -2,9 +2,9 @@
 
 ## Instalación
 ```bash
-cp .env.example .env
-composer install
-php artisan storage:link
+cp .env.example .env && \
+composer install && \
+php artisan storage:link && \
 php artisan migrate:fresh --seed
 ```
 
