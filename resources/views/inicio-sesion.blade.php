@@ -17,7 +17,7 @@
         <div class="lineaHorizontal1"> </div>
         <form action="/action_page.php">
             <input class="textbox" placeholder="Nombre de usuario" size="50" auto>
-            <input class="textbox" placeholder="Contraseña" size="50">     
+            <input class="textbox" type="password" placeholder="Contraseña" size="50">     
             <div class="botonInicio">
                 <input class="boton" type="submit" value="Inicio sesión">
             </div>
