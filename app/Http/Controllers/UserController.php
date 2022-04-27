@@ -33,6 +33,10 @@ class UserController extends Controller
 
     public function me()
     {
+        // Redirigir al usuario al formulario de registro si no está logeado
+        if (Auth::user() == null)
+            return redirect(route('user.signin'));
+
         return view('editar-perfil');
     }
 
@@ -48,6 +52,8 @@ class UserController extends Controller
         $user->email = $request->email;
         $user->password = Hash::make($request->password);
         $user->save();
+
+        Auth::login($user);
 
         // Una vez el usuario se ha creado correctamente, lo redirigimos al indice
         return redirect(route('index'));
@@ -84,8 +90,9 @@ class UserController extends Controller
         return back();
     }
 
-    public function postsignin(Request $request) {
-        
+    public function postsignin(Request $request)
+    {
+
         if (Auth::attempt(['username' => $request->username, 'password' => $request->password])) {
             $request->session()->regenerate();
             return redirect(route('index'));
