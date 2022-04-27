@@ -78,6 +78,8 @@ Route::post('/signin', [UserController::class, 'postsignin'])->name('user.postsi
 Route::get('/signup', [UserController::class, 'signup'])->name('user.signup');
 Route::put('/signup', [UserController::class, 'create'])->name('user.create');
 
+Route::post('/signout', [UserController::class, 'signout'])->name('user.signout');
+
 Route::get('/u/me', [UserController::class, 'me'])->name('user.me');
 Route::get('/u', [UserController::class, 'index'])->name('user.list');
 Route::delete('/u', [UserController::class, 'delete'])->name('user.delete');

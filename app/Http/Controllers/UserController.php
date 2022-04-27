@@ -100,4 +100,12 @@ class UserController extends Controller
 
         return view('error-page', ['error_message' => 'Usuario o contraseña incorrectos']);
     }
+
+    public function signout(Request $request) {
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return redirect(route('index'));
+    }
 }

@@ -59,9 +59,13 @@
         <div class="botonInicio">
             <input class="boton" type="submit" value="Hecho">
         </div>
-        <div class="botonInicio">
-            <input class="boton" type="submit" value="Cerrar Sesión">
-        </div>
+        <form action="{{route('user.signout')}}" method="POST">
+            @csrf
+            @method('POST')
+            <div class="botonInicio">
+                <input class="boton" type="submit" value="Cerrar Sesión">
+            </div>
+        </form>
     </div>
     
     
