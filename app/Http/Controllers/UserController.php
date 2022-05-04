@@ -85,6 +85,19 @@ class UserController extends Controller
         $user->username = $request->username;
         $user->surname = $request->surname;
 
+        if ($request->password && $request->passwordConfirmation) {
+            if ($request->password !== $request->passwordConfirmation) {
+                return view('error-page', ['error_message' => 'Las contraseñas no coinciden']);
+            }
+
+            $user->password = Hash::make($request->password);
+        } 
+
+        // Guardamos la imagen
+        if ($request->file('photo')) {
+            $request->file('photo')->storeAs('public/users', $user->id);
+        }
+
         $user->save();
 
         return back();
