@@ -66,9 +66,9 @@ Route::get('/tierlist-jugar', function () {
     return view('tierlist-jugar');
 })->name('tierlist-jugar');
 
-Route::get('/admin', function () {
-    return view('admin');
-})->name('admin.interface');
+//Route::get('/admin', function () {
+//    return view('admin');
+//})->name('admin.interface');
 
 Route::get('/search', [SearchController::class, 'search'])->name('search');
 
@@ -104,10 +104,10 @@ Route::post('/e', [EvaluationController::class, 'update'])->name('evaluation.upd
 
 // Panel de control solo para admin
 Route::group(['middleware' => 'admin'], function () {
-    Route::get('/admin/users', [AdminPanelController::class, 'usersInterface']);
-    Route::get('/admin/memes', [AdminPanelController::class, 'memesInterface']);
-    Route::get('/admin/evaluations', [AdminPanelController::class, 'evaluationsInterface']);
-    Route::get('/admin', view('admin'));
+    Route::get('/admin/users', [AdminPanelController::class, 'usersInterface'])->name('admin.users');
+    Route::get('/admin/memes', [AdminPanelController::class, 'memesInterface'])->name('admin.memes');
+    Route::get('/admin/evaluations', [AdminPanelController::class, 'evaluationsInterface'])->name('admin.evaluations');
+    Route::get('/admin', view('admin'))->name('admin.interface');
 });
 
 // Route::get('/admin/news', function () {
