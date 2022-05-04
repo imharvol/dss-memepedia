@@ -21,13 +21,14 @@
             <form action="{{route('user.create')}}" align="left" class="form" method="POST">
                 @csrf
                 @method('PUT')
-                <input type="text" name="username" id="username" class="textbox" placeholder="Nombre de usuario" auto>
-                <input type="text" name="name" id="name" class="textbox" placeholder="Nombre" auto>
-                <input type="text" name="surname" id="surname" class="textbox" placeholder="Apellidos" auto>
-                <input type="text" name="email" id="email" class="textbox" placeholder="Correo electrónico" auto>
+                <input type="text" value="{{ old('username') }}" name="username" id="username" class="textbox" placeholder="Nombre de usuario" auto>
+                <input type="text" value="{{ old('name') }}" name="name" id="name" class="textbox" placeholder="Nombre" auto>
+                <input type="text" value="{{ old('surname') }}" name="surname" id="surname" class="textbox" placeholder="Apellidos" auto>
+                <input type="text" value="{{ old('email') }}" name="email" id="email" class="textbox" placeholder="Correo electrónico" auto>
                 <input type="password" name="password" id="password" class="textbox" placeholder="Contraseña" auto>
                 <input type="password" name="password-check" id="password-check" class="textbox" placeholder="Repetir contraseña" auto> <!-- TODO: Esto debería ser client-side realmente -->
                 <div class="espacio"></div>
+                <!-- quitar fecha -->
                 <div>
                     <label for="start" class="textos">Fecha de nacimiento</label>
                     <input class="textbox" style="max-width: 15vw;" type="date" id="start" name="birthdate" min="1930-01-01" max="2021-12-31">

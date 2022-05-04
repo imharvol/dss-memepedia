@@ -44,6 +44,15 @@ class UserController extends Controller
     {
         // TODO: Comprobar si el usuario existe
 
+        $request->validate([
+            'username' => 'alpha_num|required',
+            'name' => 'alpha',
+            'surname' => 'regex:^.*[A-Za-z]$',
+            'email' => 'required|regex:/^.+@.+$/i',
+            'password' => 'required|regex:^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$',
+            'password-check' => 'required|same:password'
+        ]);
+
         // Aqui tenemos que obtener los datos del usuario desde la request e introducirlo en la base de datos
         $user =  new User();
         $user->username = $request->username;
