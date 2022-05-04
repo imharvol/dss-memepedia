@@ -98,9 +98,16 @@ Route::delete('/e', [EvaluationController::class, 'delete'])->name('evaluation.d
 Route::post('/e', [EvaluationController::class, 'update'])->name('evaluation.update'); // Recepcion de formulario de modificacion de evaluations
 
 // Panel de control
-Route::get('/admin/users', [AdminPanelController::class, 'usersInterface'])->name('admin.users');
-Route::get('/admin/memes', [AdminPanelController::class, 'memesInterface'])->name('admin.memes');
-Route::get('/admin/evaluations', [AdminPanelController::class, 'evaluationsInterface'])->name('admin.evaluations');
+//Route::get('/admin/users', [AdminPanelController::class, 'usersInterface'])->name('admin.users');
+//Route::get('/admin/memes', [AdminPanelController::class, 'memesInterface'])->name('admin.memes');
+//Route::get('/admin/evaluations', [AdminPanelController::class, 'evaluationsInterface'])->name('admin.evaluations');
+
+// Panel de control solo para admin
+Route::group(['middleware' => 'admin'], function () {
+    Route::get('/admin/users', [AdminPanelController::class, 'usersInterface']);
+    Route::get('/admin/memes', [AdminPanelController::class, 'memesInterface']);
+    Route::get('/admin/evaluations', [AdminPanelController::class, 'evaluationsInterface']);
+});
 
 // Route::get('/admin/news', function () {
 //     $news = News::all();
