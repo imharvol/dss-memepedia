@@ -107,6 +107,7 @@ Route::group(['middleware' => 'admin'], function () {
     Route::get('/admin/users', [AdminPanelController::class, 'usersInterface']);
     Route::get('/admin/memes', [AdminPanelController::class, 'memesInterface']);
     Route::get('/admin/evaluations', [AdminPanelController::class, 'evaluationsInterface']);
+    Route::get('/admin', view('admin'));
 });
 
 // Route::get('/admin/news', function () {
