@@ -21,6 +21,7 @@ class CreateUsersTable extends Migration
 
             $table->string('password');
             $table->boolean('is_admin')->default(false);
+            $table->boolean('is_login')->default(false);
 
             // https://laravel.com/docs/8.x/migrations#column-method-rememberToken
             $table->rememberToken();
