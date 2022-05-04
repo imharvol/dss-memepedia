@@ -66,10 +66,6 @@ Route::get('/tierlist-jugar', function () {
     return view('tierlist-jugar');
 })->name('tierlist-jugar');
 
-//Route::get('/admin', function () {
-//    return view('admin');
-//})->name('admin.interface');
-
 Route::get('/search', [SearchController::class, 'search'])->name('search');
 
 Route::get('/signin', [UserController::class, 'signin'])->name('user.signin');
@@ -97,17 +93,14 @@ Route::put('/e', [EvaluationController::class, 'store'])->name('evaluation.store
 Route::delete('/e', [EvaluationController::class, 'delete'])->name('evaluation.delete'); // Recepcion de formulario de eliminacion de evaluations
 Route::post('/e', [EvaluationController::class, 'update'])->name('evaluation.update'); // Recepcion de formulario de modificacion de evaluations
 
-// Panel de control
-//Route::get('/admin/users', [AdminPanelController::class, 'usersInterface'])->name('admin.users');
-//Route::get('/admin/memes', [AdminPanelController::class, 'memesInterface'])->name('admin.memes');
-//Route::get('/admin/evaluations', [AdminPanelController::class, 'evaluationsInterface'])->name('admin.evaluations');
-
 // Panel de control solo para admin
 Route::group(['middleware' => 'admin'], function () {
+    Route::get('/admin', function () {
+        return view('admin');
+    })->name('admin.interface');
     Route::get('/admin/users', [AdminPanelController::class, 'usersInterface'])->name('admin.users');
     Route::get('/admin/memes', [AdminPanelController::class, 'memesInterface'])->name('admin.memes');
     Route::get('/admin/evaluations', [AdminPanelController::class, 'evaluationsInterface'])->name('admin.evaluations');
-    Route::get('/admin', view('admin'))->name('admin.interface');
 });
 
 // Route::get('/admin/news', function () {
