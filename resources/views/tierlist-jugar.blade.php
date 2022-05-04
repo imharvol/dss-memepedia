@@ -16,31 +16,33 @@
     <div class="JugarTierList">
 
         <div class="fuenteTexto">
-            <scap>"Nombre de la Tier List"</scap>
+            | 
+            <scap contenteditable="true">"Nombre de la Tier List"</scap>
+             |
         </div>
     <div id="board">
         <div class="rows">
-            <div class="label rojo">S</div>
+            <div class="label-holder rojo" ><span contenteditable="true" class="label">S</span></div>
         </div>
         <div class="rows">
-            <div class="label naranja">A</div>
+        <div class="label-holder naranja" ><span contenteditable="true" class="label">A</span></div>
         </div>
         <div class="rows">
-            <div class="label amarillo">B</div>
+        <div class="label-holder amarillo" ><span contenteditable="true" class="label">B</span></div>
         </div>
         <div class="rows">
-            <div class="label verde">C</div>
+        <div class="label-holder verde" ><span contenteditable="true" class="label">C</span></div>
         </div>
         <div class="rows">
-            <div class="label azul">D</div>
+        <div class="label-holder azul" ><span contenteditable="true" class="label">D</span></div>
         </div>
         <div class="rows">
-            <div class="label lila">F</div>
+        <div class="label-holder lila" c><span contenteditable="true" class="label">E</span></div>
         </div>
     </div>
         
             <div class="mydiv" id="mydivheader">
-                <img id="1" class = "card" src="https://upload.wikimedia.org/wikipedia/commons/e/ee/Sample_abc.jpg">
+                <img id="1" class = "card" src="{{URL('images/pepe.png')}}">
                 <img id="2" class = "card" src="https://upload.wikimedia.org/wikipedia/commons/e/ee/Sample_abc.jpg">
                 <img id="3" class = "card" src="https://upload.wikimedia.org/wikipedia/commons/e/ee/Sample_abc.jpg">
                 <img id="4" class = "card" src="https://upload.wikimedia.org/wikipedia/commons/e/ee/Sample_abc.jpg">
@@ -53,22 +55,48 @@
                 <img id="11" class = "card" src="https://upload.wikimedia.org/wikipedia/commons/e/ee/Sample_abc.jpg">
                 <img id="12" class = "card" src="https://upload.wikimedia.org/wikipedia/commons/e/ee/Sample_abc.jpg">
                 <img id="13" class = "card" src="https://upload.wikimedia.org/wikipedia/commons/e/ee/Sample_abc.jpg">
-
-
-                
             </div>
             
         
         
         <div class="BotonesDesRes">
-            <form action="/action_page.php">
-                <input class="boton" type="submit" value="Descargar">
-                <input class="boton" type="submit" value="Reset">
-            </form>
+                <button class="boton" onclick="Print()">Descargar</button>
+                <button class="boton" onclick="location.reload();">Reset</button>
         </div>
         
         
     </div>
+    <script src="{{URL('/js/html2canvas.min.js')}}"></script>
+    <script>
+        function Print()
+        {
+            
+            console.log("jajaja")
+            var div = document.getElementById('board')
+            console.log(div)
+            PrintDiv(div);
+        }
+        function PrintDiv(div)
+        {
+            
+            html2canvas(div,{allowTaint : true }).then(function(canvas) 
+            {
+                var myImage = canvas.toDataURL();
+                console.log(myImage)
+                downloadURI(myImage,"TierList")
+            });
+        }
+        function downloadURI(uri, name) {
+            var link = document.createElement("a");
+
+            link.download = name;
+            link.href = uri;
+            document.body.appendChild(link);
+            link.click();   
+            //after creating link you should delete dynamic link
+            //clearDynamicLink(link); 
+        }
+    </script>
     <script> // Rectangulos
         const rows = document.querySelectorAll('.rows')
 

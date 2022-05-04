@@ -74,6 +74,8 @@
     font-weight: 400;
     font-size: 30px;
     margin-top: 1%;
+    min-height:30px;
+    min-width:30px;
 }
 .rectangulo
 {
@@ -151,13 +153,25 @@ img
     background-color: rgb(56, 56, 56);
 }
 
-.label 
+.label-holder
 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
     width: 100px;
+    min-height: 80px;
+    border-right: solid 1px #000;
+    display: flex;
+    align-items: center;
+    align-items: center;
+    justify-content: center;
+}
+.label
+{
+    overflow: hidden;
+    text-align: center;
+    margin: 5px;
+    max-height: 100%;
+    font-size: 1.5vmin;
+    min-width: 40%;
+    min-height: 40%;
 }
 
 .card 
@@ -168,4 +182,8 @@ img
     height: 85px;
     width: 100px;
     background-color: white;
+}
+.titletier
+{
+    width: 100%;
 }
