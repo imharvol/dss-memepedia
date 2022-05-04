@@ -79,6 +79,9 @@ class UserController extends Controller
 
     public function update(Request $request)
     {
+        if (Auth::user()->id !== $request->id && !Auth::user()->is_admin)
+            return view('error-page', ['error_message' => 'No puedes modificar el perfil de otro usuario!']);
+
         $user = User::firstWhere('id', $request->id);
         $user->name = $request->name;
         $user->email = $request->email;
@@ -91,7 +94,7 @@ class UserController extends Controller
             }
 
             $user->password = Hash::make($request->password);
-        } 
+        }
 
         // Guardamos la imagen
         if ($request->file('photo')) {
@@ -114,7 +117,8 @@ class UserController extends Controller
         return view('error-page', ['error_message' => 'Usuario o contraseña incorrectos']);
     }
 
-    public function signout(Request $request) {
+    public function signout(Request $request)
+    {
         Auth::logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
