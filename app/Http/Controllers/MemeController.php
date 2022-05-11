@@ -39,6 +39,14 @@ class MemeController extends Controller
      */
     public function store(Request $request)
     {
+        //validación
+        $request->validate([
+            'name' => 'required|regex:^.*[A-Za-z0-9 ]$',
+            'tags' => 'required|regex:^([A-Za-z0-9],)*',
+            'description' => 'required|min:10',
+            'meme-photo' => 'required',
+        ]);
+        
         // Parseamos las tags que vienen separadas por comas en forma de strings
         $tagsRaw = explode(',', $request->tags); // Separar por comas
         $tagsMapped = array_map(function ($tagRaw) { // Eliminar los espacios de delante y detras

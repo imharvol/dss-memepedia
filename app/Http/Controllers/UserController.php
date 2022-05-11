@@ -44,6 +44,7 @@ class UserController extends Controller
     {
         // TODO: Comprobar si el usuario existe
 
+        //validación
         $request->validate([
             'username' => 'alpha_num|required',
             'name' => 'alpha',
