@@ -14,11 +14,16 @@
 
   @if( Auth::check() )
   <div class="like-container">
-    <form action="" method="POST">
-      @csrf
-      @method('POST')
-      <input class="like-input" type="submit" value="👍 Me gusta">
-    </form>
+    <div class="like-count">
+      <span>{{count($meme->likes)}}</span>
+    </div>
+    <div class="like-form">
+      <form action="{{route('meme.like', ['memeId' => $meme->id])}}" method="POST">
+        @csrf
+        @method('POST')
+        <input class="like-input" type="submit" value="👍 Me gusta">
+      </form>
+    </div>
   </div>
   @endif
 

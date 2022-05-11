@@ -26,11 +26,30 @@
   margin: 1vh auto auto auto;
   font-size: larger;
   color:white;
+
+  display: flex;
+  justify-items: center;
+  align-items: center;
+}
+.like-count {
+  background-color: #903749;
+  border: 2px black solid;
+  color:white;
 }
 .like-input {
   background-color: #903749;
   border: 2px black solid;
   color:white;
+}
+
+.like-count {
+  margin-top: 1rem;
+  padding: 0.3rem;
+  margin:auto;
+  background-color: #903749;
+  border: 2px black solid;
+  color:white;
+  width: fit-content;
 }
 
 .camp-container {
