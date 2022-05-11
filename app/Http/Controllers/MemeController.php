@@ -41,10 +41,9 @@ class MemeController extends Controller
     {
         //validación
         $request->validate([
-            'name' => 'required|regex:^.*[A-Za-z0-9 ]$',
-            'tags' => 'required|regex:^([A-Za-z0-9],)*',
+            'name' => 'required|regex:/^.*[A-Za-z0-9 ]$/',
+            'tags' => 'required|regex:/^\w+((,\w+)+)?$/',
             'description' => 'required|min:10',
-            'meme-photo' => 'required',
         ]);
         
         // Parseamos las tags que vienen separadas por comas en forma de strings
