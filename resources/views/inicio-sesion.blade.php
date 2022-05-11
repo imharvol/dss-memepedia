@@ -15,10 +15,18 @@
         <span> Inicio de sesión </span>
     </div>
     <div class="lineaHorizontal1"> </div>
+    {{-- Error messages --}}
+        @if (count($errors) > 0)
+            <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+            </ul>
+        @endif
     <form action="{{route('user.postsignin')}}" method="POST">
         @csrf
         @method('POST')
-        <input type="text" name="username" id="username" class="textbox" placeholder="Nombre de usuario" auto>
+        <input type="text" name="username" value="{{ old('username') }}" id="username" class="textbox" placeholder="Nombre de usuario" auto>
         <input type="password" name="password" id="password" class="textbox" placeholder="Contraseña" auto>
         <div class="botonInicio">
             <input class="boton" type="submit" value="Inicio sesión">

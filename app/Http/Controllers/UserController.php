@@ -101,6 +101,10 @@ class UserController extends Controller
 
     public function postsignin(Request $request)
     {
+        $request->validate([
+            'username' => 'required',
+            'password' => 'required'
+        ]);
 
         if (Auth::attempt(['username' => $request->username, 'password' => $request->password])) {
             $request->session()->regenerate();
