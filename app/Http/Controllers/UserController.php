@@ -79,7 +79,7 @@ class UserController extends Controller
 
     public function update(Request $request)
     {
-        if (Auth::user()->id !== $request->id && !Auth::user()->is_admin)
+        if (Auth::user()->id != $request->id && !Auth::user()->is_admin)
             return view('error-page', ['error_message' => 'No puedes modificar el perfil de otro usuario!']);
 
         $user = User::firstWhere('id', $request->id);
