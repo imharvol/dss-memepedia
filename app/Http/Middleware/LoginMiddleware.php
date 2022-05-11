@@ -19,6 +19,6 @@ class LoginMiddleware
         if (auth()->check() && auth()->user()->is_login)
             return $next($request);
 
-        return redirect('back');
+        return redirect('/');
     }
 }
