@@ -18,6 +18,14 @@
         </div>
         <div class="lineaHorizontal1"> </div>
         <div class="form">
+            {{-- Error messages --}}
+            @if (count($errors) > 0)
+                <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+                </ul>
+            @endif
             <form action="{{route('user.create')}}" align="left" class="form" method="POST">
                 @csrf
                 @method('PUT')
