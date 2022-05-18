@@ -16,7 +16,7 @@ class LoginMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        if (auth()->check() && auth()->user()->is_login)
+        if (auth()->check())
             return $next($request);
 
         return redirect('/');
