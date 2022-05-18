@@ -5,15 +5,12 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Meme;
 use App\Models\Tag;
+use App\Models\Like;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class MemeController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         $memes = Meme::all();
@@ -21,22 +18,11 @@ class MemeController extends Controller
         return view('meme-list', ['memes' => $memes]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         return view('crear-meme');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         // Parseamos las tags que vienen separadas por comas en forma de strings
@@ -63,7 +49,7 @@ class MemeController extends Controller
         $meme = new Meme();
         $meme->name = $request->name;
         $meme->description = $request->description;
-        $memeAuthor = User::currentUser(); // En la implementación actual, nos da igual el usuario
+        $memeAuthor = Auth::user(); // En la implementación actual, nos da igual el usuario
 
         // Asociamos el usuario creador
         $meme->author()->associate($memeAuthor);
@@ -77,7 +63,7 @@ class MemeController extends Controller
 
         // Guardamos la imagen
         $path = $request->file('photo')->storeAs('public/memes', $meme->id);
-        
+
         // Redirigimos al usuario a la pagina del meme que acaba de crear
         return redirect(route('meme.show', ['memeId' => $meme->id]));
     }
@@ -85,6 +71,8 @@ class MemeController extends Controller
     public function show($memeId)
     {
         $meme = Meme::firstWhere('id', $memeId);
+
+        //return $meme->likes;
 
         if ($meme) {
             return view('meme', ['meme' => $meme]);
@@ -100,17 +88,6 @@ class MemeController extends Controller
         return back();
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Meme  $meme
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Meme $meme)
-    {
-        //
-    }
-
     public function update(Request $request)
     {
         $meme = Meme::firstWhere('id', $request->id);
@@ -119,7 +96,7 @@ class MemeController extends Controller
 
         $newAuthor = User::firstWhere('username', $request->authorUsername);
         if ($newAuthor == null) {
-            return view('error-page', ['error_message' => 'No se ha encontrado a ningun usuario con username <'.$request->authorUsername.'>']);
+            return view('error-page', ['error_message' => 'No se ha encontrado a ningun usuario con username <' . $request->authorUsername . '>']);
         }
         $meme->author()->associate($newAuthor);
 
@@ -128,14 +105,29 @@ class MemeController extends Controller
         return back();
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Meme  $meme
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Meme $meme)
+    public function like(Request $request)
     {
-        //
+        // Almacenar meme en la BD
+        $like = new Like();
+        $likeAuthor = Auth::user();
+        $like->author()->associate($likeAuthor);
+        $likeMeme = Meme::find($request->memeId);
+        $like->meme()->associate($likeMeme);
+        $like->save();
+
+        return back();
+    }
+
+    public function dislike(Request $request)
+    {
+        $dislikeAuthor = Auth::user();
+        $likeMeme = Meme::find($request->memeId);
+        $like = $likeMeme->likes()->firstWhere('author_id', $dislikeAuthor->id);
+
+        if ($like) {
+            $like->delete();
+        }
+
+        return back();
     }
 }

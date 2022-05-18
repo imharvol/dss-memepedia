@@ -88,6 +88,8 @@ Route::put('/m', [MemeController::class, 'store'])->name('meme.store'); // Recep
 Route::delete('/m', [MemeController::class, 'delete'])->name('meme.delete'); // Eliminar memes
 Route::post('/m', [MemeController::class, 'update'])->name('meme.update'); // Modificar memes
 Route::get('/m/{memeId}', [MemeController::class, 'show'])->name('meme.show'); // Ver meme
+Route::post('/m/like', [MemeController::class, 'like'])->name('meme.like'); // Like memes
+Route::post('/m/dislike', [MemeController::class, 'dislike'])->name('meme.dislike'); // Dislike memes
 
 Route::put('/e', [EvaluationController::class, 'store'])->name('evaluation.store'); // Recepcion de formulario de creacion de evaluations
 Route::delete('/e', [EvaluationController::class, 'delete'])->name('evaluation.delete'); // Recepcion de formulario de eliminacion de evaluations
