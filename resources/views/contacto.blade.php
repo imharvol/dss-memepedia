@@ -33,7 +33,7 @@
                     <label class="subtitle">Mensaje</label>
                         <textarea type="text" name="mensaje" id="mensaje" class="textbox mensaje" placeholder="Mensaje" auto></textarea>
                         <div class="botonform" align="right">
-                            <input class="boton" type="submit" value="Registrarse">
+                            <input class="boton" type="submit" value="Enviar">
                         </div>
                     </div>
                 </section> 
