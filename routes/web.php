@@ -103,10 +103,7 @@ Route::group(['middleware' => 'admin'], function () {
     Route::get('/admin/evaluations', [AdminPanelController::class, 'evaluationsInterface'])->name('admin.evaluations');
 });
 
-<<<<<<< HEAD
-=======
 
->>>>>>> 0d5a23f90c7b35fcac04ae563ca18614701d3e55
 // Solo si estás logeado puedes entrar
 Route::group(['middleware' => 'login'], function () {
     Route::get('/m', [MemeController::class, 'index'])->name('meme.list'); // Lista de memes
@@ -122,10 +119,7 @@ Route::group(['middleware' => 'login'], function () {
         return view('editar-perfil');
     })->name('editar-perfil');
 });
-<<<<<<< HEAD
-=======
 
->>>>>>> 0d5a23f90c7b35fcac04ae563ca18614701d3e55
 Route::get('/informacion', function () {
     return view('informacion');
 })->name('informacion');
@@ -134,10 +128,7 @@ Route::get('/contacto', function () {
     return view('contacto');
 })->name('contacto');
 
-<<<<<<< HEAD
 
-=======
->>>>>>> 0d5a23f90c7b35fcac04ae563ca18614701d3e55
 // Route::get('/admin/news', function () {
 //     $news = News::all();
 //     return view('panel-control-news', ['news' => $news]);
