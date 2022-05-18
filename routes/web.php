@@ -118,6 +118,14 @@ Route::group(['middleware' => 'login'], function () {
         return view('editar-perfil');
     })->name('editar-perfil');
 });
+Route::get('/informacion', function () {
+    return view('informacion');
+})->name('informacion');
+
+Route::get('/contacto', function () {
+    return view('contacto');
+})->name('contacto');
+
 
 // Route::get('/admin/news', function () {
 //     $news = News::all();
