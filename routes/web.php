@@ -102,6 +102,15 @@ Route::get('/admin/users', [AdminPanelController::class, 'usersInterface'])->nam
 Route::get('/admin/memes', [AdminPanelController::class, 'memesInterface'])->name('admin.memes');
 Route::get('/admin/evaluations', [AdminPanelController::class, 'evaluationsInterface'])->name('admin.evaluations');
 
+Route::get('/informacion', function () {
+    return view('informacion');
+})->name('informacion');
+
+Route::get('/contacto', function () {
+    return view('contacto');
+})->name('contacto');
+
+
 // Route::get('/admin/news', function () {
 //     $news = News::all();
 //     return view('panel-control-news', ['news' => $news]);
