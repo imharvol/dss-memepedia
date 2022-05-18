@@ -1,0 +1,128 @@
+.rectanguloRegistro
+{
+    top:2vh;
+    position: relative;
+    width: 85%;
+    height: auto;
+    padding: 8px 8px 8px 8px;
+    background: #903749;
+    margin: auto;
+    height: 65vh;
+
+}
+.MEMEpedia
+{
+    color: #903749;
+    font-family: "Lato";
+    font-weight: bold;
+    font-size: 5.5vmin;
+    text-shadow: 0px 5px 5px;
+    text-align: center;
+}
+
+
+.lineaHorizontal1
+{
+    width: 11vw;
+    border-color: #2b2e4a;
+    border-width: 0.5px;
+    border-style: solid;
+    margin-top: 1vh;
+    float: center;
+}
+.textbox
+{
+    width: 90%;
+    height: 4.4vh;
+    border-radius: 5px;
+    padding: 4px 8px 4px 8px;
+    opacity: 85%;
+    background: #ffffff;
+    color: #aaaaaa;
+    border-color: #000000;
+    border-width: 1px;
+    border-style: solid;
+    font-family: "Source Sans Pro";
+    font-weight: 400;
+    font-size: 2vmin;
+    text-align: left;
+    margin-top: 1vh;
+}
+.mensaje
+{
+    height: 60%;
+    width: 100%;
+
+}
+.subtitle
+{
+    width: 100%;
+    font-size: 2.8vmin;
+}
+.form
+{
+    width: 100%;
+    margin-left: 2vw;
+    float: left;
+    display: block;
+}
+.columnas
+{
+    display: flex;
+    width: auto;
+    gap:16px
+}
+label
+{
+    color: white;
+    margin-top: 3vh;
+}
+.textoCondiciones
+{
+    margin-top: 1vh;
+    color: #ffffff;
+    font-family: "Source Sans Pro";
+    font-weight: normal;
+    text-align: center;
+    font-size: 1.2vmin;
+    position: relative;
+    max-width: 80%;
+    max-height: 5vh;
+    height: fit-content;
+
+}
+.espacio
+{
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+    height: auto;
+    display: block;
+}
+.botonform
+{	
+       margin-top: 1.5vh;
+       align-self: right;
+}
+.boton
+{
+    background: #e84545;
+    color: #ffffff;
+    border-color: #903749;
+    border-width: 1px; 
+    border-style: solid;
+    font-family: "Helvetica";
+    font-weight: bold;
+    text-align: center;
+    width: 35%;
+    height: 5vh;
+    flex: 1;
+    font-weight: bold;
+    font-size: 1.5vmin;
+    max-height: 40px;
+}
+.textos
+{
+    color: white;
+    font-size: 1.5vmin;
+    
+}
