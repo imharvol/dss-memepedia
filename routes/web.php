@@ -82,12 +82,12 @@ Route::delete('/u', [UserController::class, 'delete'])->name('user.delete');
 Route::post('/u', [UserController::class, 'update'])->name('user.update');
 Route::get('/u/{username}', [UserController::class, 'show'])->name('user.show');
 
-Route::get('/m', [MemeController::class, 'index'])->name('meme.list'); // Lista de memes
+//Route::get('/m', [MemeController::class, 'index'])->name('meme.list'); // Lista de memes
 //Route::get('/m/create', [MemeController::class, 'create'])->name('meme.create'); // View de creacion de memes
 //Route::put('/m', [MemeController::class, 'store'])->name('meme.store'); // Recepcion de formulario de creacion de memes
 //Route::delete('/m', [MemeController::class, 'delete'])->name('meme.delete'); // Eliminar memes
 //Route::post('/m', [MemeController::class, 'update'])->name('meme.update'); // Modificar memes
-Route::get('/m/{memeId}', [MemeController::class, 'show'])->name('meme.show'); // Ver meme
+//Route::get('/m/{memeId}', [MemeController::class, 'show'])->name('meme.show'); // Ver meme
 
 Route::put('/e', [EvaluationController::class, 'store'])->name('evaluation.store'); // Recepcion de formulario de creacion de evaluations
 Route::delete('/e', [EvaluationController::class, 'delete'])->name('evaluation.delete'); // Recepcion de formulario de eliminacion de evaluations
@@ -105,10 +105,12 @@ Route::group(['middleware' => 'admin'], function () {
 
 // Solo si estás logeado puedes entrar
 Route::group(['middleware' => 'login'], function () {
+    Route::get('/m', [MemeController::class, 'index'])->name('meme.list'); // Lista de memes
     Route::get('/m/create', [MemeController::class, 'create'])->name('meme.create'); // View de creacion de memes
     Route::put('/m', [MemeController::class, 'store'])->name('meme.store'); // Recepcion de formulario de creacion de memes
     Route::delete('/m', [MemeController::class, 'delete'])->name('meme.delete'); // Eliminar memes
     Route::post('/m', [MemeController::class, 'update'])->name('meme.update'); // Modificar memes
+    Route::get('/m/{memeId}', [MemeController::class, 'show'])->name('meme.show'); // Ver meme
     Route::get('/tierlist-crear', function () {
         return view('tierlist-crear');
     })->name('tierlist-crear');
