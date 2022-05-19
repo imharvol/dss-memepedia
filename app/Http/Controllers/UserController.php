@@ -48,9 +48,9 @@ class UserController extends Controller
         $request->validate([
             'username' => 'alpha_num|required',
             'name' => 'alpha',
-            'surname' => 'regex:^.*[A-Za-z]$',
-            'email' => 'required|regex:/^.+@.+$/i',
-            'password' => 'required|regex:^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$',
+            'surname' => 'regex:/^.*[A-Za-z]$/', //todo letras
+            'email' => 'required|regex:/^.+@.+$/i', //cualquier caracter 1 o más veces, @, cualquier caracter 1 o más veces, ., cualquier caracter 1 o más veces
+            'password' => 'required|regex:/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/', //1 letra, 1 numero, minimo 8 caracteres
             'password-check' => 'required|same:password'
         ]);
 

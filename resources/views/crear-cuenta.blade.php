@@ -33,7 +33,7 @@
                 <input type="text" value="{{ old('name') }}" name="name" id="name" class="textbox" placeholder="Nombre" auto>
                 <input type="text" value="{{ old('surname') }}" name="surname" id="surname" class="textbox" placeholder="Apellidos" auto>
                 <input type="text" value="{{ old('email') }}" name="email" id="email" class="textbox" placeholder="Correo electrónico" auto>
-                <input type="password" name="password" id="password" class="textbox" placeholder="Contraseña" auto>
+                <input type="password" name="password" id="password" class="textbox" placeholder="Contraseña(8 caracteres o más, mínimo 1 letra y 1 número)" auto>
                 <input type="password" name="password-check" id="password-check" class="textbox" placeholder="Repetir contraseña" auto> <!-- TODO: Esto debería ser client-side realmente -->
                 <div class="espacio"></div>
                 <div class="botonRegistro" align="center">
