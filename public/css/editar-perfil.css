@@ -114,3 +114,7 @@
 {
     margin-top: 4vh;
 }
+
+.user-photo {
+    max-width: 30vmin;
+}

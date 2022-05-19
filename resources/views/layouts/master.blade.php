@@ -36,7 +36,9 @@
 
         <nav class="navbar row pr-0 m-0">
             <a class="navbar-item col-2" href="{{route('index')}}">Inicio</a>
+            @if( Auth::check() ) <!-- Sólo mostrar el botón de crear meme cuándo el usuario esté logeado -->
             <a class="navbar-item col-2" href="{{route('meme.create')}}">Crear Meme</a>
+            @endif
             <a class="navbar-item col-2" href="{{route('tierlist')}}">TierList</a>
             <a class="navbar-item col-2" href="{{route('ranking')}}">Ranking</a>
 
@@ -45,7 +47,6 @@
             @else
             <a class="navbar-item col-2" href="{{route('user.signin')}}">Iniciar Sesión/Crear cuenta</a>
             @endif
-
         </nav>
 
         <div class="content row mb-4 p-0 m-0">

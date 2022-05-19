@@ -22,6 +22,17 @@
   max-height: 50vh;
 }
 
+.like-container {
+  margin: 1vh auto auto auto;
+  font-size: larger;
+  color:white;
+}
+.like-input {
+  background-color: #903749;
+  border: 2px black solid;
+  color:white;
+}
+
 .camp-container {
   text-align: justify;
   padding-left: 10vw;

@@ -36,21 +36,6 @@
                 <input type="password" name="password" id="password" class="textbox" placeholder="Contraseña" auto>
                 <input type="password" name="password-check" id="password-check" class="textbox" placeholder="Repetir contraseña" auto> <!-- TODO: Esto debería ser client-side realmente -->
                 <div class="espacio"></div>
-                <!-- quitar fecha -->
-                <div>
-                    <label for="start" class="textos">Fecha de nacimiento</label>
-                    <input class="textbox" style="max-width: 15vw;" type="date" id="start" name="birthdate" min="1930-01-01" max="2021-12-31">
-                </div>
-                <div class="espacio"></div>
-
-                <span class="textos"> Género: </span>
-                <input type="radio" id="man" name="gender" value="man">
-                <label class="textos" for="man" style="color:white">Hombre</label>
-                <input type="radio" id="woman" name="gender" value="woman">
-                <label class="textos" for="woman" style="color:white">Mujer</label>
-                <input type="radio" id="other" name="gender" value="other" required>
-                <label class="textos" for="other" style="color:white">Otros</label>
-
                 <div class="botonRegistro" align="center">
                     <input class="boton" type="submit" value="Registrarse">
                 </div>
