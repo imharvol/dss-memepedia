@@ -1,0 +1,53 @@
+.MEMEpedia
+{
+    color: #903749;
+    font-family: "Lato";
+    font-weight: bold;
+    font-size: 6.5vmin;
+    text-shadow: 0px 5px 5px;
+}
+.textoBienvenida
+{
+    color: #2b2e4a;
+    font-family: "Source Sans Pro";
+    font-size: 4.5vmin;
+    font-weight: 300;
+    line-height: 1.6;
+    text-align: center;
+}
+.subRectangulo
+{
+    
+    width: 100%;
+    padding: 8px 8px 8px 8px;
+    background: #903749;
+    margin-top: 2%;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+.titulo1
+{
+    color: #ffffff;
+    font-family: "Source Sans Pro";
+    font-weight: bold;
+    text-align: center;
+    font-size: 5vmin;
+    margin-top: 0.5vh;
+}
+.fila 
+{
+    display: flex;
+    gap: 5vw;
+}
+img
+{
+    height: 18vmin;
+}
+.espacio
+{
+    width: 1px;
+    height: 6vh;
+}

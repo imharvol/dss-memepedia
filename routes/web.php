@@ -12,7 +12,7 @@ use App\Http\Controllers\MemeController;
 use App\Http\Controllers\EvaluationController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\AdminPanelController;
-
+use GuzzleHttp\Middleware;
 
 Route::get('/', function () {
     return view('index');
@@ -42,9 +42,9 @@ Route::get('/resultados', function () {
     return view('resultados');
 })->name('resultados');
 
-Route::get('/editar-perfil', function () {
-    return view('editar-perfil');
-})->name('editar-perfil');
+//Route::get('/editar-perfil', function () {
+//    return view('editar-perfil');
+//})->name('editar-perfil');
 
 Route::get('/noticia-entrada', function () {
     return view('noticia-entrada');
@@ -54,9 +54,9 @@ Route::get('/tierlist', function () {
     return view('tierlist');
 })->name('tierlist');
 
-Route::get('/tierlist-crear', function () {
-    return view('tierlist-crear');
-})->name('tierlist-crear');
+//Route::get('/tierlist-crear', function () {
+//    return view('tierlist-crear');
+//})->name('tierlist-crear');
 
 Route::get('/tierlist-buscar', function () {
     return view('tierlist-buscar');
@@ -91,6 +91,7 @@ Route::get('/m/{memeId}', [MemeController::class, 'show'])->name('meme.show'); /
 Route::post('/m/like', [MemeController::class, 'like'])->name('meme.like'); // Like memes
 Route::post('/m/dislike', [MemeController::class, 'dislike'])->name('meme.dislike'); // Dislike memes
 
+
 Route::put('/e', [EvaluationController::class, 'store'])->name('evaluation.store'); // Recepcion de formulario de creacion de evaluations
 Route::delete('/e', [EvaluationController::class, 'delete'])->name('evaluation.delete'); // Recepcion de formulario de eliminacion de evaluations
 Route::post('/e', [EvaluationController::class, 'update'])->name('evaluation.update'); // Recepcion de formulario de modificacion de evaluations
@@ -104,6 +105,31 @@ Route::group(['middleware' => 'admin'], function () {
     Route::get('/admin/memes', [AdminPanelController::class, 'memesInterface'])->name('admin.memes');
     Route::get('/admin/evaluations', [AdminPanelController::class, 'evaluationsInterface'])->name('admin.evaluations');
 });
+
+
+// Solo si estás logeado puedes entrar
+Route::group(['middleware' => 'login'], function () {
+    Route::get('/m', [MemeController::class, 'index'])->name('meme.list'); // Lista de memes
+    Route::get('/m/create', [MemeController::class, 'create'])->name('meme.create'); // View de creacion de memes
+    Route::put('/m', [MemeController::class, 'store'])->name('meme.store'); // Recepcion de formulario de creacion de memes
+    Route::delete('/m', [MemeController::class, 'delete'])->name('meme.delete'); // Eliminar memes
+    Route::post('/m', [MemeController::class, 'update'])->name('meme.update'); // Modificar memes
+    Route::get('/m/{memeId}', [MemeController::class, 'show'])->name('meme.show'); // Ver meme
+    Route::get('/tierlist-crear', function () {
+        return view('tierlist-crear');
+    })->name('tierlist-crear');
+    Route::get('/editar-perfil', function () {
+        return view('editar-perfil');
+    })->name('editar-perfil');
+});
+
+Route::get('/informacion', function () {
+    return view('informacion');
+})->name('informacion');
+
+Route::get('/contacto', function () {
+    return view('contacto');
+})->name('contacto');
 
 // Route::get('/admin/news', function () {
 //     $news = News::all();
