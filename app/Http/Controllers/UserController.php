@@ -44,6 +44,16 @@ class UserController extends Controller
     {
         // TODO: Comprobar si el usuario existe
 
+        //validación
+        $request->validate([
+            'username' => 'alpha_num|required',
+            'name' => 'alpha',
+            'surname' => 'regex:/^.*[A-Za-z]$/', //todo letras
+            'email' => 'required|regex:/^.+@.+$/i', //cualquier caracter 1 o más veces, @, cualquier caracter 1 o más veces, ., cualquier caracter 1 o más veces
+            'password' => 'required|regex:/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/', //1 letra, 1 numero, minimo 8 caracteres
+            'password-check' => 'required|same:password'
+        ]);
+
         // Aqui tenemos que obtener los datos del usuario desde la request e introducirlo en la base de datos
         $user =  new User();
         $user->username = $request->username;
@@ -108,6 +118,10 @@ class UserController extends Controller
 
     public function postsignin(Request $request)
     {
+        $request->validate([
+            'username' => 'required',
+            'password' => 'required'
+        ]);
 
         if (Auth::attempt(['username' => $request->username, 'password' => $request->password])) {
             $request->session()->regenerate();
