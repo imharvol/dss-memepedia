@@ -44,6 +44,7 @@ class CreateMemesTable extends Migration
             $table->foreign('tag_id')->references('id')->on('tags')
                 ->cascadeOnUpdate()
                 ->cascadeOnDelete();
+            $table->unique(['meme_id', 'tag_id']);
         });
 
         // https://laravel.com/docs/8.x/eloquent-relationships#many-to-many
