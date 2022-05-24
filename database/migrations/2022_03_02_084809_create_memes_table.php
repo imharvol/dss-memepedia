@@ -48,6 +48,8 @@ class CreateMemesTable extends Migration
 
         // https://laravel.com/docs/8.x/eloquent-relationships#many-to-many
         Schema::create('likes', function (Blueprint $table) {
+            $table->id();
+
             // https://laravel.com/docs/8.x/migrations#foreign-key-constraints
             $table->unsignedBigInteger('meme_id');
             $table->foreign('meme_id')->references('id')->on('memes')

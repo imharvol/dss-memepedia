@@ -14,11 +14,23 @@
 
   @if( Auth::check() )
   <div class="like-container">
-    <form action="" method="POST">
+    <div class="like-count">{{count($meme->likes)}}</div>
+
+    @if ($meme->likes()->get()->where('author_id', Auth::user()->id)->isNotEmpty())
+    <form action="{{route('meme.dislike')}}" method="POST">
       @csrf
       @method('POST')
+      <input name="memeId" value="{{$meme->id}}" hidden>
+      <input class="like-input" type="submit" value="👍 No me gusta">
+    </form>
+    @else
+    <form action="{{route('meme.like')}}" method="POST">
+      @csrf
+      @method('POST')
+      <input name="memeId" value="{{$meme->id}}" hidden>
       <input class="like-input" type="submit" value="👍 Me gusta">
     </form>
+    @endif
   </div>
   @endif
 

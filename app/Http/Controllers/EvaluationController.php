@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Models\Evaluation;
 use App\Models\Meme;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class EvaluationController extends Controller
 {
@@ -19,7 +20,7 @@ class EvaluationController extends Controller
         $evaluationMeme = Meme::firstWhere('id', $request->memeId);
         $evaluation->meme()->associate($evaluationMeme);
 
-        $evaluationAuthor = User::currentUser(); // En la implementación actual, nos da igual el usuario
+        $evaluationAuthor = Auth::user();
         $evaluation->author()->associate($evaluationAuthor);
 
         $evaluation->save();

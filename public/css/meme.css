@@ -4,7 +4,7 @@
   min-height: 100vh;
   background-color: #2b2e4a;
   text-align: center;
-  color:white;
+  color: white;
 }
 
 .meme-name {
@@ -25,19 +25,32 @@
 .like-container {
   margin: 1vh auto auto auto;
   font-size: larger;
-  color:white;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
+.like-count {
+  background-color: #903749;
+  border: 2px black solid;
+  color: white;
+  height: 100%;
+  padding-inline: 0.5rem;
+}
+
 .like-input {
   background-color: #903749;
   border: 2px black solid;
-  color:white;
+  color: white;
+  height: 100%;
 }
 
 .camp-container {
   text-align: justify;
   padding-left: 10vw;
   padding-right: 10vw;
-  margin:2em;
+  margin: 2em;
 }
 
 .camp-title {
@@ -66,7 +79,7 @@
 
 .tag-element:hover {
   background-color: white;
-  color:black;
+  color: black;
 }
 
 .evaluation-comment {
@@ -81,7 +94,7 @@
 
 .submit-comment {
   border: none;
-  float:right;
+  float: right;
   font-weight: bold;
   width: 20%;
 }
@@ -108,7 +121,7 @@
 .comment-author {
   font-size: 1.5em;
   font-weight: bold;
-  
+
 }
 
 .comment-text {
