@@ -23,12 +23,14 @@ class TierListTableSeeder extends Seeder
         $tier1Author = User::find(1);
         $tier1->author()->associate($tier1Author);
 
-        $tier1Meme1 = Meme::find(1);
-        $tier1->meme()->attach($tier1Meme1->id);
+        /*$tier1Meme1 = Meme::find(1);
+        $tier1->memes()->attach($tier1Meme1->id);
         $tier1Meme2 = Meme::find(2);
-        $tier1->meme()->attach($tier1Meme2->id);
+        $tier1->memes()->attach($tier1Meme2->id);
         $tier1Meme3 = Meme::find(3);
-        $tier1->meme()->attach($tier1Meme3->id);
+        $tier1->memes()->attach($tier1Meme3->id);*/
+
+        $tier1->memes()->attach([1, 2, 3]);
 
         $tier1->save();
 

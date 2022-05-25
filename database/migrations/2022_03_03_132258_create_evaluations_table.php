@@ -37,7 +37,7 @@ class CreateEvaluationsTable extends Migration
             $table->integer('visits');
         });
 
-        Schema::create('tier_memes', function (Blueprint $table) {
+        Schema::create('meme_tier_list', function (Blueprint $table) {
             $table->id();
 
             $table->unsignedBigInteger('meme_id');
@@ -45,12 +45,12 @@ class CreateEvaluationsTable extends Migration
                 ->cascadeOnUpdate()
                 ->cascadeOnDelete();
             
-            $table->unsignedBigInteger('tier_id');
-            $table->foreign('tier_id')->references('id')->on('tierLists')
+            $table->unsignedBigInteger('tier_list_id');
+            $table->foreign('tier_list_id')->references('id')->on('tierLists')
                 ->cascadeOnUpdate()
                 ->cascadeOnDelete();
 
-            $table->unique(['meme_id', 'tier_id']);
+            $table->unique(['meme_id', 'tier_list_id']);
         });
 
         Schema::create('news', function (Blueprint $table) {
@@ -72,7 +72,8 @@ class CreateEvaluationsTable extends Migration
     {
         Schema::dropIfExists('evaluations');
         Schema::dropIfExists('news');
-        Schema::dropIfExists('tier_has_memes');
+        Schema::dropIfExists('meme_tier_list');
+        Schema::dropIfExists('meme_tierList');
         Schema::dropIfExists('tierLists');
     }
 }
