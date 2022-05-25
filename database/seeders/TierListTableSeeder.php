@@ -26,18 +26,19 @@ class TierListTableSeeder extends Seeder
         $tier1->save();
 
         //https://laravel.com/docs/9.x/eloquent-relationships#updating-many-to-many-relationships
-        $tier1->memes()->attach([1, 2, 3]);
+        $tier1->memes()->attach([1, 2, 3, 4 ,5]);
 
 
         $tier2 = new TierList();
-        $tier2->name = 'random2';
-        $tier2->visits = 15;
+        $tier2->name = 'peepo';
+        $tier2->visits = 1500;
 
         $tier2Author = User::find(2);
         $tier2->author()->associate($tier2Author);
 
-        //añadir memes
-
         $tier2->save();
+
+        //https://laravel.com/docs/9.x/eloquent-relationships#updating-many-to-many-relationships
+        $tier2->memes()->attach([4, 8, 9, 10, 11, 12]);
     }
 }

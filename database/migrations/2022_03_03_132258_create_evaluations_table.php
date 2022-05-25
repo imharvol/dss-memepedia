@@ -62,7 +62,7 @@ class CreateEvaluationsTable extends Migration
             $table->id();
 
             $table->string('title');
-            $table->string('contents');
+            $table->text('contents');
             $table->date('date');
 
             // https://laravel.com/docs/8.x/migrations#foreign-key-constraints
@@ -70,6 +70,8 @@ class CreateEvaluationsTable extends Migration
             $table->foreign('author_id')->references('id')->on('users')
                 ->cascadeOnUpdate()
                 ->cascadeOnDelete();
+
+            $table->timestamps();
         });
     }
 
