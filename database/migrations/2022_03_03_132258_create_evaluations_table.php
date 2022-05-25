@@ -37,7 +37,7 @@ class CreateEvaluationsTable extends Migration
             $table->integer('visits');
         });
 
-        Schema::create('tier_has_memes', function (Blueprint $table) {
+        Schema::create('tier_memes', function (Blueprint $table) {
             $table->id();
 
             $table->unsignedBigInteger('meme_id');
@@ -71,5 +71,8 @@ class CreateEvaluationsTable extends Migration
     public function down()
     {
         Schema::dropIfExists('evaluations');
+        Schema::dropIfExists('news');
+        Schema::dropIfExists('tier_has_memes');
+        Schema::dropIfExists('tierLists');
     }
 }
