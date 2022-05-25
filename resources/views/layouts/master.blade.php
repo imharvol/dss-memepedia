@@ -34,7 +34,7 @@
 
 
         <nav class="navbar row pr-0 m-0">
-            <a class="navbar-item col-2" href="{{route('index')}}">Inicio</a>
+            <a class="navbar-item col-2" href="/">Inicio</a>
             @if( Auth::check() ) <!-- Sólo mostrar el botón de crear meme cuándo el usuario esté logeado -->
             <a class="navbar-item col-2" href="{{route('meme.create')}}">Crear Meme</a>
             @endif

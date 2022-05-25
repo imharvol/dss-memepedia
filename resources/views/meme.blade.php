@@ -44,7 +44,7 @@
 
   @if( Auth::check() )
   <div class="camp-container evaluation-box">
-    <span class="camp-title">Comentar:</span>
+    <span id="comentarios" class="camp-title">Comentar:</span>
     <form action="{{route('evaluation.store')}}" method="POST">
       @csrf
       @method('PUT')

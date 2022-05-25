@@ -1,4 +1,4 @@
-<div style="margin-left: 1vw;">
+<div style="margin-left: 1vw; width:95%">
     <div class="layout2">
         <div class="textoBienvenida sidebar">
             <scap>Bienvenidos a </scap>
