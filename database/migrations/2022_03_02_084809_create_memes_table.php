@@ -44,10 +44,13 @@ class CreateMemesTable extends Migration
             $table->foreign('tag_id')->references('id')->on('tags')
                 ->cascadeOnUpdate()
                 ->cascadeOnDelete();
+            $table->unique(['meme_id', 'tag_id']);
         });
 
         // https://laravel.com/docs/8.x/eloquent-relationships#many-to-many
         Schema::create('likes', function (Blueprint $table) {
+            $table->id();
+
             // https://laravel.com/docs/8.x/migrations#foreign-key-constraints
             $table->unsignedBigInteger('meme_id');
             $table->foreign('meme_id')->references('id')->on('memes')
@@ -71,6 +74,8 @@ class CreateMemesTable extends Migration
         Schema::dropIfExists('likes');
         Schema::dropIfExists('meme_tag');
         Schema::dropIfExists('tags');
+        Schema::dropIfExists('evaluations');
+        Schema::dropIfExists('meme_tier_list');
         Schema::dropIfExists('memes');
     }
 }

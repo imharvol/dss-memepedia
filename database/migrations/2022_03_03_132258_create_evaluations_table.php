@@ -29,10 +29,57 @@ class CreateEvaluationsTable extends Migration
 
             $table->timestamps();
         });
+
+        Schema::create('tier_lists', function (Blueprint $table) {
+            $table->id();
+
+            $table->string('name');
+            $table->integer('visits');
+            $table->unsignedBigInteger('author_id');
+            $table->foreign('author_id')->references('id')->on('users')
+                ->cascadeOnUpdate()
+                ->cascadeOnDelete();
+            $table->timestamps();
+        });
+
+        Schema::create('meme_tier_list', function (Blueprint $table) {
+            $table->id();
+
+            $table->unsignedBigInteger('meme_id');
+            $table->foreign('meme_id')->references('id')->on('memes')
+                ->cascadeOnUpdate()
+                ->cascadeOnDelete();
+            
+            $table->unsignedBigInteger('tier_list_id');
+            $table->foreign('tier_list_id')->references('id')->on('tier_lists')
+                ->cascadeOnUpdate()
+                ->cascadeOnDelete();
+
+            $table->unique(['meme_id', 'tier_list_id']);
+        });
+
+        Schema::create('news', function (Blueprint $table) {
+            $table->id();
+
+            $table->string('title');
+            $table->text('contents');
+            $table->date('date');
+
+            // https://laravel.com/docs/8.x/migrations#foreign-key-constraints
+            $table->unsignedBigInteger('author_id');
+            $table->foreign('author_id')->references('id')->on('users')
+                ->cascadeOnUpdate()
+                ->cascadeOnDelete();
+
+            $table->timestamps();
+        });
     }
 
     public function down()
     {
         Schema::dropIfExists('evaluations');
+        Schema::dropIfExists('news');
+        Schema::dropIfExists('meme_tier_list');
+        Schema::dropIfExists('tier_lists');
     }
 }
