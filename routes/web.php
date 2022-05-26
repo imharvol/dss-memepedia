@@ -12,11 +12,15 @@ use App\Http\Controllers\MemeController;
 use App\Http\Controllers\EvaluationController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\AdminPanelController;
+use App\Http\Controllers\IndexController;
 use GuzzleHttp\Middleware;
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('index');
-})->name('index');
+})->name('index');*/
+
+Route::get('/', [IndexController::class, 'index'])->name('index'); // Lista de memes
+
 
 Route::get('/ranking', function () {
     return view('ranking');

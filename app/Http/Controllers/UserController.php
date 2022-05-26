@@ -66,7 +66,7 @@ class UserController extends Controller
         Auth::login($user);
 
         // Una vez el usuario se ha creado correctamente, lo redirigimos al indice
-        return redirect(route('index'));
+        return redirect("route('index')");
     }
 
     public function show($username)

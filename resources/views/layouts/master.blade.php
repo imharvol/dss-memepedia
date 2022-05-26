@@ -19,7 +19,6 @@
 
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
 
-    <link rel="stylesheet" href="{{URL('css/app.css')}}">
     <link rel="stylesheet" href="{{URL('css/master.css')}}">
 
     @yield('head')
@@ -35,7 +34,7 @@
 
 
         <nav class="navbar row pr-0 m-0">
-            <a class="navbar-item col-2" href="{{route('index')}}">Inicio</a>
+            <a class="navbar-item col-2" href="/">Inicio</a>
             @if( Auth::check() ) <!-- Sólo mostrar el botón de crear meme cuándo el usuario esté logeado -->
             <a class="navbar-item col-2" href="{{route('meme.create')}}">Crear Meme</a>
             @endif
@@ -54,7 +53,13 @@
         </div>
 
         <footer class="footer row m-0 p-0" align="center">
-            <p>Política de privacidad | Acerca de | Contacto</p>
+            <div>
+                <a class="footernav" href="{{route('contacto')}}">Contacto</a>
+                 | 
+                <a class="footernav" href="{{route('informacion')}}">Sobre Nosotros</a>
+            </div>
+            <div>
+            </div>
             <hr>
             <p>Carr. de San Vicente del Raspeig, s/n, 03690 San Vicente del Raspeig, Alicante</p>
             <p>D-SSarrolladores</p>
