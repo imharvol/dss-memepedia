@@ -33,7 +33,7 @@
                 <div class="comentarioFoto">
                     <div class="contenedor" align="center">
                         <a href="{{route('meme.show', ['memeId' => $meme->id])}} #comentarios">
-                            <input type=image src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDsKvKUVOqbJsF5oD4KXaBa_hoEBiYLQrY1A&usqp=CAU" width="30" height="30">
+                            <input style="filter:invert(100);opacity: 80%;" type=image src="https://cdn-icons-png.flaticon.com/512/14/14578.png"  width="30" height="30">
                         </a>
                         <div class="share-button">
                             <span><i class="fas fa-share-alt"></i></span>

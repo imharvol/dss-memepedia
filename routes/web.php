@@ -13,6 +13,7 @@ use App\Http\Controllers\EvaluationController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\AdminPanelController;
 use App\Http\Controllers\IndexController;
+use App\Http\Controllers\TierListController;
 use GuzzleHttp\Middleware;
 
 /*Route::get('/', function () {
@@ -62,13 +63,13 @@ Route::get('/tierlist', function () {
 //    return view('tierlist-crear');
 //})->name('tierlist-crear');
 
-Route::get('/tierlist-buscar', function () {
-    return view('tierlist-buscar');
-})->name('tierlist-buscar');
+Route::get('/tierlist-buscar',[TierListController::class, 'index'])->name('tierlist.index');
+Route::put('/tierlist-post',[TierListController::class,'store'])->name('tierlist.store');
+Route::get('/tierlist-jugar/{tierlistId}', [TierListController::class, 'jugar'])->name('tierlist.jugar'); 
 
-Route::get('/tierlist-jugar', function () {
+/*Route::get('/tierlist-jugar', function () {
     return view('tierlist-jugar');
-})->name('tierlist-jugar');
+})->name('tierlist-jugar');*/
 
 Route::get('/search', [SearchController::class, 'search'])->name('search');
 
