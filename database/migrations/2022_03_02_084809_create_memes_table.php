@@ -74,8 +74,6 @@ class CreateMemesTable extends Migration
         Schema::dropIfExists('likes');
         Schema::dropIfExists('meme_tag');
         Schema::dropIfExists('tags');
-        Schema::dropIfExists('evaluations');
-        Schema::dropIfExists('meme_tier_list');
         Schema::dropIfExists('memes');
     }
 }

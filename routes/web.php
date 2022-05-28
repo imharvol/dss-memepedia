@@ -7,6 +7,7 @@ use App\Models\News;
 use App\Models\TierList;
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\RankingController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\MemeController;
 use App\Http\Controllers\EvaluationController;
@@ -23,9 +24,7 @@ use GuzzleHttp\Middleware;
 Route::get('/', [IndexController::class, 'index'])->name('index'); // Lista de memes
 
 
-Route::get('/ranking', function () {
-    return view('ranking');
-})->name('ranking');
+Route::get('/ranking', [RankingController::class, 'show'])->name('ranking');
 
 Route::get('/tierlist', function () {
     return view('tierlist');
@@ -119,7 +118,7 @@ Route::group(['middleware' => 'login'], function () {
     Route::put('/m', [MemeController::class, 'store'])->name('meme.store'); // Recepcion de formulario de creacion de memes
     Route::delete('/m', [MemeController::class, 'delete'])->name('meme.delete'); // Eliminar memes
     Route::post('/m', [MemeController::class, 'update'])->name('meme.update'); // Modificar memes
-    Route::get('/m/{memeId}', [MemeController::class, 'show'])->name('meme.show'); // Ver meme
+    // Route::get('/m/{memeId}', [MemeController::class, 'show'])->name('meme.show'); // Ver meme
     Route::get('/tierlist-crear', function () {
         return view('tierlist-crear');
     })->name('tierlist-crear');
