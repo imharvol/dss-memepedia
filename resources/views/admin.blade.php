@@ -18,7 +18,7 @@
   <a class="admin-panel-item" href="{{route('admin.evaluations')}}">
     Evaluations
   </a>
-  <a class="admin-panel-item">
+  <a class="admin-panel-item" href="{{route('admin.tags')}}">
     Tags
   </a>
 </div>
