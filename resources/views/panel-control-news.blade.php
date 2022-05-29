@@ -10,6 +10,16 @@
 
 <h1 class="page-title"> Panel de Control - News </h1>
 
+<form action="{{route('news.create')}}" method="GET">
+            @csrf
+            @method('GET')
+
+
+            <div class="botonInicio" align="center">
+                    <input class="boton" type="submit" name="btnSubirNew" id="btnSubirNew" value="Añadir notícia">
+            </div>
+</form>
+
 @foreach ($news as $new)
 <div class="user-box">
     <h1 class="user-nick-header">{{$new->id}} - {{$new->title}}</h1>
@@ -24,19 +34,27 @@
     <form action="{{route('new.update')}}" method="POST">
         @csrf
         @method('POST')
-        <div class="wrapper">
+        <div class="wrapper row">
             <input type="text" name="id" id="id" value="{{$new->id}}" hidden>
-            <div class="wrapper-item">
-                <label for="nick">Title:</label><br>
-                <input type="text" name="titulo" id="titulo" value="{{$new->titulo}}">
+            <div class="wrapper-item row-6">
+                <label for="titulo">Title:</label><br>
+                <input type="text" name="titulo" id="titulo" value="{{$new->title}}">
             </div>
             <div class="wrapper-item">
-                <label for="nick">Date:</label><br>
-                <input type="text" name="date" id="date" value="{{$new->date}}">
+                <label for="date">Date:</label><br>
+                <input type="text" name="date" id="date" value="{{$new->created_at}}">
+            </div>
+
+        </div>
+        <div class="row wrapper">
+            <div class="wrapper-item mb-3">
+                <label for="contents">Contenido:</label><br>
+                <input type="textarea" rows="5" cols="50" name="contents" id="contents" value="{{$new->contents}}">
             </div>
         </div>
         <input type="submit" value="Guardar Noticia">
     </form>
+
 </div>
 @endforeach
 
