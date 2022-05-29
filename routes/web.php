@@ -14,6 +14,8 @@ use App\Http\Controllers\EvaluationController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\AdminPanelController;
 use App\Http\Controllers\IndexController;
+use App\Http\Controllers\TagController;
+
 use GuzzleHttp\Middleware;
 
 /*Route::get('/', function () {
@@ -107,6 +109,8 @@ Route::group(['middleware' => 'admin'], function () {
     Route::get('/admin/users', [AdminPanelController::class, 'usersInterface'])->name('admin.users');
     Route::get('/admin/memes', [AdminPanelController::class, 'memesInterface'])->name('admin.memes');
     Route::get('/admin/evaluations', [AdminPanelController::class, 'evaluationsInterface'])->name('admin.evaluations');
+    Route::get('/admin/tags', [AdminPanelController::class, 'tagsInterface'])->name('admin.tags');
+    Route::delete('/tag', [TagController::class, 'delete'])->name('tag.delete'); // Eliminar tags
 });
 
 
