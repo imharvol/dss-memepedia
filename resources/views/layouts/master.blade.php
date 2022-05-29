@@ -41,6 +41,7 @@
             @endif
             <a class="navbar-item col-2" href="{{route('tierlist')}}">TierList</a>
             <a class="navbar-item col-2" href="{{route('ranking')}}">Ranking</a>
+            <a class="navbar-item col-2" href="{{route('news')}}">Noticias</a>
 
             @if( Auth::check() )
             <a class="navbar-item col-2" href="{{route('user.me')}}">Mi Perfil: {{Auth::user()->username}}</a>
