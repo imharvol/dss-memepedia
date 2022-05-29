@@ -40,12 +40,16 @@
             @endif
             <a class="navbar-item col-2" href="{{route('tierlist')}}">TierList</a>
             <a class="navbar-item col-2" href="{{route('ranking')}}">Ranking</a>
-            <a class="navbar-item col-2" href="{{route('news')}}">Noticias</a>
+            <a class="navbar-item col-2" href="{{route('news.list')}}">Noticias</a>
 
             @if( Auth::check() )
             <a class="navbar-item col-2" href="{{route('user.me')}}">Mi Perfil: {{Auth::user()->username}}</a>
             @else
             <a class="navbar-item col-2" href="{{route('user.signin')}}">Iniciar Sesión/Crear cuenta</a>
+            @endif
+
+            @if( Auth::user() && Auth::user()->is_admin )
+            <a class="navbar-item col-2" href="{{route('admin.interface')}}">Panel de administración</a>
             @endif
         </nav>
 

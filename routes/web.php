@@ -15,6 +15,9 @@ use App\Http\Controllers\SearchController;
 use App\Http\Controllers\AdminPanelController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\TierListController;
+use App\Http\Controllers\NewsController;
+use App\Http\Controllers\TagController;
+
 use GuzzleHttp\Middleware;
 
 /*Route::get('/', function () {
@@ -29,10 +32,6 @@ Route::get('/ranking', [RankingController::class, 'show'])->name('ranking');
 Route::get('/tierlist', function () {
     return view('tierlist');
 })->name('tierlist');
-
-Route::get('/news', function () {
-    return view('noticias');
-})->name('news');
 
 Route::get('/entrada', function () {
     return view('entrada');
@@ -99,7 +98,6 @@ Route::get('/m/{memeId}', [MemeController::class, 'show'])->name('meme.show'); /
 Route::post('/m/like', [MemeController::class, 'like'])->name('meme.like'); // Like memes
 Route::post('/m/dislike', [MemeController::class, 'dislike'])->name('meme.dislike'); // Dislike memes
 
-
 Route::put('/e', [EvaluationController::class, 'store'])->name('evaluation.store'); // Recepcion de formulario de creacion de evaluations
 Route::delete('/e', [EvaluationController::class, 'delete'])->name('evaluation.delete'); // Recepcion de formulario de eliminacion de evaluations
 Route::post('/e', [EvaluationController::class, 'update'])->name('evaluation.update'); // Recepcion de formulario de modificacion de evaluations
@@ -112,8 +110,19 @@ Route::group(['middleware' => 'admin'], function () {
     Route::get('/admin/users', [AdminPanelController::class, 'usersInterface'])->name('admin.users');
     Route::get('/admin/memes', [AdminPanelController::class, 'memesInterface'])->name('admin.memes');
     Route::get('/admin/evaluations', [AdminPanelController::class, 'evaluationsInterface'])->name('admin.evaluations');
+    Route::get('/admin/tags', [AdminPanelController::class, 'tagsInterface'])->name('admin.tags');
+    Route::get('/admin/news', [AdminPanelController::class, 'newsInterface'])->name('admin.news');
+
+    Route::delete('/tag', [TagController::class, 'delete'])->name('tag.delete'); // Eliminar tags
+    Route::delete('/news', [NewsController::class, 'delete'])->name('news.delete'); // Eliminar noticia
+
+    Route::post('/news', [NewsController::class, 'update'])->name('news.update'); // Modificar noticia
+    Route::get('/news/create', [NewsController::class, 'create'])->name('news.create'); // Interfaz de crear noticia
+    Route::put('/news', [NewsController::class, 'store'])->name('news.store'); // Crear noticia
 });
 
+Route::get('/news', [NewsController::class, 'index'])->name('news.list'); // Lista de noticias
+Route::get('/news/{newsId}', [NewsController::class, 'show'])->name('news.show'); // Ver noticia
 
 // Solo si estás logeado puedes entrar
 Route::group(['middleware' => 'login'], function () {
