@@ -14,6 +14,7 @@ use App\Http\Controllers\EvaluationController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\AdminPanelController;
 use App\Http\Controllers\IndexController;
+use App\Http\Controllers\NewsController;
 use App\Http\Controllers\TagController;
 
 use GuzzleHttp\Middleware;
@@ -30,10 +31,6 @@ Route::get('/ranking', [RankingController::class, 'show'])->name('ranking');
 Route::get('/tierlist', function () {
     return view('tierlist');
 })->name('tierlist');
-
-Route::get('/news', function () {
-    return view('noticias');
-})->name('news');
 
 Route::get('/entrada', function () {
     return view('entrada');
@@ -90,6 +87,9 @@ Route::get('/u', [UserController::class, 'index'])->name('user.list');
 Route::delete('/u', [UserController::class, 'delete'])->name('user.delete');
 Route::post('/u', [UserController::class, 'update'])->name('user.update');
 Route::get('/u/{username}', [UserController::class, 'show'])->name('user.show');
+
+Route::get('/news', [NewsController::class, 'index'])->name('news.list'); // Lista de noticias
+Route::get('/news/{newsId}', [NewsController::class, 'show'])->name('news.show'); // Ver noticia
 
 Route::get('/m', [MemeController::class, 'index'])->name('meme.list'); // Lista de memes
 Route::get('/m/create', [MemeController::class, 'create'])->name('meme.create'); // View de creacion de memes

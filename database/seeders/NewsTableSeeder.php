@@ -16,6 +16,8 @@ class NewsTableSeeder extends Seeder
      */
     public function run()
     {
+        if (!file_exists('storage/app/public/news/')) mkdir('storage/app/public/news/');
+
         $news1 = new News();
         $news1->title = 'Peepo se ha hecho viral';
         $news1->contents = 'El pasaje estándar Lorem Ipsum, usado desde el año 1500.
@@ -28,7 +30,10 @@ class NewsTableSeeder extends Seeder
         $news1Author = User::find(3);
         $news1->author()->associate($news1Author);
 
+        copy('database/seeders/news/1', 'storage/app/public/news/1');
+
         $news1->save();
+
 
         $news2 = new News();
         $news2->title = 'Yuste ha muerto';
@@ -38,6 +43,8 @@ class NewsTableSeeder extends Seeder
 
         $news2Author = User::find(2);
         $news2->author()->associate($news2Author);
+
+        copy('database/seeders/news/2', 'storage/app/public/news/2');
 
         $news2->save();
     }
