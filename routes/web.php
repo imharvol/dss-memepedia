@@ -110,9 +110,13 @@ Route::group(['middleware' => 'admin'], function () {
     Route::get('/admin/memes', [AdminPanelController::class, 'memesInterface'])->name('admin.memes');
     Route::get('/admin/evaluations', [AdminPanelController::class, 'evaluationsInterface'])->name('admin.evaluations');
     Route::get('/admin/tags', [AdminPanelController::class, 'tagsInterface'])->name('admin.tags');
-    Route::delete('/tag', [TagController::class, 'delete'])->name('tag.delete'); // Eliminar tags
+    Route::get('/admin/news', [AdminPanelController::class, 'newsInterface'])->name('admin.news');
 
-    Route::get('/news/create', [NewsController::class, 'create'])->name('news.create'); // Crear noticia
+    Route::delete('/tag', [TagController::class, 'delete'])->name('tag.delete'); // Eliminar tags
+    Route::delete('/news', [NewsController::class, 'delete'])->name('news.delete'); // Eliminar noticia
+
+    Route::post('/news', [NewsController::class, 'update'])->name('news.update'); // Modificar noticia
+    Route::get('/news/create', [NewsController::class, 'create'])->name('news.create'); // Interfaz de crear noticia
     Route::put('/news', [NewsController::class, 'store'])->name('news.store'); // Crear noticia
 });
 

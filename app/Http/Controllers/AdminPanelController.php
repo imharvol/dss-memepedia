@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Models\Meme;
 use App\Models\Evaluation;
 use App\Models\Tag;
+use App\Models\News;
 use Illuminate\Http\Request;
 
 class AdminPanelController extends Controller
@@ -32,5 +33,11 @@ class AdminPanelController extends Controller
     {
         $tags = Tag::all();
         return view('panel-control-tag', ['tags' => $tags]);
+    }
+
+    public function newsInterface()
+    {
+        $news = News::all();
+        return view('panel-control-news', ['news' => $news]);
     }
 }
