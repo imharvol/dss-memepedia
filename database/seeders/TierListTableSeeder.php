@@ -27,6 +27,7 @@ class TierListTableSeeder extends Seeder
 
         //https://laravel.com/docs/9.x/eloquent-relationships#updating-many-to-many-relationships
         $tier1->memes()->attach([1, 2, 3, 4 ,5]);
+        $tier1->tags()->attach([2,3]);
 
 
         $tier2 = new TierList();
@@ -40,5 +41,6 @@ class TierListTableSeeder extends Seeder
 
         //https://laravel.com/docs/9.x/eloquent-relationships#updating-many-to-many-relationships
         $tier2->memes()->attach([4, 8, 9, 10, 11, 12]);
+        $tier2->tags()->attach([1,4]);
     }
 }
