@@ -16,4 +16,9 @@ class TierList extends Model
     {
         return $this->belongsToMany(Meme::class);
     }
+
+    public function tags()
+    {
+        return $this->belongsToMany(Tag::class);
+    }
 }

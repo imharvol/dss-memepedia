@@ -37,6 +37,22 @@ class CreateTierListsTable extends Migration
 
             $table->unique(['meme_id', 'tier_list_id']);
         });
+
+        Schema::create('tag_tier_list', function (Blueprint $table) {
+            $table->id();
+
+            $table->unsignedBigInteger('tag_id');
+            $table->foreign('tag_id')->references('id')->on('tags')
+                ->cascadeOnUpdate()
+                ->cascadeOnDelete();
+
+            $table->unsignedBigInteger('tier_list_id');
+            $table->foreign('tier_list_id')->references('id')->on('tier_lists')
+                ->cascadeOnUpdate()
+                ->cascadeOnDelete();
+
+            $table->unique(['tag_id', 'tier_list_id']);
+        });
     }
 
     public function down()

@@ -31,6 +31,10 @@ Route::get('/tierlist', function () {
     return view('tierlist');
 })->name('tierlist');
 
+Route::get('/news', function () {
+    return view('noticias');
+})->name('news');
+
 Route::get('/entrada', function () {
     return view('entrada');
 })->name('entrada');
