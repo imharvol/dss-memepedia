@@ -117,3 +117,8 @@
     background-color: white;
     color: black;
 }
+
+.like-count {
+    font-size: x-large;
+    padding: 0.5rem 0 0.5rem 0;
+}

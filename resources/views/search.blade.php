@@ -47,6 +47,8 @@
           <div class="meme-flex-item meme-left-container">
             <img src="{{asset('storage/memes/'.(string)$meme->id)}}" class="meme-photo">
             
+            <div class="like-count">{{count($meme->likes)}} 👍</div>
+
             <span>Tags:</tags>
             <div class="tags-container">
               @foreach ($meme->tags as $tag) 
