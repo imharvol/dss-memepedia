@@ -116,6 +116,7 @@ Route::group(['middleware' => 'admin'], function () {
 
     Route::delete('/tag', [TagController::class, 'delete'])->name('tag.delete'); // Eliminar tags
     Route::delete('/news', [NewsController::class, 'delete'])->name('news.delete'); // Eliminar noticia
+    Route::delete('/tierlist', [TierListController::class, 'delete'])->name('tierlist.delete'); // Eliminar tierlists
 
     Route::post('/news', [NewsController::class, 'update'])->name('news.update'); // Modificar noticia
     Route::get('/news/create', [NewsController::class, 'create'])->name('news.create'); // Interfaz de crear noticia
