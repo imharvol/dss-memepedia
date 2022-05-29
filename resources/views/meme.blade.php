@@ -32,6 +32,11 @@
     </form>
     @endif
   </div>
+  @else
+  <div class="like-container">
+    <div class="like-count">{{count($meme->likes)}}</div>
+    <div class="like-input">👍 Me gusta</div>
+  </div>
   @endif
 
   <div class="camp-container">

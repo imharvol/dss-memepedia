@@ -20,12 +20,7 @@ use App\Http\Controllers\TagController;
 
 use GuzzleHttp\Middleware;
 
-/*Route::get('/', function () {
-    return view('index');
-})->name('index');*/
-
 Route::get('/', [IndexController::class, 'index'])->name('index'); // Lista de memes
-
 
 Route::get('/ranking', [RankingController::class, 'show'])->name('ranking');
 
@@ -48,10 +43,6 @@ Route::get('/noticias', function () {
 Route::get('/resultados', function () {
     return view('resultados');
 })->name('resultados');
-
-//Route::get('/editar-perfil', function () {
-//    return view('editar-perfil');
-//})->name('editar-perfil');
 
 Route::get('/noticia-entrada', function () {
     return view('noticia-entrada');

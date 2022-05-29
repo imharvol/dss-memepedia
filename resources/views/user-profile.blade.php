@@ -31,6 +31,9 @@
     @if( $user->is_admin )
     <h2>Noticias</h2>
     <div class="items">
+      @if (count($user->news) <= 0)
+      <p>El usuario no ha creado ninguna noticia</p>
+      @else
       @foreach ($user->news->slice(0, 5) as $news_entry)
       <div class="item">
         <img class="item-image" src="{{asset('storage/news/'.(string)$news_entry->id)}}">
@@ -40,6 +43,7 @@
         <span class="item-date">{{$news_entry->created_at}}</span>
       </div>
       @endforeach
+      @endif
     </div>
 
     <hr>
@@ -47,6 +51,9 @@
 
     <h2>Memes</h2>
     <div class="items">
+      @if (count($user->memes) <= 0)
+      <p>El usuario no ha creado ningún meme</p>
+      @else
       @foreach ($user->memes->slice(0, 5) as $meme)
       <div class="item">
         <img class="item-image" src="{{asset('storage/memes/'.(string)$meme->id)}}">
@@ -56,22 +63,25 @@
         <span class="item-date">{{$meme->created_at}}</span>
       </div>
       @endforeach
+      @endif
     </div>
 
     <hr>
 
     <h2>Tierlists</h2>
     <div class="items">
+      @if (count($user->tierlists) <= 0)
+        <p>El usuario no ha creado ninguna tierlist</p>
+      @else
       @foreach ($user->tierlists->slice(0, 5) as $tierlist)
       <div class="item">
-        <!-- <img class="item-image" src="{{asset('storage/tierlists/'.(string)$tierlist->id)}}"> -->
-        <!-- <a href="{{route('meme.show', ['memeId' => $meme->id])}}"> -->
-        <a>
+        <a href="{{route('tierlist.jugar', ['tierlistId' => $tierlist->id])}}">
           <h3 class="item-title">{{$tierlist->name}}</h3>
         </a>
         <span class="item-date">{{$tierlist->created_at}}</span>
       </div>
       @endforeach
+      @endif
     </div>
   </div>
 </div>
