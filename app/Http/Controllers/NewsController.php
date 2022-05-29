@@ -62,8 +62,8 @@ class NewsController extends Controller
 
     public function delete(Request $request)
     {
-        $new = News::firstWhere('id', $request->id);
-        $new->delete();
+        $news = News::firstWhere('id', $request->id);
+        $news->delete();
         return back();
     }
 
