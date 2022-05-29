@@ -2,31 +2,49 @@
     text-align: center;
     font-weight: bold;
     font-size: 3em;
-    }
+}
 
-    .user-box {
-        color: white;
-        padding: 1em;
-        margin: 0.5em;
-        border-radius: 1em;
-        background-color: #903749;
-        font-weight: bold;
-    }
+.user-box {
+    color: white;
+    padding: 1em;
+    margin: 0.5em;
+    border-radius: 1em;
+    background-color: #903749;
+    font-weight: bold;
+}
 
-    .user-nick-header {
-        font-weight: bold;
-        margin-bottom: 0.5em;
-    }
+.user-nick-header {
+    font-weight: bold;
+    margin-bottom: 0.5em;
+}
 
-    .wrapper {
-        display: grid;
-        grid-template-columns: repeat(5, 1fr);
-    }
+.wrapper {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+}
 
-    .wrapper-item {
-        text-align: center;
-    }
+.wrapper-item {
+    text-align: center;
+}
 
-    .input-button {
-        margin: 0.5em;
-    }
+.input-button {
+    margin: 0.5em;
+}
+
+.boton
+{
+    background: #e84545;
+    color: #ffffff;
+    border-color: #903749;
+    border-width: 1px; 
+    border-style: solid;
+    font-family: "Helvetica";
+    font-weight: bold;
+    text-align: center;
+    width: 35%;
+    height: 6vh;
+    flex: 1;
+    font-weight: bold;
+    font-size: 3vmin;
+    max-height: 50px;
+}

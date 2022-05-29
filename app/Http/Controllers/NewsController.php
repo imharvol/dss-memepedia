@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\News;
+use App\Models\User;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -57,5 +58,28 @@ class NewsController extends Controller
         $path = $request->file('photo')->storeAs('public/news', $news->id);
 
         return redirect(route('news.show', ['newsId' => $news->id]));
+    }
+
+    public function delete(Request $request)
+    {
+        $news = News::firstWhere('id', $request->id);
+        $news->delete();
+        return back();
+    }
+
+    public function update(Request $request)
+    {
+        $news = News::firstWhere('id', $request->id);
+        $news->title = $request->title;
+        $news->contents = $request->contents;
+
+        $newsAuthor = Auth::user();
+
+        // Asociamos el usuario creador
+        $news->author()->associate($newsAuthor);
+
+        $news->save();
+
+        return back();
     }
 }
