@@ -14,7 +14,7 @@
 <div class="user-box">
     <h1 class="user-nick-header">{{$tier->id}} - {{$tier->name}}</h1>
 
-    <form action="{{route('tierlist.delete')}}" method="DELETE">
+    <form action="{{route('tierlist.delete')}}" method="POST">
         @csrf
         @method('DELETE')
         <input type="text" name="id" id="id" value="{{$tier->id}}" hidden>
