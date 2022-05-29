@@ -24,5 +24,8 @@
   <a class="admin-panel-item" href="{{route('admin.news')}}">
     News
   </a>
+  <a class="admin-panel-item" href="{{route('admin.tierLists')}}">
+    Tier Lists
+  </a>
 </div>
 @endsection

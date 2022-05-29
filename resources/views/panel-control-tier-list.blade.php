@@ -10,10 +10,11 @@
 
 <h1 class="page-title"> Panel de Control - TierList </h1>
 
-@foreach ($tierlist as $tier)
+@foreach ($tiers as $tier)
 <div class="user-box">
     <h1 class="user-nick-header">{{$tier->id}} - {{$tier->name}}</h1>
-
+<!--
+/*
     <form action="{{route('tier.delete')}}" method="POST">
         @csrf
         @method('DELETE')
@@ -37,6 +38,8 @@
         </div>
         <input type="submit" value="Guardar TierList">
     </form>
+*/
+-->
 </div>
 @endforeach
 

@@ -114,6 +114,7 @@ Route::group(['middleware' => 'admin'], function () {
     Route::get('/admin/news', [AdminPanelController::class, 'newsInterface'])->name('admin.news');
     Route::delete('/new', [TagController::class, 'delete'])->name('new.delete'); // Eliminar news
     Route::post('/news', [NewsController::class, 'update'])->name('new.update'); // Modificar news
+    Route::get('/admin/tierLists', [AdminPanelController::class, 'tierListsInterface'])->name('admin.tierLists');
 
     Route::get('/news/create', [NewsController::class, 'create'])->name('news.create'); // Crear noticia
     Route::put('/news', [NewsController::class, 'store'])->name('news.store'); // Crear noticia
