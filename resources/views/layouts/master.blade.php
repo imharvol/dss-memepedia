@@ -46,6 +46,10 @@
             @else
             <a class="navbar-item col-2" href="{{route('user.signin')}}">Iniciar Sesión/Crear cuenta</a>
             @endif
+
+            @if( Auth::user() && Auth::user()->is_admin )
+            <a class="navbar-item col-2" href="{{route('admin.interface')}}">Panel de administración</a>
+            @endif
         </nav>
 
         <div class="content row mb-4 p-0 m-0">
