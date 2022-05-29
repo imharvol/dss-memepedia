@@ -114,7 +114,12 @@ p{
 {
        text-align:center;
 }
-.img{max-width:100%;}
+.img
+{ max-width:100%;
+  min-width: 400px;
+  max-height:80%;
+  
+}
 
 /* --------------------- Parte de Compartir ------------------------------*/
   .contenedor
@@ -195,3 +200,56 @@ p{
   .share-button a:nth-of-type(4){
     transition-delay: 0.4s;
   }
+  /*--------------------------------- Parte de paginación _------------------------*/
+
+  .wrapper {
+    min-height: auto;
+    margin: 20px auto;
+  }
+  .wrapper ul li:nth-child(1n + 4) 
+  {
+    max-height: 0;
+    max-width: 0;
+    opacity: 0;
+    transition: 0.2s ease-in;
+  }
+  .wrapper #btnBox:checked~ul li:nth-child(1n + 4) {
+	max-height: 1000px;
+  max-width: 10000px;
+	opacity: 1;
+	transition: 0.8s ease-in;
+}
+.wrapper ul li 
+{
+  list-style-type: none;
+	
+}
+.wrapper .btn-area 
+{
+	display: block;
+  border-color: #903749;
+  color: #ffffff;
+	cursor: pointer;
+	text-align: center;
+  font-weight: bold;
+	width: 18vmin;
+	line-height: 50px;
+	margin: auto 0;
+	border-radius: 50px;
+  background: #e84545;
+
+  border-width: 1px; 
+  border-style: solid;
+  font-family: "Helvetica";
+  font-weight: bold;
+  text-align: center;
+  font-size: 2vmin;
+  margin-bottom: 1vh;
+}
+.wrapper #btnBox {
+	display: none;
+}
+.wrapper #btnBox:checked~.btn-area .btn1 
+{
+	display: none;
+}

@@ -17,7 +17,7 @@
 
         <div class="fuenteTexto">
             | 
-            <scap contenteditable="true">"Nombre de la Tier List"</scap>
+            <scap contenteditable="true">{{$tierlist->name}}</scap>
              |
         </div>
     <div id="board">
@@ -41,20 +41,22 @@
         </div>
     </div>
         
+    <?php
+        function rasmname($id){
+        $path = public_path('storage').'/tierlist/'.$id.'/';
+        $actual_link = "http://$_SERVER[HTTP_HOST]/storage/tierlist/".$id.'/';
+        $images = glob($path."*");
+        foreach($images as $index=>$image) 
+        {
+            echo '<img id="'.$index.'" class = "card" src='.$actual_link.$index.'>';
+        }
+        }
+        
+        ?>
+
             <div class="mydiv" id="mydivheader">
-                <img id="1" class = "card" src="{{URL('images/pepe.png')}}">
-                <img id="2" class = "card" src="https://upload.wikimedia.org/wikipedia/commons/e/ee/Sample_abc.jpg">
-                <img id="3" class = "card" src="https://upload.wikimedia.org/wikipedia/commons/e/ee/Sample_abc.jpg">
-                <img id="4" class = "card" src="https://upload.wikimedia.org/wikipedia/commons/e/ee/Sample_abc.jpg">
-                <img id="5" class = "card" src="https://upload.wikimedia.org/wikipedia/commons/e/ee/Sample_abc.jpg">
-                <img id="6" class = "card" src="https://upload.wikimedia.org/wikipedia/commons/e/ee/Sample_abc.jpg">
-                <img id="7" class = "card" src="https://upload.wikimedia.org/wikipedia/commons/e/ee/Sample_abc.jpg">
-                <img id="8" class = "card" src="https://upload.wikimedia.org/wikipedia/commons/e/ee/Sample_abc.jpg">
-                <img id="9" class = "card" src="https://upload.wikimedia.org/wikipedia/commons/e/ee/Sample_abc.jpg">
-                <img id="10" class = "card" src="https://upload.wikimedia.org/wikipedia/commons/e/ee/Sample_abc.jpg">
-                <img id="11" class = "card" src="https://upload.wikimedia.org/wikipedia/commons/e/ee/Sample_abc.jpg">
-                <img id="12" class = "card" src="https://upload.wikimedia.org/wikipedia/commons/e/ee/Sample_abc.jpg">
-                <img id="13" class = "card" src="https://upload.wikimedia.org/wikipedia/commons/e/ee/Sample_abc.jpg">
+                <img id="1" class = "card" src="{{asset('storage/tierlist/'.(string)$tierlist->id.'/'.(String)0)}}">
+                {{rasmname($tierlist->id);}}
             </div>
             
         
