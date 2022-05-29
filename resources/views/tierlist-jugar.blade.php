@@ -17,7 +17,7 @@
 
         <div class="fuenteTexto">
             | 
-            <scap contenteditable="true">"Nombre de la Tier List"</scap>
+            <scap contenteditable="true">{{$tierlist->name}}</scap>
              |
         </div>
     <div id="board">

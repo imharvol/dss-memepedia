@@ -114,7 +114,12 @@ p{
 {
        text-align:center;
 }
-.img{max-width:100%;}
+.img
+{ max-width:100%;
+  min-width: 400px;
+  max-height:80%;
+  
+}
 
 /* --------------------- Parte de Compartir ------------------------------*/
   .contenedor
@@ -197,6 +202,10 @@ p{
   }
   /*--------------------------------- Parte de paginación _------------------------*/
 
+  .wrapper {
+    min-height: auto;
+    margin: 20px auto;
+  }
   .wrapper ul li:nth-child(1n + 4) 
   {
     max-height: 0;
@@ -240,6 +249,7 @@ p{
 .wrapper #btnBox {
 	display: none;
 }
-.wrapper #btnBox:checked~.btn-area .btn1 {
+.wrapper #btnBox:checked~.btn-area .btn1 
+{
 	display: none;
 }

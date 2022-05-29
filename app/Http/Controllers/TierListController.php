@@ -3,9 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-use App\Models\Meme;
 use App\Models\Tag;
-use App\Models\Like;
 use App\Models\TierList;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -63,11 +61,11 @@ class TierListController extends Controller
         $tierlist->visits = 0;
         $tierlist->save();
 
-       /* // Asociamos las tags del meme
+       // Asociamos las tags del meme
         foreach ($tags as $tag) 
         {
             $tierlist->tags()->save($tag);
-        }*/
+        }
 
         // Guardamos las imagenes
         $memes = $request->file('memes');

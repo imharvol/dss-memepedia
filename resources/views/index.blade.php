@@ -30,7 +30,7 @@
                                 <scap class="fecha">{{$meme->created_at}}</scap>
                                 <div>
                                     <a id="meme$meme->id" href="{{route('meme.show', ['memeId' => $meme->id])}}">
-                                        <img style="max-width:100%" src="{{asset('storage/memes/'.(string)$meme->id)}}">
+                                        <img class="img" src="{{asset('storage/memes/'.(string)$meme->id)}}">
                                     </a>
                                 </div>
                                 <div id=heh{{$index}}>
