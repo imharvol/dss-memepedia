@@ -27,11 +27,11 @@ class MemeController extends Controller
     {
         //validación
         $request->validate([
-            'name' => 'required|regex:/^.*[A-Za-z0-9 ]$/',//alfanumerico
-            'tags' => 'required|regex:/^\w+((,\w+)+)?$/',//lista de alfanumericos separada por comas(sin espacios)
+            'name' => 'required|regex:/^.*[A-Za-z0-9 ]$/', //alfanumerico
+            'tags' => 'required|regex:/^\w+((,\w+)+)?$/', //lista de alfanumericos separada por comas(sin espacios)
             'description' => 'required|min:10',
         ]);
-        
+
         // Parseamos las tags que vienen separadas por comas en forma de strings
         $tagsRaw = explode(',', $request->tags); // Separar por comas
         $tagsMapped = array_map(function ($tagRaw) { // Eliminar los espacios de delante y detras
@@ -67,6 +67,9 @@ class MemeController extends Controller
         foreach ($tags as $tag) {
             $meme->tags()->save($tag);
         }
+
+        // Comprobamos que esta la imagen. En principio, en un uso normal de la página esta condicion nunca se cumpliría ya que el campo de la foto esta puesto como required.
+        if ($request->file('photo') == null) return view('error-page', ['error_message' => '¡Debes adjuntar una imagen con el meme!']);
 
         // Guardamos la imagen
         $path = $request->file('photo')->storeAs('public/memes', $meme->id);
