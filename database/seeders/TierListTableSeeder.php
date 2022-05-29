@@ -18,7 +18,6 @@ class TierListTableSeeder extends Seeder
     {
         $tier1 = new TierList();
         $tier1->name = 'random1';
-        $tier1->visits = 100;
 
         $tier1Author = User::find(1);
         $tier1->author()->associate($tier1Author);
@@ -32,7 +31,6 @@ class TierListTableSeeder extends Seeder
 
         $tier2 = new TierList();
         $tier2->name = 'peepo';
-        $tier2->visits = 1500;
 
         $tier2Author = User::find(2);
         $tier2->author()->associate($tier2Author);
