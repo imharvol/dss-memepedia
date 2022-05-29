@@ -7,6 +7,7 @@ use App\Models\Meme;
 use App\Models\Evaluation;
 use App\Models\Tag;
 use App\Models\News;
+use App\Models\TierList;
 use Illuminate\Http\Request;
 
 class AdminPanelController extends Controller
@@ -39,5 +40,11 @@ class AdminPanelController extends Controller
     {
         $news = News::all();
         return view('panel-control-news', ['news' => $news]);
+    }
+
+    public function tierListsInterface()
+    {
+        $tiers = TierList::all();
+        return view('panel-control-tier-list', ['tiers' => $tiers]);
     }
 }

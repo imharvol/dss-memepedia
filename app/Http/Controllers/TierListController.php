@@ -28,7 +28,6 @@ class TierListController extends Controller
         $request->validate([
             'name' => 'required|regex:/^.*[A-Za-z0-9 ]$/',//alfanumerico
             'tags' => 'required|regex:/^\w+((,\w+)+)?$/',//lista de alfanumericos separada por comas(sin espacios)
-            'memes' => 'required|min:1',
         ]);
         
         // Parseamos las tags que vienen separadas por comas en forma de strings
@@ -58,7 +57,6 @@ class TierListController extends Controller
 
         // Asociamos el usuario creador
         $tierlist->author()->associate($tierAuthor);
-        $tierlist->visits = 0;
         $tierlist->save();
 
        // Asociamos las tags del meme

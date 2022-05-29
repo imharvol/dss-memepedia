@@ -12,7 +12,6 @@ class CreateTierListsTable extends Migration
             $table->id();
 
             $table->string('name');
-            $table->integer('visits')->default(0);
 
             $table->unsignedBigInteger('author_id');
             $table->foreign('author_id')->references('id')->on('users')
