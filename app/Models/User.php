@@ -5,6 +5,8 @@ namespace App\Models;
 use App\Models\Meme;
 use App\Models\Like;
 use App\Models\Evaluation;
+use App\Models\News;
+use App\Models\TierList;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
@@ -34,5 +36,17 @@ class User extends Authenticatable
     public function likes()
     {
         return $this->hasMany(Like::class, 'author_id');
+    }
+
+    // https://laravel.com/docs/8.x/eloquent-relationships#one-to-many
+    public function news()
+    {
+        return $this->hasMany(News::class, 'author_id');
+    }
+
+    // https://laravel.com/docs/8.x/eloquent-relationships#one-to-many
+    public function tierlists()
+    {
+        return $this->hasMany(TierList::class, 'author_id');
     }
 }

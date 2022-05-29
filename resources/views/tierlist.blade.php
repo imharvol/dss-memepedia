@@ -14,7 +14,7 @@
     <div class="lineaHorizontal1"> </div>
 
     <div class="botonesBuscarCrear">
-        <a href="{{route('tierlist-buscar')}}">
+        <a href="{{route('tierlist.index')}}">
             <button >
                 <i class='bx bx-search-alt-2'></i>
                 <h2>Buscar</h2>

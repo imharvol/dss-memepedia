@@ -21,28 +21,16 @@
 </div>
 </div>
     <section class="layout">
+    @foreach($tierlists as $index=>$tierlist)
+
         <div align=center>
-            <input type="image" id=elemento1 src="https://upload.wikimedia.org/wikipedia/commons/e/ee/Sample_abc.jpg" class="Imagenes">  
+            <a href="{{route('tierlist.jugar', ['tierlistId' => $tierlist->id])}}">
+                <input type="image" src="{{asset('storage/tierlist/'.(string)$tierlist->id.'/'.(String)0)}}" class="Imagenes">  
+                
+                <span>{{$tierlist->name}}</span>
+            </a>
         </div>
-        <div align=center>
-            <input type="image" id=elemento1 src="https://upload.wikimedia.org/wikipedia/commons/e/ee/Sample_abc.jpg" class="Imagenes">  
-        </div>
-        <div align=center>
-            <input type="image" id=elemento1 src="https://upload.wikimedia.org/wikipedia/commons/e/ee/Sample_abc.jpg" class="Imagenes">  
-        </div>
-        <div align=center>
-            <input type="image" id=elemento1 src="https://upload.wikimedia.org/wikipedia/commons/e/ee/Sample_abc.jpg" class="Imagenes">  
-        </div>
-        <div align=center>
-            <input type="image" id=elemento1 src="https://upload.wikimedia.org/wikipedia/commons/e/ee/Sample_abc.jpg" class="Imagenes">  
-        </div>
-        <div align=center>
-            <input type="image" id=elemento1 src="https://upload.wikimedia.org/wikipedia/commons/e/ee/Sample_abc.jpg" class="Imagenes">  
-        </div>
-        <div align=center>
-            <input type="image" id=elemento1 src="https://upload.wikimedia.org/wikipedia/commons/e/ee/Sample_abc.jpg" class="Imagenes">  
-        </div>
-        
+    @endforeach
     </section>
 
 @endsection
