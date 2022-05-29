@@ -88,9 +88,6 @@ Route::delete('/u', [UserController::class, 'delete'])->name('user.delete');
 Route::post('/u', [UserController::class, 'update'])->name('user.update');
 Route::get('/u/{username}', [UserController::class, 'show'])->name('user.show');
 
-Route::get('/news', [NewsController::class, 'index'])->name('news.list'); // Lista de noticias
-Route::get('/news/{newsId}', [NewsController::class, 'show'])->name('news.show'); // Ver noticia
-
 Route::get('/m', [MemeController::class, 'index'])->name('meme.list'); // Lista de memes
 Route::get('/m/create', [MemeController::class, 'create'])->name('meme.create'); // View de creacion de memes
 Route::put('/m', [MemeController::class, 'store'])->name('meme.store'); // Recepcion de formulario de creacion de memes
@@ -99,7 +96,6 @@ Route::post('/m', [MemeController::class, 'update'])->name('meme.update'); // Mo
 Route::get('/m/{memeId}', [MemeController::class, 'show'])->name('meme.show'); // Ver meme
 Route::post('/m/like', [MemeController::class, 'like'])->name('meme.like'); // Like memes
 Route::post('/m/dislike', [MemeController::class, 'dislike'])->name('meme.dislike'); // Dislike memes
-
 
 Route::put('/e', [EvaluationController::class, 'store'])->name('evaluation.store'); // Recepcion de formulario de creacion de evaluations
 Route::delete('/e', [EvaluationController::class, 'delete'])->name('evaluation.delete'); // Recepcion de formulario de eliminacion de evaluations
@@ -115,8 +111,13 @@ Route::group(['middleware' => 'admin'], function () {
     Route::get('/admin/evaluations', [AdminPanelController::class, 'evaluationsInterface'])->name('admin.evaluations');
     Route::get('/admin/tags', [AdminPanelController::class, 'tagsInterface'])->name('admin.tags');
     Route::delete('/tag', [TagController::class, 'delete'])->name('tag.delete'); // Eliminar tags
+
+    Route::get('/news/create', [NewsController::class, 'create'])->name('news.create'); // Crear noticia
+    Route::put('/news', [NewsController::class, 'store'])->name('news.store'); // Crear noticia
 });
 
+Route::get('/news', [NewsController::class, 'index'])->name('news.list'); // Lista de noticias
+Route::get('/news/{newsId}', [NewsController::class, 'show'])->name('news.show'); // Ver noticia
 
 // Solo si estás logeado puedes entrar
 Route::group(['middleware' => 'login'], function () {

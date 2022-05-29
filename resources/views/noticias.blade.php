@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title', 'Iniciar Sesión')
+@section('title', 'Noticias')
 
 @section('head')
 <link rel="stylesheet" href="{{URL('css/noticias.css')}}">

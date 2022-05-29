@@ -1,0 +1,119 @@
+.rectanguloCrearMeme
+{
+    top:2vh;
+    position: relative;
+    /*width: 43.45%;*/
+    /*height: auto;*/
+    
+    background: #903749;
+    margin: auto;
+    /*height: 65vh;*/
+
+}
+.textoCrearMeme
+{
+    color: #ffffff;
+    font-family: "Source Sans Pro";
+    font-weight: bold;
+    text-align: center;
+    font-size: 4vmin;
+    margin-top: 2vh;
+}
+.textoRegistro2
+{
+    color: #ffffff;
+    font-family: "Source Sans Pro";
+    font-weight: bold;
+    text-align: center;
+    font-size: 2vmin;
+    margin-top: 1vh;
+}
+.lineaHorizontal1
+{
+    width: 17vw;
+    margin:auto;
+    border-color: #2b2e4a;
+    border-width: 0.5px;
+    border-style: solid;
+    margin-top: 3vh;
+    align-self: center;
+
+}
+.textbox
+       {
+            width: 100%;
+            height: 1.5vh;
+            padding: 4px 0px 4px 1px;
+            opacity: 85%;
+            background: #ffffff;
+            color: #aaaaaa;
+            border-color: #000000;
+            border-width: 1px;
+            border-style: solid;
+            font-family: "Source Sans Pro";
+            font-weight: 400;
+            font-size: 2vmin;
+            text-align: left;
+            margin-top: 2vh;
+        }
+.form
+{
+    width: 85%;
+    margin-left: 2vw;
+    float: left;
+    display: block;
+}
+label
+{
+    color: white;
+    margin-top: 3vh;
+    width:100%;
+    text-align:left;
+}
+.textoCondiciones
+{
+    color: #ffffff;
+    font-family: "Source Sans Pro";
+    font-weight: normal;
+    text-align: center;
+    font-size: 1.5vmin;
+    position: absolute;
+    max-width: 35vw;
+    max-height: 5vh;
+    margin-top: 1vh;
+
+}
+.espacio
+{
+    margin-top: 1vh;
+    height: auto;
+    display: block;
+}
+.botonRegistro
+{	
+       margin-top: 1.5vh;
+       align-self: center;
+}
+.boton
+{
+    background: #e84545;
+    color: #ffffff;
+    border-color: #903749;
+    border-width: 1px; 
+    border-style: solid;
+    font-family: "Helvetica";
+    font-weight: bold;
+    text-align: center;
+    width: 35%;
+    height: 6vh;
+    flex: 1;
+    font-weight: bold;
+    font-size: 1.5vmin;
+    max-height: 50px;
+}
+.textos
+{
+    color: white;
+    font-size: 1.5vmin;
+
+}
